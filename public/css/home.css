@@ -1,6 +1,11 @@
+#register{
+    margin-top: 70px;
+}
+
 .tud-header {
     padding: 15px 0px 10px 0px;
     margin-bottom: 0px;
+    background-color: white;
 }
 
 .tud-nav {
@@ -14,4 +19,102 @@
 #register{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/registerbg.png") no-repeat center center;
     height: 750px;
+}
+
+.register-container{
+    float: right;
+    text-align: left;
+}
+
+.register-label{
+    padding-top: 30px;
+    color: floralwhite;
+}
+
+.register-label > h1{
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.register-label > p{
+    font-size: 25px;
+}
+
+.form-control::-webkit-input-placeholder { color: #575757; }
+.form-control:-moz-placeholder { color: #575757; }
+.form-control::-moz-placeholder { color: #575757; }
+.form-control:-ms-input-placeholder { color: #575757; }
+
+#register-form input{
+    opacity: 0.9;
+    font-size: 16px;
+    height: 50px;
+    border-radius: 4px !important;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
+    border: none !important;
+    margin: 0 0 5px !important;
+    background: #fff;
+    transition: opacity 300ms 0s ease;
+}
+
+.fname-container{
+    padding-right: 0px;
+}
+
+#register-btn{
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+#benefits, #how-to{
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+
+.benefits-txt p{
+    line-height: 2;
+    font-size: 19px;
+}
+
+.benefits-img{
+    padding-top: 30px;
+}
+
+.benefits-img img{
+    border-radius: 4px;
+}
+
+#how-to{
+    background-color: #edeff0;
+}
+
+#ht-label{
+    margin-bottom: 50px;
+}
+
+#ht-label h1{
+    font-weight: 500;
+}
+
+#ht-label p{
+    font-size: 19px;
+}
+
+.well{
+    background: white;
+    min-height: 325px;
+}
+
+.well h3{
+    font-weight: 600;
+    color: #134c8a;
+    margin-bottom: 30px;
+}
+
+.well p{
+    font-size: 18px;
+    line-height: 2;
 }

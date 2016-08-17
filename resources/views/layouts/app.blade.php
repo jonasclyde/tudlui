@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>tudlui</title>
+    <title>Start Learning | Tudlui</title>
 
 
     <link rel="shortcut icon" type="image/x-icon" href="/tudlui.ico" />
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,7 +21,7 @@
 
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'Raleway';
         }
 
         .fa-btn {
@@ -30,7 +30,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top tud-header">
+    <nav class="navbar navbar-default tud-header navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -54,8 +54,8 @@
                 <ul class="nav navbar-nav navbar-right tud-nav">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="">Features</a></li>
                         <li><a href="">Benefits</a></li>
+                        <li><a href="">How To</a></li>
                         <li><a href="">Partnership</a></li>
                         <li><a href="">Contact Us</a></li>
                         {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}

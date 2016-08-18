@@ -120,4 +120,14 @@
         </div>
     </div>
 </section>
+<section id="partnership">
+    <div class="container clearfix">
+        <div class="col-md-12 text-center" id="ht-label">
+            <h1>Be a partner</h1>
+            <br>
+            <p>Tudlui is still expanding its opportunities and in search of partners to create more e-Learning modules.<br>
+            To be a partner, you can contact us using through these details.</p>
+        </div>
+    </div>
+</section>
 @endsection

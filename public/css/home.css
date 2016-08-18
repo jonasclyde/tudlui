@@ -69,9 +69,14 @@
     letter-spacing: 1.5px;
 }
 
-#benefits, #how-to{
-    padding-top: 100px;
-    margin-bottom: 100px;
+#benefits, #how-to, #partnership{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.benefits-txt p{
+    line-height: 2;
+    font-size: 19px;
 }
 
 .benefits-txt p{
@@ -96,7 +101,7 @@
 }
 
 #ht-label h1{
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #ht-label p{

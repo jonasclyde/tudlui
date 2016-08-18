@@ -19,6 +19,10 @@
     <link rel="stylesheet" type="text/css" href="/css/home.css"/>
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+    <!-- Scripts -->
+    <script src="/js/jquery-3.1.0.min.js"></script>
+    <script src="/js/home.js"></script>
+
     <style>
         body {
             font-family: 'Raleway';
@@ -51,13 +55,12 @@
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right tud-nav">
+                <ul class="nav navbar-nav navbar-right tud-nav" id="nav">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="">Benefits</a></li>
-                        <li><a href="">How To</a></li>
-                        <li><a href="">Partnership</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#how-to">How To</a></li>
+                        <li><a href="#partnership">Partnership</a></li>
                         {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                         <li id="tud-login"><a href="{{ url('/login') }}">Login</a></li>
                     @else

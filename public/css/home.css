@@ -97,7 +97,7 @@
 }
 
 #ht-label{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 #ht-label h1{
@@ -122,4 +122,38 @@
 .well p{
     font-size: 18px;
     line-height: 2;
+}
+
+#partnership p{
+    font-size: 19px;
+}
+
+.p-label{
+    margin-bottom: 50px;
+}
+
+.contact-icon{
+    margin-right: 10px;
+}
+
+.contact-details{
+    font-weight: 600;
+}
+
+.container-details{
+    margin-bottom: 60px;
+}
+
+.social-icons a{
+    padding: 0px 5px;
+}
+
+footer{
+    background: #134c8a;
+    padding: 30px 0px;
+}
+
+footer h5{
+    margin-bottom: 0px;
+    color: white;
 }

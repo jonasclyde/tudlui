@@ -122,11 +122,47 @@
 </section>
 <section id="partnership">
     <div class="container clearfix">
-        <div class="col-md-12 text-center" id="ht-label">
+        <div class="col-md-12 text-center p-label">
             <h1>Be a partner</h1>
             <br>
             <p>Tudlui is still expanding its opportunities and in search of partners to create more e-Learning modules.<br>
             To be a partner, you can contact us using through these details.</p>
+        </div>
+        <div class="col-md-offset-3 col-md-6 container-details">
+            <div class="clearfix">
+                <h3 class="pull-left wow slideInLeft animated animated" style="visibility: visible;">
+                    <span class="glyphicon glyphicon-phone-alt contact-icon"></span> Give us a call
+                </h3>
+                <h3 id="contact-number" class="pull-right wow slideInRight animated animated" style="visibility: visible;">
+                    <a style="text-decoration: none" href="tel:0325052251">
+                        <span class="orange contact-details">
+                            (+6332) 505-2251
+                        </span>
+                    </a>
+                </h3>
+            </div>
+            <div class="clearfix">
+                <h3 class="pull-left wow slideInLeft animated animated" style="visibility: visible;">
+                    <span class="glyphicon glyphicon-envelope contact-icon"></span> Email Us
+                </h3>
+                <h3 class="pull-right wow slideInRight animated animated" style="visibility: visible;">
+                    <a style="text-decoration: none" href="">
+                        <span class="orange contact-details">
+                            contact@tudlui.com
+                        </span>
+                    </a>
+                </h3>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                Check us out on social media
+            </p>
+            <span class="social-icons">
+                <a target="_blank" href=""><img src="/images/icon-fb.png" alt="fb icon"></a>
+                <a target="_blank" href=""><img src="/images/icon-twitter.png" alt="twitter icon"></a>
+                <a target="_blank" href="" class="ml40"><img src="/images/icon-google.png" alt="gplus icon"></a>
+            </span>
         </div>
     </div>
 </section>

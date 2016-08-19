@@ -59,11 +59,17 @@
                 <ul class="nav navbar-nav navbar-right tud-nav" id="nav">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#how-to">How To</a></li>
-                        <li><a href="#partnership">Partnership</a></li>
-                        {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
-                        <li id="tud-login"><a href="{{ url('/login') }}">Login</a></li>
+                        @if (Request::path() != 'login')
+                            <li><a href="#benefits">Benefits</a></li>
+                            <li><a href="#how-to">How To</a></li>
+                            <li><a href="#partnership">Partnership</a></li>
+                            <li id="tud-login"><a href="{{ url('/login') }}">Login</a></li>
+                        @else
+                            <li><a href="{{ url('/') }}#benefits">Benefits</a></li>
+                            <li><a href="{{ url('/') }}#how-to">How To</a></li>
+                            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+                            <li><a href="{{ url('/') }}#register">Register</a></li>
+                        @endif
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -81,9 +87,7 @@
     </nav>
 
     @yield('content')
-    <footer>
-        <h5 class="text-center">© 2016: JCLYRA Corporation</h5>
-    </footer>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

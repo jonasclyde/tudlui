@@ -166,4 +166,7 @@
         </div>
     </div>
 </section>
+<footer>
+    <h5 class="text-center">© 2016: JCLYRA Corporation</h5>
+</footer>
 @endsection

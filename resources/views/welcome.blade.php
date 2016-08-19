@@ -14,20 +14,20 @@
             </div>
             <form id="register-form" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                 {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <div class="col-md-6 fname-container">
-                        <input id="first-name" type="text" class="form-control" name="first-name" value="{{ old('name') }}" placeholder="First Name">
-                        @if ($errors->has('name'))
+                <div class="form-group">
+                    <div class="col-md-6 {{ $errors->has('first_name') ? ' has-error' : '' }} fname-container">
+                        <input id="first-name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
+                        @if ($errors->has('first_name'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('name') }}</strong>
+                                <strong>{{ $errors->first('first_name') }}</strong>
                             </span>
                         @endif
                     </div>
-                    <div class="col-md-6">
-                        <input id="last-name" type="text" class="form-control" name="last-name" value="{{ old('name') }}" placeholder="Last Name">
-                        @if ($errors->has('name'))
+                    <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }} lname-container">
+                        <input id="last-name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
+                        @if ($errors->has('last_name'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('name') }}</strong>
+                                <strong>{{ $errors->first('last_name') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -167,6 +167,6 @@
     </div>
 </section>
 <footer>
-    <h5 class="text-center">© 2016: JCLYRA Corporation</h5>
+    <h5 class="text-center">ï¿½ 2016: JCLYRA Corporation</h5>
 </footer>
 @endsection

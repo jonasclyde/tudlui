@@ -1,0 +1,45 @@
+#dashboard{
+    margin-top: 70px;
+    padding-top: 60px;
+}
+
+#search{
+    height: 40px;
+}
+
+#search-label > h1{
+    font-weight: 600;
+}
+
+#search-label > p{
+    font-size: 16px;
+}
+
+#search-btn {
+    width: 100%;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1.5px;
+}
+
+#search::-webkit-input-placeholder { color: darkgray; font-size: 18px; font-weight: bold;}
+#search:-moz-placeholder { color: darkgray; font-size: 18px; font-weight: bold;}
+#search::-moz-placeholder  { color: darkgray; font-size: 18px; font-weight: bold;}
+#search:-ms-input-placeholder { color: darkgray; font-size: 18px; font-weight: bold;}
+
+#subjects-container{
+    margin-top: 60px;
+}
+
+#subjects-container p{
+    font-size: 16px;
+}
+
+#subjects-container h2{
+    color: #000000;
+}
+
+#subjects-container a{
+    text-decoration: none;
+}
+

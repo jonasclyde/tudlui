@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
+
 Route::auth();
 
+
+
 Route::get('/home', 'HomeController@index');
+
+
+
+Route::resource('course', 'CourseController');

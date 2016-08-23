@@ -43,3 +43,14 @@
     text-decoration: none;
 }
 
+#course{
+    margin-top: 70px;
+    padding-top: 30px;
+}
+
+#course-material {
+    background-color: #000000;
+    width: 100%;
+    min-height: 650px;
+}
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
     <title>Start Learning | Tudlui</title>
 
@@ -23,6 +23,8 @@
 
     <!-- Scripts -->
     <script src="/js/jquery-3.1.0.min.js"></script>
+    <scipt src="/js/phaser/phaser.min.js"></scipt>
+    <scipt src="/js/phaser/1.js"></scipt>
     <script src="/js/home.js"></script>
 
     <style>
@@ -49,7 +51,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a href="{{ url('/') }}">
+                <a href="@if(Request::path() == '/' || Request::path() == 'login'  ){{ url('/') }} @else {{url('/dashboard')}}  @endif">
                     <div>
                         <img src="/images/tudlui.png" height="50px" width="150px">
                     </div>

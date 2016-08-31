@@ -23,8 +23,7 @@
 
     <!-- Scripts -->
     <script src="/js/jquery-3.1.0.min.js"></script>
-    <scipt src="/js/phaser/phaser.min.js"></scipt>
-    <scipt src="/js/phaser/1.js"></scipt>
+    <script src="/js/phaser/phaser.min.js"></script>
     <script src="/js/home.js"></script>
 
     <style>

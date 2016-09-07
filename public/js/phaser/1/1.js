@@ -18,6 +18,7 @@ function preload() {
 var music;
 var point;
 var sound;
+var title;
 var line1, line2, line3;
 
 function create() {
@@ -76,5 +77,4 @@ function toggleSound(){
         music.mute = false;
         sound.loadTexture('sounds')
     }
-
 }

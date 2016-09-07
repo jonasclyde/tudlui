@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::guest()){
+        return view('welcome');
+    }else{
+        return view('dashboard');
+    }
+
 });
 
 Route::get('/dashboard', function () {

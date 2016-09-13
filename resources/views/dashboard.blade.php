@@ -17,7 +17,7 @@
         <div class="container" id="subjects-container">
             <div class="col-md-4 text-center">
                 <a href="{{url('/course/1')}}">
-                    <h2 class="mb20">Big O for Dummies</h2>
+                    <h2 class="mb20">Complexity of an Algorithm: Big O Notation</h2>
                     <img class="mb20" src="/images/dashboard/bigo.png">
                 </a>
                 <p>Learn know how to calculate the running time of

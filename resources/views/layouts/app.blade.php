@@ -12,6 +12,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Candal" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
 
     <!-- Styles -->
@@ -25,7 +26,6 @@
     <script src="/js/jquery-3.1.0.min.js"></script>
     <script src="/js/phaser/phaser.min.js"></script>
     <script src="/js/home.js"></script>
-    <script src="/js/phaser/1/1.js"></script>
 
     <style>
         body {

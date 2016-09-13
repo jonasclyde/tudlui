@@ -10,8 +10,8 @@ function preload() {
     this.load.image('background', '../images/phaser/background.jpg');
     this.load.image('line', '../images/phaser/line.png');
     this.load.image('sounds', '../images/phaser/sounds.png');
-    this.load.spritesheet('start', '../images/phaser/button_sprite_sheet.png', 193, 71);
-    this.load.spritesheet('about', '../images/phaser/button_sprite_sheet2.png', 193, 71);
+    this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 193, 71);
+    this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 193, 71);
     this.load.image('mute', '../images/phaser/mute.png');
     this.load.audio('snow', '../music/snow.mp3')
 
@@ -48,6 +48,9 @@ function create() {
     //music.loop = true;
     //music.play();
 
+    title.fontWeight = 'bold';
+    O.fontWeight = 'bold';
+
     sound.inputEnabled = true;
     sound.events.onInputDown.add(toggleSound, this);
 
@@ -55,8 +58,8 @@ function create() {
     line2 = game.add.sprite(20, 100, 'line');
     line3 = game.add.sprite(100, 100, 'line');
 
-    btn1 = game.add.button(500, 250, 'start', startGame, this, 2, 1, 0);
-    btn2 = game.add.button(500, 400, 'about', startGame, this, 2, 1, 0);
+    btn1 = game.add.button(490, 275, 'start', startGame, this, 1, 0, 2);
+    btn2 = game.add.button(490, 400, 'about', startGame, this, 1, 0, 2);
     //btn1 = game.add.button(500, 250, 'button', startGame ,this, 0, 'button3');
 
 

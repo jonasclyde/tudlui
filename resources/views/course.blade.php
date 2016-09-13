@@ -10,4 +10,5 @@
              </div>
         </div>
     </section>
+    <script src="/js/phaser/1/1.js"></script>
 @endsection

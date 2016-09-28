@@ -11,7 +11,7 @@ function preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
     this.load.image('background', '../images/phaser/background.jpg');
-    this.load.image('line', '../images/phaser/line.png');
+    //this.load.image('line', '../images/phaser/line.png');
     this.load.image('sounds', '../images/phaser/sounds.png');
     this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 193, 71);
     this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 193, 71);
@@ -27,17 +27,21 @@ var sound;
 var title, O;
 var loop;
 var circle = [];
-var line1, line2, line3;
+//var line1, line2, line3;
 var btn1, btn2, btn3;
 var about_us_header;
 var about_us_constant;
 
 var ball_counter = 0;
 
+var for_loop, hello_world, count, count, print;
+
 function create() {
 
     game.background = this.game.add.sprite(0,0, 'background');
 
+    hello_world = game.add.text(80, 100, "text = 'Hello World';", { font: "18px Raleway", fill: "#000000", align: "center" });
+    for_loop = game.add.text(100, 100, "for ( x=0; x<", { font: "18px Raleway", fill: "#000000", align: "center" });
 
     for(var i=0; i<8;i++){
         circle[i] = new Phaser.Circle(1150, 150, 6);
@@ -46,16 +50,18 @@ function create() {
     music = game.add.audio('snow');
     sound = game.add.sprite(1030, 30, 'sounds');
     title = game.add.text(280, 100, "Learning Big-    Notation", { font: "55px Raleway", fill: "#000000", align: "center" });
-    about_us_header= game.add.text(330,100, "What is this?", { font: "40px Raleway", fill: "#000000", align: "center" })
+    about_us_header= game.add.text(330,100, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#000000", align: "center" })
     about_us_constant= game.add.text(330,180, "         This e-Learning material was created to help students better understand \n" +
         "the complexity of an algorithm using the 'Big-O notation'. The main objective \n" +
         "of the module is to provide a simple and effective material with the help of\n" +
-        " animations. What's best about this is that students can now learn anywhere \n" +
-        "they want to and at their own pace."+
+        "text and graphic animations. What's best about this is that students can now \n" +
+        "learn anywhere " +
+    "they want to and at their own pace."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
         "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#000000", align: 'left'})
     O = game.add.text(620, 100, "O", { font: "55px Raleway", fill: "#000000", align: "center" });
+
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -72,9 +78,9 @@ function create() {
     sound.inputEnabled = true;
     sound.events.onInputDown.add(toggleSound, this);
 
-    line1 = game.add.sprite(80, 100, 'line');
-    line2 = game.add.sprite(20, 100, 'line');
-    line3 = game.add.sprite(140, 100, 'line');
+    //line1 = game.add.sprite(80, 100, 'line');
+    //line2 = game.add.sprite(20, 100, 'line');
+    //line3 = game.add.sprite(140, 100, 'line');
 
     btn1 = game.add.button(490, 275, 'start', startGame, this, 1, 0, 2);
     btn2 = game.add.button(490, 400, 'about', showAbout, this, 1, 0, 2);
@@ -94,24 +100,24 @@ function create() {
 
 function update() {
 
-    line1.y += 10;
-    line2.y += 5;
-    line3.y += 2;
-
-    if (line1.y > game.world.height )
-    {
-        line1.y =  -line1.height;
-    }
-
-    if (line2.y > game.world.height )
-    {
-        line2.y =  -line2.height;
-    }
-
-    if (line3.y > game.world.height )
-    {
-        line3.y =  -line3.height;
-    }
+    //line1.y += 10;
+    //line2.y += 5;
+    //line3.y += 2;
+    //
+    //if (line1.y > game.world.height )
+    //{
+    //    line1.y =  -line1.height;
+    //}
+    //
+    //if (line2.y > game.world.height )
+    //{
+    //    line2.y =  -line2.height;
+    //}
+    //
+    //if (line3.y > game.world.height )
+    //{
+    //    line3.y =  -line3.height;
+    //}
 }
 
 function render() {

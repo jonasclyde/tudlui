@@ -9,7 +9,7 @@ var sound;
 var btnb, btnn;
 var gs_title;
 var content = [
-    "In this tutorial, you will learn how to measure the speed of your algorithm",
+    "In this learning session, you will learn how to measure the speed of your algorithm",
     " and check its efficiency using the Big-O notation. Through out the tutorial,",
     "you can navigate through the different sections and learn on your own pace.",
     " ",
@@ -52,7 +52,7 @@ startState.prototype = {
         arr1.alpha = 0;
         arr3.alpha = 0;
 
-        gs_title= game.add.text(250,30, "I. Getting Started?", { font: "30px Raleway", fill: "#000000"})
+        gs_title= game.add.text(250,30, "I. Getting Started.", { font: "30px Raleway", fill: "#000000"})
         text = game.add.text(250, 100, '', { font: "18px Raleway", fill: "#000000", align: 'left' });
         text.lineSpacing = 13;
 

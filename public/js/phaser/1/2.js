@@ -2,7 +2,7 @@
  * Created by Jonas on 9/14/2016.
  */
 
-var startState = function(game){
+var startIntroduction = function(game){
 };
 
 var sound;
@@ -30,11 +30,9 @@ var lineDelay = 300;
 var text;
 var arr1, arr3;
 
-startState.prototype = {
+startIntroduction.prototype = {
     preload: function(){
 
-        game.load.spritesheet('back','../images/phaser/button_back_sprite.png', 193, 71 )
-        game.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 )
         game.load.image('arrow1','../images/phaser/arrow1.png');
         game.load.image('arrow3','../images/phaser/arrow1.png');
     },

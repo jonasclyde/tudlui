@@ -26,6 +26,7 @@
     <script src="/js/jquery-3.1.0.min.js"></script>
     <script src="/js/phaser/phaser.min.js"></script>
     <script src="/js/home.js"></script>
+    <script src="/phaser-input-master/build/phaser-input.js"></script>
 
     <style>
         body {

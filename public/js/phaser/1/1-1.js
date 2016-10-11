@@ -8,7 +8,7 @@ var startState = function(game){
 
 var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter;
 var girl_1_pic, girl_2_pic , girl_3_pic, boy_1_pic, boy_2_pic, boy_3_pic;
-var selected, choose, input_name, name;
+var selected, choose, input_name, name, url;
 
 startState.prototype = {
     preload: function(){
@@ -88,36 +88,42 @@ startState.prototype = {
         enter = game.add.button(800, 320, 'enter', enterGame, this, 1, 0, 1, 1);
 
         girl_1.variable = 0;
+        girl_1.url = '../images/phaser/girl_1_sheet.jpg';
         girl_1.inputEnabled = true;
         girl_1.events.onInputDown.add(selectAvatar, this);
 
 
         girl_2.variable =  1;
+        girl_2.url = '../images/phaser/girl_2_sheet.jpg';
         girl_2.inputEnabled = true;
         girl_2.events.onInputDown.add(selectAvatar, this);
 
 
         girl_3.variable =  2;
+        girl_3.url = '../images/phaser/girl_3_sheet.jpg';
         girl_3.inputEnabled = true;
         girl_3.events.onInputDown.add(selectAvatar, this);
 
 
         boy_1.variable =  3;
+        boy_1.url = '../images/phaser/boy_1_sheet.jpg';
         boy_1.inputEnabled = true;
         boy_1.events.onInputDown.add(selectAvatar, this);
 
 
         boy_2.variable =  4 ;
+        boy_2.url = '../images/phaser/boy_2_sheet.jpg';
         boy_2.inputEnabled = true;
         boy_2.events.onInputDown.add(selectAvatar, this);
 
 
         boy_3.variable =  5 ;
+        boy_3.url = '../images/phaser/boy_3_sheet.jpg';
         boy_3.inputEnabled = true;
         boy_3.events.onInputDown.add(selectAvatar, this);
 
         choose = game.add.text(750, 30, 'Select your character and\n'+
-            'enter your name.', { font: "25px Raleway", fill: "#000000", align: "center" });
+            'enter your name.',  { font: "24px Raleway", fill: "#000000", align: "center" });
 
     },
     update: function(){
@@ -131,7 +137,7 @@ startState.prototype = {
 
 function selectAvatar(char){
     selected = char.variable;
-
+    url = char.url;
     switch(selected) {
         case 0:
             girl_1_pic.alpha = 1;
@@ -220,7 +226,10 @@ function selectAvatar(char){
 }
 
 function enterGame(){
-        name = input_name.value;
+    name = input_name.value;
+    if(name) {
+        game.state.start('intro_state', true, false,url,name);
+    }
 
 }
 

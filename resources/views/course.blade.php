@@ -10,6 +10,8 @@
              </div>
         </div>
     </section>
+    <script src="/js/phaser/1/5.js"></script>
+    <script src="/js/phaser/1/4.js"></script>
     <script src="/js/phaser/1/3.js"></script>
     <script src="/js/phaser/1/2.js"></script>
     <script src="/js/phaser/1/1-1.js"></script>

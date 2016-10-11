@@ -4,6 +4,20 @@
 var game = new Phaser.Game(1110, 600, Phaser.AUTO, 'course-material', { preload: preload, create: create, update: update, render: render });
 
 game.state.add('start_state', startState);
+game.state.add('intro_state', introState);
+game.state.add('part_1', partOne);
+game.state.add('part_2', partTwo);
+game.state.add('part_3', partThree);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+//game.state.add('intro_state', introState);
+
 //game.state.add('quiz', quizState);
 
 function preload() {
@@ -18,7 +32,6 @@ function preload() {
     this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 193, 71);
     this.load.image('mute', '../images/phaser/mute.png');
     this.load.audio('snow', '../music/snow.mp3');
-    this.load.spritesheet('back','../images/phaser/button_back_sprite.png', 193, 71 );
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
 
 }
@@ -72,13 +85,13 @@ function create() {
         "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#000000", align: 'left'})
     O = game.add.text(620, 100, "O", { font: "55px Raleway", fill: "#ff0000", align: "center" });
 
-
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
 
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
+    //music = game.add.audio('snow');
     //music.loop = true;
     //music.play();
 

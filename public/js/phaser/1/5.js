@@ -1,12 +1,11 @@
 /**
- * Created by Jonas on 9/14/2016.
+ * Created by JONAS on 10/11/2016.
  */
 
-var partOne = function(game){
+var partThree = function(game){
 };
 
-
-partOne.prototype = {
+partThree.prototype = {
     preload: function(){
     },
     create: function(){

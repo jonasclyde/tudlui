@@ -2,7 +2,8 @@
  * Created by Jonas on 9/14/2016.
  */
 
-var startIntroduction = function(game){
+
+var introState = function(game){
 };
 
 var sound;
@@ -10,7 +11,7 @@ var btnb, btnn;
 var gs_title;
 var content = [
     "In this learning session, you will learn how to measure the speed of your algorithm",
-    " and check its efficiency using the Big-O notation. Through out the tutorial,",
+    "and check its efficiency using the Big-O notation. Through out the tutorial,",
     "you can navigate through the different sections and learn on your own pace.",
     " ",
     "There will be a completion bar found on the left side of the page to track",
@@ -23,32 +24,55 @@ var line = [];
 
 var wordIndex = 0;
 var lineIndex = 0;
+var on = 0;
 
 var wordDelay = 180;
 var lineDelay = 300;
 
 var text;
-var arr1, arr3;
+var recording;
+var avatar, nick, loading, bar1, bar2, bar3, test;
 
-startIntroduction.prototype = {
+introState.prototype = {
+
+    init: function(url, name) {
+
+    },
+
     preload: function(){
 
         game.load.image('arrow1','../images/phaser/arrow1.png');
-        game.load.image('arrow3','../images/phaser/arrow1.png');
+        game.load.image('bar','../images/phaser/loading-progress.png');
+        game.load.spritesheet('next','../images/phaser/next-image.jpg', 49, 50);
+        game.load.spritesheet('back','../images/phaser/back-image.jpg', 49, 50);
+        game.load.spritesheet('loading','../images/phaser/loading-bar.jpg' )
+        game.load.spritesheet('avatar',url, 150, 150);
+        game.load.audio('intro', '../music/intro.mp3');
     },
     create: function(){
         game.background = this.game.add.sprite(0,0, 'background');
-        sound = game.add.sprite(1030, 30, 'sounds');
+        //sound = game.add.sprite(1030, 30, 'sounds');
+        recording = game.add.audio('intro');
+        recording.play();
 
-        btnb = game.add.button(350, 500, 'back', backGroup, this, 1, 0, 3)
-        btnn = game.add.button(600, 500, 'next', nextGroup, this, 1, 0, 3)
+        avatar = game.add.sprite(20, 10, 'avatar');
+        avatar.frame = 0;
+        avatar.scale.setTo(0.4,0.4);
+
+        loading = game.add.sprite(8, 80, 'loading');
+        bar1 = game.add.sprite(32, 514, 'bar');
+        bar1.alpha = 0;
+        bar2 = game.add.sprite(32, 490, 'bar');
+        bar2.alpha = 0;
+        bar3 = game.add.sprite(32, 466, 'bar');
+        bar3.alpha = 0;
+
+        nick = game.add.text(90,25, name, { font: "24px Raleway", fill: "#000000"});
+        nick.fontWeight = 'bold';
+
+        btnb = game.add.button(960, 540, 'back', '', this, 0, 1, 0);
+        btnn = game.add.button(1050, 540, 'next', '', this, 1, 0, 1);
         btnb.alpha = 0;
-
-        arr1 = game.add.sprite(180,430,'arrow1');
-        arr3 = game.add.sprite(800,490,'arrow3');
-
-        arr1.alpha = 0;
-        arr3.alpha = 0;
 
         gs_title= game.add.text(250,30, "I. Getting Started.", { font: "30px Raleway", fill: "#000000"})
         text = game.add.text(250, 100, '', { font: "18px Raleway", fill: "#000000", align: 'left' });
@@ -56,23 +80,31 @@ startIntroduction.prototype = {
 
         nextLine();
 
-        sound.inputEnabled = true;
-        sound.events.onInputDown.add(toggleSound, this);
+      game.onPause.add(pauseMusic, this);
+      game.onResume.add(resumeMusic, this);
 
+    },
+    render: function(){
     }
 }
 
-
-
-function toggleSound(){
-    if(sound.key == 'sounds'){
-        music.mute = true;
-        sound.loadTexture('mute')
-    }else{
-        music.mute = false;
-        sound.loadTexture('sounds')
-    }
+function pauseMusic() {
+    recording.pause();
 }
+
+function resumeMusic() {
+    recording.resume();
+}
+
+//function toggleSound(){
+//    if(sound.key == 'sounds'){
+//        music.mute = true;
+//        sound.loadTexture('mute')
+//    }else{
+//        music.mute = false;
+//        sound.loadTexture('sounds')
+//    }
+//}
 
 function nextLine(){
 
@@ -101,17 +133,22 @@ function nextWord() {
     //  Add the next word onto the text string, followed by a space
     text.text = text.text.concat(line[wordIndex] + " ");
     if(line[wordIndex] == 'completion'){
-        arr1.alpha = 1;
-        game.add.tween(arr1.scale).to({x: 2, y:2}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
-        setTimeout(function (){
-            game.add.tween(arr1).to({alpha:0}, 1500, "Linear", true);
-        }, 2000)
+        setTimeout(function(){
+            bar1.alpha = 1;
+        }, 500);
+        setTimeout(function(){
+            bar2.alpha = 1;
+        }, 1000);
+        setTimeout(function(){
+            bar3.alpha = 1;
+        }, 1500);
+        setTimeout(function(){
+            bar1.alpha = 0;
+            bar2.alpha = 0;
+            bar3.alpha = 0;
+        }, 2000);
     }else if(line[wordIndex] == 'succeeding'){
-        arr3.alpha = 1;
-        game.add.tween(arr3.scale).to({x: 2, y:2}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
-        setTimeout(function (){
-            game.add.tween(arr3).to({alpha:0}, 1500, "Linear", true);
-        }, 2000)
+        game.add.tween(btnn.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
     }else if(line[wordIndex] == 'back'){
         game.add.tween(btnb).to({alpha:1}, 1500, "Linear", true, 0,0 ,true);
     }

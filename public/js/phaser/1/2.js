@@ -17,16 +17,16 @@ var content = [
     "There will be a completion bar found on the left side of the page to track",
     "the total percentage that you've covered in the tutorial. You can go to the succeeding page",
     "by clicking on the next button and if you've missed something from the previous page",
-    "you can just click on the back button that will appear for the next pages.",
+    "you can just click on the back button that will appear for the succeeding pages.",
 ];
 
 var line = [];
 
 var wordIndex = 0;
 var lineIndex = 0;
-var on = 0;
+var bar = 0;
 
-var wordDelay = 180;
+//var wordDelay = 180;
 var lineDelay = 300;
 
 var text;
@@ -35,7 +35,7 @@ var avatar, nick, loading, bar1, bar2, bar3, test;
 
 introState.prototype = {
 
-    init: function(url, name) {
+    init: function(code, name) {
 
     },
 
@@ -45,8 +45,7 @@ introState.prototype = {
         game.load.image('bar','../images/phaser/loading-progress.png');
         game.load.spritesheet('next','../images/phaser/next-image.jpg', 49, 50);
         game.load.spritesheet('back','../images/phaser/back-image.jpg', 49, 50);
-        game.load.spritesheet('loading','../images/phaser/loading-bar.jpg' )
-        game.load.spritesheet('avatar',url, 150, 150);
+        game.load.image('loading','../images/phaser/loading-bar.jpg' );
         game.load.audio('intro', '../music/intro.mp3');
     },
     create: function(){
@@ -55,7 +54,7 @@ introState.prototype = {
         recording = game.add.audio('intro');
         recording.play();
 
-        avatar = game.add.sprite(20, 10, 'avatar');
+        avatar = game.add.sprite(20, 10, code);
         avatar.frame = 0;
         avatar.scale.setTo(0.4,0.4);
 
@@ -71,14 +70,15 @@ introState.prototype = {
         nick.fontWeight = 'bold';
 
         btnb = game.add.button(960, 540, 'back', '', this, 0, 1, 0);
-        btnn = game.add.button(1050, 540, 'next', '', this, 1, 0, 1);
+        btnn = game.add.button(1050, 540, 'next', nextChapter, this, 1, 0, 1);
         btnb.alpha = 0;
 
-        gs_title= game.add.text(250,30, "I. Getting Started.", { font: "30px Raleway", fill: "#000000"})
-        text = game.add.text(250, 100, '', { font: "18px Raleway", fill: "#000000", align: 'left' });
+        gs_title= game.add.text(200,30, "I. Getting Started.", { font: "30px Raleway", fill: "#000000"})
+        text = game.add.text(200, 100, '', { font: "18px Raleway", fill: "#000000", align: 'left' });
         text.lineSpacing = 13;
 
         nextLine();
+
 
       game.onPause.add(pauseMusic, this);
       game.onResume.add(resumeMusic, this);
@@ -121,7 +121,7 @@ function nextLine(){
     wordIndex = 0;
 
     //  Call the 'nextWord' function once for each word in the line (line.length)
-    game.time.events.repeat(wordDelay, line.length, nextWord, this);
+    game.time.events.repeat(Phaser.Timer.QUARTER * 1.2, line.length, nextWord, this);
 
     //  Advance to the next line
     lineIndex++;
@@ -132,42 +132,39 @@ function nextWord() {
 
     //  Add the next word onto the text string, followed by a space
     text.text = text.text.concat(line[wordIndex] + " ");
-    if(line[wordIndex] == 'completion'){
-        setTimeout(function(){
+    if (line[wordIndex] == 'completion') {
+        setTimeout(function () {
             bar1.alpha = 1;
         }, 500);
-        setTimeout(function(){
+        setTimeout(function () {
             bar2.alpha = 1;
         }, 1000);
-        setTimeout(function(){
+        setTimeout(function () {
             bar3.alpha = 1;
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function () {
             bar1.alpha = 0;
             bar2.alpha = 0;
             bar3.alpha = 0;
         }, 2000);
-    }else if(line[wordIndex] == 'succeeding'){
-        game.add.tween(btnn.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
-    }else if(line[wordIndex] == 'back'){
-        game.add.tween(btnb).to({alpha:1}, 1500, "Linear", true, 0,0 ,true);
+    } else if (line[wordIndex] == 'next') {
+        game.add.tween(btnn.scale).to({x: 1.2, y: 1.2}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
+    } else if (line[wordIndex] == 'back') {
+        game.add.tween(btnb).to({alpha: 1}, 1500, "Linear", true, 0, 0, true);
     }
-    //  Advance the word index to the next word in the line
     wordIndex++;
 
     //  Last word?
-    if (wordIndex === line.length)
-    {
+    if (wordIndex === line.length) {
         //  Add a carriage return
         text.text = text.text.concat("\n");
 
         //  Get the next line after the lineDelay amount of ms has elapsed
         game.time.events.add(lineDelay, nextLine, this);
     }
-
 }
 
-
-
-function backGroup(){};
-function nextGroup(){};
+function nextChapter(){
+    recording.stop();
+    game.state.start('part_1', true, false,code,name, bar);
+}

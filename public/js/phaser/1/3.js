@@ -46,7 +46,7 @@ partOne.prototype = {
 
         titleOne= game.add.text(200,30, "So why is this called big O?", { font: "30px Raleway", fill: "#000000"})
         textOne = game.add.text(200, 100, 'In Computer Science, the Big O notation is used to calculate the performance or the complexity of an\n' +
-            'algorithm. It is a way to measure the speed and how well an algorithm scales as the amount of input\n' +
+            'algorithm. It is a way to measure how effective it is for the algorithm  to scale as the amount of input\n' +
             'increases. In other words, the notation is only concerned on the worst possible outcome of an algorithm.\n'+
             'Example: The efficiency of the code when dealing 10 inputs vs 10000 inputs. ', { font: "18px Raleway", fill: "#000000", align: 'left' });
         textOne.lineSpacing = 13;

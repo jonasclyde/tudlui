@@ -10,8 +10,8 @@ var sound;
 var btnb, btnn;
 var gs_title;
 var content = [
-    "In this learning session, you will learn how to measure the speed of your algorithm",
-    "and check its efficiency using the Big-O notation. Through out the tutorial,",
+    "In this learning session, you will learn how to measure the efficiency of your algorithm",
+    "and check its related speed using the Big-O notation. Through out the tutorial,",
     "you can navigate through the different sections and learn on your own pace.",
     " ",
     "There will be a completion bar found on the left side of the page to track",

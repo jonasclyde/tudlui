@@ -5,21 +5,15 @@
 var partOne = function(game){
 };
 
-var levelOne = 1;
-var lineOne = [];
-var contentOne =
-    "In Computer Science, the Big O notation is used to calculate the performance or the complexity of an algorithm. " +
-    "It is a way to measure the speed and how well an algorithm scales as the amount of input increases. " +
-    "In other words, the notation is only concerned on the worst possible outcome of an algorithm. In this example, you can see that code A is set to have 10 inputs. This means " +
-    "that the code will be executed 10 times. Think what will happen if we change the input to 1000.";
 
-var titleOne;
-var textOne, codeOne, codeTwo, Output, OutputAnother, labelOne, LabelTwo;
-var loading, partOneMusic, nick, avatar, btnnOne;
-var text;
-var wordIndexOne= 0;
-var barOne;
-var barsOne=[];
+var lineOne = [], barsOne=[];
+var levelOne = 1, wordIndexOne= 0;
+var avatar,nick,loading, barOne, textO, picLandau, textCode, textOutput, textDescription, textTitle, btnnOne, partOneMusic, textIterator;
+var contentOne =
+    "The Big O notation or the Landau's symbol is used to describe the performance or complexity of an algorithm. " +
+    "It gives the estimation of the worst-case scenario and execution time of an algorithm. " +
+    "To be more specific, it measures the efficiency of an algorithm. " +
+    "and the growth rate of the time the algorithm takes to complete with respect to the amount of data it is given";
 
 
 partOne.prototype = {
@@ -31,9 +25,12 @@ partOne.prototype = {
     },
     preload: function(){
         game.load.audio('partOne', '../music/partOne.mp3');
+        game.load.image('landau_pic','../images/phaser/landau.jpg');
     },
     create: function(){
+
         game.background = this.game.add.sprite(0,0, 'background');
+
         loading = game.add.sprite(8, 80, 'loading');
         setBarOne();
         avatar = game.add.sprite(20, 10, code);
@@ -44,30 +41,34 @@ partOne.prototype = {
         partOneMusic = game.add.audio('partOne');
         partOneMusic.play();
 
-        titleOne= game.add.text(200,30, "So why is this called big O?", { font: "30px Raleway", fill: "#000000"})
-        textOne = game.add.text(200, 100, 'In Computer Science, the Big O notation is used to calculate the performance or the complexity of an\n' +
-            'algorithm. It is a way to measure how effective it is for the algorithm  to scale as the amount of input\n' +
-            'increases. In other words, the notation is only concerned on the worst possible outcome of an algorithm.\n'+
-            'Example: The efficiency of the code when dealing 10 inputs vs 10000 inputs. ', { font: "18px Raleway", fill: "#000000", align: 'left' });
-        textOne.lineSpacing = 13;
+        textTitle= game.add.text(250,30, "II. The Big O Notation.", { font: "27px Raleway", fill: "#000000"});
+        textDescription = game.add.text(250, 100, "The Big O notation (Landau's symbol) is used to describe the performance or complexity of an algorithm.  \n" +
+            " It gives the the estimation of the worst-case scenario and execution time of an algorithm.\n" +
+            "To be more specific, it measures of the efficiency and the growth rate of the time the algorithm\n" +
+            "takes to complete with respect to the amount of data it is given.\n",
+            { font: "16px Raleway", fill: "#000000", align: 'left' });
+        textDescription.lineSpacing = 13;
 
-        codeOne =  game.add.text(250, 300, 'var input = 10', { font: "24px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-        codeTwo =  game.add.text(250, 350, 'for(i=0; i< input; i++){\n' +
-            'do Something...\n' +
-            'console.log("Hello World!")\n' +
-            '}', { font: "24px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-        labelOne = game.add.text(250, 500, 'will be executed 10 times', { font: "24px Raleway", fill: "#FF0000", align: "left", fontWeight: "italic"});
-        labelOne.alpha = 0;
-        Output = game.add.text(650, 300, 'Output:',{ font: "24px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-        OutputAnother = game.add.text(650, 300, '\n' +
-            'Hello World!       Hello World!\n' +
-            'Hello World!       Hello World!\n' +
-            'Hello World!       Hello World!\n' +
-            'Hello World!       Hello World!\n' +
-            'Hello World!       Hello World!\n', { font: "24px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-        OutputAnother.alpha = 0;
+        textO = game.add.text(320, 330, "O(f(n))", { font: "72px Raleway", fill: "#000000"});
+        picLandau = game.add.sprite(640,280, 'landau_pic');
+        textCode = game.add.text(250,300, "$array = ['The', 'Big', 'O', 'Notation'];\n" +
+                "\n"+
+        "public function addContents($array){\n"+
+        "    for($i = 0; i < count($array); $i++){\n"+
+        "        echo $array[$i].' ';\n"+
+        "    }\n"+
+        "}", { font: "22px Raleway", fill: "#000000"});
+        textOutput = game.add.text(680,300, "Text Output", { font: "22px Raleway", fill: "#000000", fontWeight: "bold"});
+        textIterator = game.add.text(480,430, "// $i is index 0", { font: "18px Raleway", fill: "#ff0000", fontWeight: "italic"});
+
+        textO.alpha = 0;
+        textCode.alpha = 0;
+        picLandau.alpha = 0;
+        textOutput.alpha = 0;
+        textIterator.alpha = 0;
+
         lineOne = contentOne.split(' ');
-        game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineOne.length, nextWordOne, this);
+        game.time.events.repeat(Phaser.Timer.QUARTER * 1.5, lineOne.length, nextWordOne, this);
         game.onPause.add(pausePartOne, this);
         game.onResume.add(resumePartOne, this);
 
@@ -80,6 +81,45 @@ partOne.prototype = {
 
     }
 
+}
+
+function nextWordOne() {
+    if(lineOne[wordIndexOne] == 'Big'){
+        game.add.tween(textO).to({alpha: 1}, 6000, "Linear", true, 0, 0, true);
+    }else if(lineOne[wordIndexOne] == "Landau's"){
+        game.add.tween(picLandau).to({alpha: 1}, 6000, "Linear", true, 0, 0, true);
+    }else if(lineOne[wordIndexOne] == "be"){
+        game.add.tween(textCode).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
+        game.add.tween(textOutput).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
+    }else if(lineOne[wordIndexOne] == "complete"){
+        setTimeout(function(){
+            game.add.tween(textIterator).to({alpha: 1}, 200, "Linear", true, 0, 0, false);
+            textOutput.setText("Text Output \n\nThe");
+
+        },2000);
+        setTimeout(function(){
+            textIterator.setText("// $i is index 1");
+            textOutput.setText("Text Output \n\nThe Big");
+
+        },4000);
+        setTimeout(function(){
+            textIterator.setText("// $i is index 2");
+            textOutput.setText("Text Output \n\nThe Big O");
+
+        },6000);
+        setTimeout(function(){
+            textIterator.setText("// $i is index 3");
+            textOutput.setText("Text Output \n\nThe Big O Notation");
+
+        },8000);
+    }
+
+        wordIndexOne++;
+    //  Last word?
+    if (wordIndexOne === lineOne.length)
+    {
+        return;
+    }
 }
 
 function pausePartOne() {
@@ -105,24 +145,6 @@ function setBarOne(){
         }
     }
 
-}
-
-function nextWordOne() {
-    if(lineOne[wordIndexOne] == 'inputs.'){
-        game.add.tween(codeOne.scale).to({x: 1.3, y: 1.3}, 800, Phaser.Easing.Linear.None, true, 0, 0, true);
-    }else if(lineOne[wordIndexOne] == 'executed'){
-        game.add.tween(labelOne).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
-        game.add.tween(OutputAnother).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
-    }else if(lineOne[wordIndexOne] == '1000'){
-
-    }
-
-    wordIndexOne++;
-    //  Last word?
-    if (wordIndexOne === lineOne.length)
-    {
-        return;
-    }
 }
 
 function nextChapterOne(){

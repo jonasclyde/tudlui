@@ -11,11 +11,11 @@ var btnb, btnn;
 var gs_title;
 var content = [
     "In this learning session, you will learn how to measure the efficiency of your algorithm",
-    "and check its related speed using the Big-O notation. Through out the tutorial,",
+    "and check its related speed using the Big-O notation. Throughout the tutorial,",
     "you can navigate through the different sections and learn on your own pace.",
     " ",
-    "There will be a completion bar found on the left side of the page to track",
-    "the total percentage that you've covered in the tutorial. You can go to the succeeding page",
+    "There will be a completion bar found on the left side of the page to track the total ",
+    "percentage that you've covered in the tutorial. You can go to the succeeding page",
     "by clicking on the next button and if you've missed something from the previous page",
     "you can just click on the back button that will appear for the succeeding pages.",
 ];
@@ -73,8 +73,8 @@ introState.prototype = {
         btnn = game.add.button(1050, 540, 'next', nextChapter, this, 1, 0, 1);
         btnb.alpha = 0;
 
-        gs_title= game.add.text(200,30, "I. Getting Started.", { font: "30px Raleway", fill: "#000000"})
-        text = game.add.text(200, 100, '', { font: "18px Raleway", fill: "#000000", align: 'left' });
+        gs_title= game.add.text(250,30, "I. Getting Started.", { font: "27px Raleway", fill: "#000000"})
+        text = game.add.text(250, 100, '', { font: "16px Raleway", fill: "#000000", align: 'left' });
         text.lineSpacing = 13;
 
         nextLine();

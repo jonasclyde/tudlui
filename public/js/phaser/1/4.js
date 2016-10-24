@@ -9,14 +9,13 @@ var partTwo = function(game){
 //var lineTwo = [],
 var barsTwo=[];
 var levelTwo = 2;
-    //wordIndexTwo= 0;
-var avatar,nick,loading, barTwo, btnnTwo, btnbTwo;
-    //textO, picLandau, textCode, textOutput, textDescription, textTitle, btnTwo, partTwoMusic, textIterator;
-//var contentTwo =
-//        "The Big O notation or the Landau's symbol is used to describe the performance or complexity of an algorithm. " +
-//        "It gives the estimation of the worst-case scenario and execution time of an algorithm. " +
-//        "To be more specific, it measures the efficiency of an algorithm. " +
-//        "and the growth rate of the time the algorithm takes to complete with respect to the amount of data it is given";
+var wordIndexTwo = 0;
+var avatar, nick, loading, barTwo, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusicOne,partTwoMusicTwo;
+var contentTwo =
+        "The big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
+        " We use tje Big O notation to express how quickly the algorithm's runtime grows given the number of input." +
+        " To find the big O of an algorithm we will need to determine how long it takes to run the function based on the number of inputs. " +
+        "Given an array of inputs with size n, we will need to count how many processes it executes for each element of the array.  Don't worry an example will be given in the next level.";
 
 
 partTwo.prototype = {
@@ -27,8 +26,9 @@ partTwo.prototype = {
 
     },
     preload: function(){
-        //game.load.audio('partTwo', '../music/partTwo.mp3');
-        //game.load.image('landau_pic','../images/phaser/landau.jpg');
+        game.load.audio('partTwo', '../music/partTwoOne.mp3');
+        game.load.audio('partTwo', '../music/partTwoTwo.mp3');
+
     },
     create: function(){
 
@@ -41,39 +41,42 @@ partTwo.prototype = {
         avatar.scale.setTo(0.4,0.4);
         nick = game.add.text(90,25, name, { font: "24px Raleway", fill: "#000000"});
         nick.fontWeight = 'bold';
-        //partTwoMusic = game.add.audio('partTwo');
-        //partTwoMusic.play();
-        //
+        partTwoMusicOne = game.add.audio('partTwo');
+        partTwoMusicOne.play();
+
         textTitle= game.add.text(250,30, "III. Why Big O and How?", { font: "27px Raleway", fill: "#000000"});
-        //textDescription = game.add.text(250, 100, "The Big O notation (Landau's symbol) is used to describe the performance or complexity of an algorithm.  \n" +
-        //    " It gives the the estimation of the worst-case scenario and execution time of an algorithm.\n" +
-        //    "To be more specific, it measures of the efficiency and the growth rate of the time the algorithm\n" +
-        //    "takes to complete with respect to the amount of data it is given.\n",
-        //    { font: "16px Raleway", fill: "#000000", align: 'left' });
-        //textDescription.lineSpacing = 13;
-        //
-        //textO = game.add.text(320, 330, "O(f(n))", { font: "72px Raleway", fill: "#000000"});
-        //picLandau = game.add.sprite(640,280, 'landau_pic');
-        //textCode = game.add.text(250,300, "$array = ['The', 'Big', 'O', 'Notation'];\n" +
-        //    "\n"+
-        //    "public function addContents($array){\n"+
-        //    "    for($i = 0; i < count($array); $i++){\n"+
-        //    "        echo $array[$i].' ';\n"+
-        //    "    }\n"+
-        //    "}", { font: "22px Raleway", fill: "#000000"});
-        //textOutput = game.add.text(680,300, "Text Output", { font: "22px Raleway", fill: "#000000", fontWeight: "bold"});
-        //textIterator = game.add.text(480,430, "// $i is index 0", { font: "18px Raleway", fill: "#ff0000", fontWeight: "italic"});
-        //
-        //textO.alpha = 0;
-        //textCode.alpha = 0;
-        //picLandau.alpha = 0;
-        //textOutput.alpha = 0;
-        //textIterator.alpha = 0;
-        //
-        //lineTwo = contentTwo.split(' ');
-        //game.time.events.repeat(Phaser.Timer.QUARTER * 1.5, lineTwo.length, nextWordTwo, this);
-        //game.onPause.add(pausePartTwo, this);
-        //game.onResume.add(resumePartTwo, this);
+
+        textO = game.add.text(250, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
+        textO.addColor('#ff0000', 3);
+        textO.addColor('#000000', 4);
+
+        descriptionO = game.add.text(470, 110, "The big O of an algorithm is represented by O(n) - pronounced 'Oh of en'.\n" +
+        "It's a function, O, of the time an algorithm takes to run or the running time,\n" +
+            "which is represented by n."
+            , { font: "16px Raleway", fill: "#000000"});
+        descriptionO.addFontWeight('bold', 43);
+        descriptionO.addFontWeight('normal', 48);
+
+        descriptionO.addFontWeight('bold',90);
+        descriptionO.addFontWeight('normal',91);
+
+        descriptionO.addFontWeight('bold',160);
+        descriptionO.addFontWeight('normal',161);
+
+        textCount = game.add.text(280, 300,"COUNT :", { font: "24px Raleway", fill: "#0000FF", fontWeight: "bold"});
+
+        textCode = game.add.text(550,230, "$array = [ 'The' , 'Big' , 'O' , 'Notation'];\n" +
+        "\n"+
+        "public function addContents( $array ){\n"+
+        "    for ( $i = 0 ; i < count( $array ) ; $i++ ){\n"+
+        "        echo $array[ $i ].'<br>';\n"+
+        "    }\n"+
+        "}", { font: "23px Raleway", fill: "#000000"});
+
+        countTwo = game.add.text(250, 500,"To find the big O of an algorithm, we " +
+        "will need to determine how long it takes " +
+        "to run the function based on the\nnumber" +
+        " of inputs.", { font: "16px Raleway", fill: "#000000"});
 
         btnbTwo = game.add.button(960, 540, 'back', backChapterTwo, this, 0, 1, 0);
         btnnTwo = game.add.button(1050, 540, 'next', nextChapterTwo, this, 1, 0, 1);
@@ -125,14 +128,14 @@ partTwo.prototype = {
 //        return;
 //    }
 //}
-//
-//function pausePartTwo() {
-//    partTwoMusic.pause();
-//}
-//
-//function resumePartTwo() {
-//    partTwoMusic.resume();
-//}
+
+function pausePartTwo() {
+    partTwoMusic.pause();
+}
+
+function resumePartTwo() {
+    partTwoMusic.resume();
+}
 
 function setBarTwo(){
     i = 0;

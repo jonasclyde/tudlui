@@ -213,7 +213,8 @@ function tweenBalls(){
 }
 
 function startGame(){
-    game.state.start('start_state');
+    //game.state.start('start_state');
+    game.state.start('part_2');
 };
 
 function backToHome(){

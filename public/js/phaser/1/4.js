@@ -10,12 +10,12 @@ var partTwo = function(game){
 var barsTwo=[];
 var levelTwo = 2;
 var wordIndexTwo = 0;
-var avatar, nick, loading, barTwo, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusicOne,partTwoMusicTwo;
+var avatar, nick, loading, barTwo, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo;
 var contentTwo =
         "The big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
-        " We use tje Big O notation to express how quickly the algorithm's runtime grows given the number of input." +
+        " We use the Big O notation to express how quickly the algorithm's runtime grows given the number of input." +
         " To find the big O of an algorithm we will need to determine how long it takes to run the function based on the number of inputs. " +
-        "Given an array of inputs with size n, we will need to count how many processes it executes for each element of the array.  Don't worry an example will be given in the next level.";
+        " Given an array of inputs with size n, we will need to count how many processes it executes for each element of the array.  Don't worry an example will be given in the next level.";
 
 
 partTwo.prototype = {
@@ -26,9 +26,7 @@ partTwo.prototype = {
 
     },
     preload: function(){
-        game.load.audio('partTwo', '../music/partTwoOne.mp3');
-        game.load.audio('partTwo', '../music/partTwoTwo.mp3');
-
+        game.load.audio('partTwoMusic', '../music/partTwo.mp3');
     },
     create: function(){
 
@@ -41,18 +39,16 @@ partTwo.prototype = {
         avatar.scale.setTo(0.4,0.4);
         nick = game.add.text(90,25, name, { font: "24px Raleway", fill: "#000000"});
         nick.fontWeight = 'bold';
-        partTwoMusicOne = game.add.audio('partTwo');
-        partTwoMusicOne.play();
+        partTwoMusic = game.add.audio('partTwoMusic');
+        partTwoMusic.play();
 
         textTitle= game.add.text(250,30, "III. Why Big O and How?", { font: "27px Raleway", fill: "#000000"});
 
         textO = game.add.text(250, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
-        textO.addColor('#ff0000', 3);
-        textO.addColor('#000000', 4);
 
         descriptionO = game.add.text(470, 110, "The big O of an algorithm is represented by O(n) - pronounced 'Oh of en'.\n" +
         "It's a function, O, of the time an algorithm takes to run or the running time,\n" +
-            "which is represented by n."
+            "which is represented by N."
             , { font: "16px Raleway", fill: "#000000"});
         descriptionO.addFontWeight('bold', 43);
         descriptionO.addFontWeight('normal', 48);
@@ -60,8 +56,8 @@ partTwo.prototype = {
         descriptionO.addFontWeight('bold',90);
         descriptionO.addFontWeight('normal',91);
 
-        descriptionO.addFontWeight('bold',160);
-        descriptionO.addFontWeight('normal',161);
+        descriptionO.addFontWeight('bold',175);
+        descriptionO.addFontWeight('normal',176);
 
         textCount = game.add.text(280, 300,"COUNT :", { font: "24px Raleway", fill: "#0000FF", fontWeight: "bold"});
 
@@ -78,6 +74,15 @@ partTwo.prototype = {
         "to run the function based on the\nnumber" +
         " of inputs.", { font: "16px Raleway", fill: "#000000"});
 
+        textCount.alpha = 0;
+        textCode.alpha = 0;
+        countTwo.alpha = 0;
+
+        lineTwo = contentTwo.split(' ');
+        game.time.events.repeat(Phaser.Timer.QUARTER * 1.5, lineTwo.length, nextWordTwo, this);
+        game.onPause.add(pausePartTwo, this);
+        game.onResume.add(resumePartTwo, this);
+
         btnbTwo = game.add.button(960, 540, 'back', backChapterTwo, this, 0, 1, 0);
         btnnTwo = game.add.button(1050, 540, 'next', nextChapterTwo, this, 1, 0, 1);
     },
@@ -90,44 +95,27 @@ partTwo.prototype = {
 
 }
 
-//function nextWordTwo() {
-//    if(lineTwo[wordIndexTwo] == 'Big'){
-//        game.add.tween(textO).to({alpha: 1}, 6000, "Linear", true, 0, 0, true);
-//    }else if(lineTwo[wordIndexTwo] == "Landau's"){
-//        game.add.tween(picLandau).to({alpha: 1}, 6000, "Linear", true, 0, 0, true);
-//    }else if(lineTwo[wordIndexTwo] == "be"){
-//        game.add.tween(textCode).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
-//        game.add.tween(textOutput).to({alpha: 1}, 1500, "Linear", true, 0, 0, false);
-//    }else if(lineTwo[wordIndexTwo] == "complete"){
-//        setTimeout(function(){
-//            game.add.tween(textIterator).to({alpha: 1}, 200, "Linear", true, 0, 0, false);
-//            textOutput.setText("Text Output \n\nThe");
-//
-//        },2000);
-//        setTimeout(function(){
-//            textIterator.setText("// $i is index 1");
-//            textOutput.setText("Text Output \n\nThe Big");
-//
-//        },4000);
-//        setTimeout(function(){
-//            textIterator.setText("// $i is index 2");
-//            textOutput.setText("Text Output \n\nThe Big O");
-//
-//        },6000);
-//        setTimeout(function(){
-//            textIterator.setText("// $i is index 3");
-//            textOutput.setText("Text Output \n\nThe Big O Notation");
-//
-//        },8000);
-//    }
-//
-//    wordIndexTwo++;
-//    //  Last word?
-//    if (wordIndexTwo === lineTwo.length)
-//    {
-//        return;
-//    }
-//}
+function nextWordTwo() {
+    if(lineTwo[wordIndexTwo] == 'input.'){
+        partTwoMusic.pause();
+    }else if(lineTwo[wordIndexTwo] == "determine"){
+        partTwoMusic.resume();
+    }else if(lineTwo[wordIndexTwo] == "inputs."){
+        game.add.tween(textCount).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+        game.add.tween(textCode).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+        game.add.tween(countTwo).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    }else if(lineTwo[wordIndexTwo] == "array"){
+        textCode.addColor()
+
+    }
+
+    wordIndexTwo++;
+    //  Last word?
+    if (wordIndexTwo === lineTwo.length)
+    {
+        return;
+    }
+}
 
 function pausePartTwo() {
     partTwoMusic.pause();

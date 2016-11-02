@@ -10,9 +10,8 @@ var partFive = function(game){
 };
 
 
-var lineFour = [];
-var wordIndexFour, textTitle, textDescription;
-var contentFour =  "";
+var wordIndexFour, textTitle, textDescription, codeoutput, btnrun, inputoutside, inputinside, line1correct, line1incorrect, line2correct, line2incorrect;
+var correct = false;
 
 
 var textTitle, partFourMusic, textCode;
@@ -23,11 +22,11 @@ partFive.prototype = {
     },
     preload: function(){
         game.load.audio('partFourMusic', '../music/partFour.mp3');
+        game.load.spritesheet('run_code','../images/phaser/button_run_sprite.png', 193, 71);
     },
     create: function(){
 
         game.background = this.game.add.sprite(0,0, 'background');
-
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;
@@ -39,49 +38,65 @@ partFive.prototype = {
 
         textTitle= game.add.text(100,40, "IV. Counting Exercise.", { font: "27px Raleway", fill: "#000000"});
 
-        textDescription = game.add.text(100, 100, "y to fill up the number of steps outside and inside the loop. If you get the correct answer, proceed to the nex page.",
-            { font: "18px Raleway", fill: "#000000", align: 'left' });
+        textDescription = game.add.text(100, 100, "Try to fill up the number of steps outside and inside the loop. If you get the correct answer, proceed to the next page.",
+            { font: "16px Raleway", fill: "#000000", align: 'left' });
 
-        textCode = game.add.text(380,120, "public function isPresent( $array , $value ){\n"+
-            "\n"+
+        inputinside = game.add.inputField(210, 140, {
+            font: '18px Raleway',
+            fill: '#212121',
+            fontWeight: 'bold',
+            width: 20,
+            height: 20,
+            padding: 10,
+            borderWidth: 1,
+            borderColor: '#323',
+            borderRadius: 6,
+            min: 1,
+            max: 2,
+            type: 'numeric'
+        });
+
+        inputoutside = game.add.inputField(210, 190, {
+            font: '18px Raleway',
+            fill: '#212121',
+            fontWeight: 'bold',
+            width: 20,
+            height: 20,
+            padding: 10,
+            borderWidth: 1,
+            borderColor: '#323',
+            borderRadius: 6,
+            min: '1',
+            max: '2',
+            type: 'numeric'
+        });
+
+        textCode = game.add.text(130, 150, "echo  '          steps inside the loop' ;\n" +
+        "echo  '          steps outside the loop' ;\n" +
+        "\n" +
+        "public function isPresent( $array , $value ){\n"+
             "      for ( $i = 0 ; $i < count( $array ) ; $i++ ){\n"+
-            "          if ( $array[i] == $value ) return true; \n"+
+            "          if ( $array[ $i ] == $value ) return true; \n"+
             "      }\n"+
             "      return false;\n"+
             "}", { font: "23px Raleway", fill: "#000000", fontWeight:'bold'});
-        textCode.lineSpacing = 13;
+        textCode.lineSpacing = 12.5;
 
-        note1 = game.add.text(50,120, "* This function checks if value exists \n" +
-            " inside the array.", { font: "14px Raleway", fill: "#000000"});
-        note2 = game.add.text(50,190, "* Count the steps outside and inside the loop.", { font: "14px Raleway", fill: "#000000"});
-        note4 = game.add.text(50,435, "* For big O, we will not consider the\n" +
-            " coefficients or constant overheads and\n" +
-            " any terms except the fastest growing one.", { font: "14px Raleway", fill: "#000000"});
+        btnrun = game.add.button(790, 400, 'run_code', runeCode, this, 1, 0, 2);
 
-        outsideloop = game.add.text(860,120, "Outside Loop", { font: "20px Raleway", fill: "#FF0000", fontWeight: "bold"});
-        insideloop = game.add.text(860,220, "Inside Loop", { font: "20px Raleway", fill: "#0000FF", fontWeight: "bold"});
-        totalsteps = game.add.text(860,320, "Total Steps\n" +
-            "     6N + 3", { font: "20px Raleway", fill: "#00FF00", fontWeight: "bold"});
-        notationfunction = game.add.text(820,429, "This function is O(N)", { font: "23px Raleway", fill: "#000000", fontWeight: "bold"});
+        codeoutput = game.add.text(810,150, "Code Output", { font: "24px Raleway", fill: "#000000", fontWeight: "bold"});
+        line1correct  =  game.add.text(750,230, "6 steps inside the loop", { font: "24px Raleway", fill: "#00FF00", fontWeight: "bold"});
+        line1incorrect  =  game.add.text(750,230, "Line 1 code is incorrect.", { font: "24px Raleway", fill: "#FF0000", fontWeight: "bold"});
+        line2correct  =  game.add.text(750,310, "2 steps outside the loop", { font: "24px Raleway", fill: "#00FF00", fontWeight: "bold"});
+        line2incorrect  =  game.add.text(750,310, "Line 2 code is incorrect.", { font: "24px Raleway", fill: "#FF0000", fontWeight: "bold"});
 
-        textCode.alpha = 0;
-        note1.alpha = 0;
-        note2.alpha = 0;
-        note3.alpha = 0;
-        note4.alpha = 0;
-        note5.alpha = 0;
-        note6.alpha = 0;
-        outsideloop.alpha = 0;
-        insideloop.alpha = 0;
-        totalsteps.alpha = 0;
-        notationfunction.alpha = 0;
+        line1correct.alpha = 0;
+        line1incorrect.alpha = 0;
+        line2correct.alpha = 0;
+        line2incorrect.alpha = 0;
 
-        lineFour = contentFour.split(' ');
-        game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineFour.length, nextWordFour, this);
         game.onPause.add(pausePartFour, this);
         game.onResume.add(resumePartFour, this);
-
-
 
         btnbFour = game.add.button(960, 500, 'back', backChapterFour, this, 0, 1, 0);
         btnnFour = game.add.button(1050, 500, 'next', nextChapterFour, this, 1, 0, 1);
@@ -95,20 +110,26 @@ partFive.prototype = {
 
 }
 
-function nextWordFour() {
+function runeCode(){
 
-    console.log(lineFour[wordIndexFour]);
-    if(lineFour[wordIndexFour] == 'example,'){
-        game.add.tween(textDescription).to({alpha: 0}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(note1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(textCode).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    if(inputinside.value == '6'){
+        line1correct.alpha = 1;
+        line1incorrect.alpha = 0;
+    }else{
+        line1incorrect.alpha = 1;
+        line1correct.alpha = 0;
     }
 
-    wordIndexFour++;
-    //  Last word?
-    if (wordIndexFour === lineFour.length)
-    {
-        return;
+    if(inputoutside.value == '2'){
+        line2correct.alpha = 1;
+        line2incorrect.alpha = 0;
+    }else{
+        line2correct.alpha = 0;
+        line2incorrect.alpha = 1;
+    }
+
+    if(inputinside.value == 6 && inputoutside.value == 2){
+        correct = true;
     }
 }
 
@@ -125,5 +146,7 @@ function backChapterFour(){
 }
 
 function nextChapterFour(){
-    game.state.start('part_6', true, false,code,name);
+    if(correct){
+        game.state.start('part_6', true, false,code,name);
+    }
 }

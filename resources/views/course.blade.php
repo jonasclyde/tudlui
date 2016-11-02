@@ -26,7 +26,8 @@
     {{--<script src="/js/phaser/1/7.js"></script>--}}
     {{--<script src="/js/phaser/1/6.js"></script>--}}
     {{--<script src="/js/phaser/1/5.js"></script>--}}
-    {{--<script src="/js/phaser/1/4.js"></script>--}}
+    <script src="/js/phaser/tudlui/part_6.js"></script>
+    <script src="/js/phaser/tudlui/part_5.js"></script>
     <script src="/js/phaser/tudlui/part_4.js"></script>
     <script src="/js/phaser/tudlui/part_3.js"></script>
     <script src="/js/phaser/tudlui/part_2.js"></script>

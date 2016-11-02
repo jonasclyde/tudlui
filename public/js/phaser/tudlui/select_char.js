@@ -124,7 +124,7 @@ selectChar.prototype = {
     },
     render: function(){
 
-    },
+    }
 }
 
 function selectAvatar(char){
@@ -220,7 +220,7 @@ function selectAvatar(char){
 function enterGame(){
     name = input_name.value;
     if(name) {
-        game.state.start('part_4', true, false,code,name);
+        game.state.start('part_6', true, false,code,name);
     }
 
 }

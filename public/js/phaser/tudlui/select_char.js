@@ -3,22 +3,15 @@
  */
 
 
-var startState = function(game){
+var selectChar = function(game){
 };
 
 var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter;
 var girl_1_pic, girl_2_pic , girl_3_pic, boy_1_pic, boy_2_pic, boy_3_pic;
 var selected, choose, input_name, name, code;
 
-startState.prototype = {
+selectChar.prototype = {
     preload: function(){
-
-        //this.load.image('boy_1', '../images/phaser/boy_1.jpg');
-        //this.load.image('boy_2', '../images/phaser/boy_2.jpg');
-        //this.load.image('boy_3', '../images/phaser/boy_3.jpg');
-        //this.load.image('girl_1', '../images/phaser/girl_1.jpg');
-        //this.load.image('girl_2', '../images/phaser/girl_2.jpg');
-        //this.load.image('girl_3', '../images/phaser/girl_3.jpg');
         this.load.spritesheet('girl_1','../images/phaser/girl_1_sheet.jpg', 150, 150 );
         this.load.spritesheet('girl_2','../images/phaser/girl_2_sheet.jpg', 150, 150 );
         this.load.spritesheet('girl_3','../images/phaser/girl_3_sheet.jpg', 150, 150 );
@@ -131,8 +124,7 @@ startState.prototype = {
     },
     render: function(){
 
-    }
-
+    },
 }
 
 function selectAvatar(char){
@@ -228,7 +220,7 @@ function selectAvatar(char){
 function enterGame(){
     name = input_name.value;
     if(name) {
-        game.state.start('intro_state', true, false,code,name);
+        game.state.start('part_4', true, false,code,name);
     }
 
 }

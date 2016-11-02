@@ -3,29 +3,18 @@
  */
 var game = new Phaser.Game(1110, 600, Phaser.AUTO, 'course-material', { preload: preload, create: create, update: update, render: render });
 
-game.state.add('start_state', startState);
-game.state.add('intro_state', introState);
+game.state.add('select_char', selectChar);
 game.state.add('part_1', partOne);
 game.state.add('part_2', partTwo);
 game.state.add('part_3', partThree);
 game.state.add('part_4', partFour);
-game.state.add('part_5', partFive);
-game.state.add('part_6', partSix);
-game.state.add('part_7', partSeven);
-//game.state.add('intro_state', introState);
-//game.state.add('intro_state', introState);
-//game.state.add('intro_state', introState);
-//game.state.add('intro_state', introState);
-//game.state.add('intro_state', introState);
 
-//game.state.add('quiz', quizState);
 
 function preload() {
 
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     this.load.image('background', '../images/phaser/background.jpg');
-    //this.load.image('line', '../images/phaser/line.png');
     this.load.image('sounds', '../images/phaser/sounds.png');
     this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 193, 71);
     this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 193, 71);
@@ -67,23 +56,23 @@ function create() {
     game.background = this.game.add.sprite(0,0, 'background');
 
     for(var i=0; i<8;i++){
-        circle[i] = new Phaser.Circle(1150, 150, 6);
+        circle[i] = new Phaser.Circle(1150, 120, 6);
     }
 
     //music = game.add.audio('snow');
     //sound = game.add.sprite(1030, 30, 'sounds');
-    title = game.add.text(280, 100, "Learning Big-    Notation", { font: "55px Raleway", fill: "#000000", align: "center" });
-    about_us_header= game.add.text(330,100, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#000000", align: "center" })
-    about_us_constant= game.add.text(330,180, "         This e-Learning material was created to help students better understand \n" +
+    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Raleway", fill: "#000000", align: "center" });
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#000000", align: "center" });
+    about_us_constant= game.add.text(330,150, "         This e-Learning material was created to help students better understand \n" +
         "the complexity of an algorithm using the 'Big-O notation'. The main objective \n" +
         "of the module is to provide a simple and effective material with the help of\n" +
         "text and graphic animations. What's best about this is that students can now \n" +
         "learn anywhere " +
-    "they want to and at their own pace."+
+        "they want to and at their own pace."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#000000", align: 'left'})
-    O = game.add.text(620, 100, "O", { font: "55px Raleway", fill: "#ff0000", align: "center" });
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#000000", align: 'left'});
+    O = game.add.text(620, 70, "O", { font: "55px Raleway", fill: "#ff0000", align: "center" });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -105,9 +94,9 @@ function create() {
     //line2 = game.add.sprite(20, 100, 'line');
     //line3 = game.add.sprite(140, 100, 'line');
 
-    btn1 = game.add.button(490, 275, 'start', startGame, this, 1, 0, 2);
-    btn2 = game.add.button(490, 400, 'about', showAbout, this, 1, 0, 2);
-    btn3 = game.add.button(560, 500, 'back', backToHome, this, 1, 0, 3)
+    btn1 = game.add.button(490, 245, 'start', startGame, this, 1, 0, 2);
+    btn2 = game.add.button(490, 370, 'about', showAbout, this, 1, 0, 2);
+    btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
@@ -128,14 +117,14 @@ function create() {
     output1= ["x : 0"];
     output2= ["output : "];
 
-    text1 =  game.add.text(10, 180, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text1 =  game.add.text(10, 150, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
     text1.alpha = 0;
-    text2 =  game.add.text(10, 270, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text3 =  game.add.text(10, 300, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text4 =  game.add.text(10, 330, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text5 =  game.add.text(10, 360, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text6 =  game.add.text(10, 420, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text7 =  game.add.text(10, 440, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text2 =  game.add.text(10, 240, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text3 =  game.add.text(10, 270, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text4 =  game.add.text(10, 300, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text5 =  game.add.text(10, 330, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text6 =  game.add.text(10, 390, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text7 =  game.add.text(10, 410, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
 
     for_1 = game.add.tween(text2.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, false, 0, 0, true);
     for_2 = game.add.tween(text3.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, false, 0, 0, true);
@@ -147,24 +136,6 @@ function create() {
 
 function update() {
 
-    //line1.y += 10;
-    //line2.y += 5;
-    //line3.y += 2;
-    //
-    //if (line1.y > game.world.height )
-    //{
-    //    line1.y =  -line1.height;
-    //}
-    //
-    //if (line2.y > game.world.height )
-    //{
-    //    line2.y =  -line2.height;
-    //}
-    //
-    //if (line3.y > game.world.height )
-    //{
-    //    line3.y =  -line3.height;
-    //}
 }
 
 function render() {
@@ -193,7 +164,7 @@ function tweenBalls(){
     setTimeout(function () {    //  call a 3s setTimeout when the loop is called
         game.add.tween(circle[ball_counter]).to({
             x: [1045 ,642, 631, 624, 627, 642, 652, 659, 653, 642, 631, 624, 627, 627],
-            y: [150 , 150, 143, 132, 120, 114, 117, 132, 146, 150, 143, 132, 120, -10]
+            y: [120 , 120, 113, 102, 90, 84, 87, 102, 116, 120, 113, 102, 90, -40]
         }, 1500,"Linear", true);
         ball_counter++;
         if (ball_counter < 8) {
@@ -213,9 +184,9 @@ function tweenBalls(){
 }
 
 function startGame(){
-    //game.state.start('start_state');
-    game.state.start('part_2');
-};
+    game.state.start('select_char');
+    //game.state.start('part_2');
+}
 
 function backToHome(){
     O.alpha = 1;
@@ -230,14 +201,14 @@ function backToHome(){
     btn3.alpha = 0;
     btn3.inputEnabled = false;
 
-};
+}
 
 function showAbout(){
 
     O.alpha = 0;
     title.alpha = 0;
     btn1.alpha = 0;
-    btn2.alpha = 0
+    btn2.alpha = 0;
     btn1.inputEnabled = false;
     btn2.inputEnabled = false;
 
@@ -246,7 +217,7 @@ function showAbout(){
     btn3.alpha = 1;
     btn3.inputEnabled = true;
 
-};
+}
 
 function startAnimation(){
 

@@ -27,7 +27,7 @@ var Fabrique;
             this.game = game;
             this.element = document.createElement('input');
             this.element.id = id;
-            this.element.style.position = 'absolute';
+            this.element.style.position = 'fixed';
             this.element.style.top = (-100).toString() + 'px';
             this.element.style.left = (-100).toString() + 'px';
             this.element.value = this.value;

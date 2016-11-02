@@ -107,7 +107,7 @@ partFour.prototype = {
 
 function nextWordThree() {
 
-    console.log(lineThree[wordIndexThree]);
+
     if(lineThree[wordIndexThree] == 'example,'){
         game.add.tween(textDescription).to({alpha: 0}, 1000, "Linear", true, 0, 0, false);
         game.add.tween(note1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);

@@ -9,7 +9,15 @@ var partSix = function(game){
 
 var lineFive = [];
 var wordIndexFive;
-var contentFive = "";
+var contentFive = "In this section, we will try to examine the graphs of the different orders of common functions. These graphs are important so that we can see the relationship of the number of inputs given and the time it needs to process1." +
+    " In this graph, the y axis1 signifies the number of steps or the time needed to execute the algorithm. The x axis represents the number of elements in the array, or the number of inputs. When the line is drawn on the graph, the higher it is, the slower it gets. Let's try to examine the previous example a a a a a a a a a a a a a" +
+    " 6n+3. You can see that the graph is a diagonal line. This signifies that o of n is linear and the time it takes to run the function is directly proportional on the number of inputs. " +
+    " Now here is the general graph for the o of n. Just like the previous graph, it shows a diagonal line. " +
+    " Next graph that we will check is the constant time, or o of 1. In this example, I've set that there are 5 steps, or 5 units in y, for the function. Notice that no matter how many inputs are there in the array, the y axis is constant at 5. Constant functions are represented by a straight line in a graph." +
+    " The next graph we have is for the quadratic function, or o of n squared. You can see that the line is curved and as the number of input increases, the time it executes quickly increases and doubled compared to the linear graph." +
+    " We also have here the exponential graph, which is o of a constant raised to n. The number of inputs are now the exponents and in this example, I've set that the constant is 2. This graph is showing o of 2 raised to n. Notice that the exponential graph is similar to the quadratic graph but it is much slower as the number of input increases. Functions that has this complexity should be avoided if possible." +
+    " Lastly, we examine the logarithmic graphs, or o of log n. Logarithmic functions are inverses of exponential functions. If you look at the graph, it shows a curved line which leans towards x. Based on the graph alone, you can see that the logarithmic complexity is the most efficient of them all. Excluding the o of 1 of course, which varies on the number of steps required." +
+    " If you are a little confused with these examples, don't worry. We will discuss these complexity functions one by one. ";
 
 
 var textTitle,textDescription, partFiveMusic, textCode, graph0, graph1, graph2, graph3, graph4, graph5, graph6;
@@ -42,9 +50,8 @@ partSix.prototype = {
 
         textTitle= game.add.text(100,40, "V. Graphing the Functions.", { font: "27px Raleway", fill: "#000000"});
 
-        textDescription = game.add.text(140, 100, "In our previous level, it was stated that the size of the complexity of the algorithm is examined using\n" +
-            "the input and we will need to count the number of steps it runs to find the Big O notation. Let's examine \n" +
-            "this line of code here.",
+        textDescription = game.add.text(140, 100, "In this section, we will try to examine the graphs of the different orders of common functions. These graphs \n" +
+            "are important so that we can see the relationship of the number of inputs given and the time it needs to process.",
             { font: "18px Raleway", fill: "#000000", align: 'left' });
 
         graph0 = game.add.sprite(200, 100, 'func0');
@@ -93,10 +100,10 @@ partSix.prototype = {
         //totalsteps.alpha = 0;
         //notationfunction.alpha = 0;
         //
-        //lineFive = contentFive.split(' ');
-        //game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineFive.length, nextWordFive, this);
-        //game.onPause.add(pausePartFive, this);
-        //game.onResume.add(resumePartFive, this);
+        lineFive = contentFive.split(' ');
+        game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineFive.length, nextWordFive, this);
+        game.onPause.add(pausePartFive, this);
+        game.onResume.add(resumePartFive, this);
 
 
 
@@ -114,74 +121,17 @@ partSix.prototype = {
 
 function nextWordFive() {
 
-
-    if(lineFive[wordIndexFive] == 'example,'){
+    console.log(lineFive[wordIndexFive]);
+    if(lineFive[wordIndexFive] == 'process1.'){
         game.add.tween(textDescription).to({alpha: 0}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(note1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(textCode).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'loop1.'){
-        game.add.tween(note2).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(outsideloop).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'sum1.'){
-        textCode.addColor('#ff0000', 44);
-        textCode.addColor('#000000', 54);
-        outsideloop.setText("Outside Loop\n" +
-        "      1 step");
-    }else if(lineFive[wordIndexFive] == 'i1.'){
-        textCode.addColor('#ff0000', 65);
-        textCode.addColor('#000000', 73);
-        outsideloop.setText("Outside Loop\n" +
-        "      2 steps");
-    }else if(lineFive[wordIndexFive] == 'sum2'){
-        textCode.addColor('#ff0000', 154);
-        textCode.addColor('#000000', 166);
-        outsideloop.setText("Outside Loop\n" +
-        "      3 steps");
-    }else if(lineFive[wordIndexFive] == 'steps1'){
-        game.add.tween(note3).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'count1'){
-        game.add.tween(note4).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(insideloop).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'counting1'){
-        textCode.addColor('#0000ff', 79);
-        textCode.addColor('#000000', 95);
-        insideloop.setText("Inside Loop\n" +
-        "      1 step");
-    }else if(lineFive[wordIndexFive] == 'i2'){
-        textCode.addColor('#0000ff', 74);
-        textCode.addColor('#000000', 78);
-        insideloop.setText("Inside Loop\n" +
-        "      2 steps");
-    }else if(lineFive[wordIndexFive] == 'increment1'){
-        textCode.addColor('#0000ff', 97);
-        textCode.addColor('#000000', 101);
-        insideloop.setText("Inside Loop\n" +
-        "      3 steps");
-    }else if(lineFive[wordIndexFive] == 'accessing1'){
-        textCode.addColor('#0000ff', 128);
-        textCode.addColor('#000000', 141);
-        insideloop.setText("Inside Loop\n" +
-        "      4 steps");
-    }else if(lineFive[wordIndexFive] == 'adding1'){
-        textCode.addColor('#0000ff', 121);
-        textCode.addColor('#000000', 127);
-        insideloop.setText("Inside Loop\n" +
-        "      5 steps");
-    }else if(lineFive[wordIndexFive] == 'assigned1'){
-        textCode.addColor('#0000ff', 113);
-        textCode.addColor('#000000', 120);
-        insideloop.setText("Inside Loop\n" +
-        "      6 steps");
-    }else if(lineFive[wordIndexFive] == 'number1'){
-        game.add.tween(note5).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    }else if(lineFive[wordIndexFive] == 'axis1'){
+        //game.add.tween(note1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+        game.add.tween(graph0).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
     }else if(lineFive[wordIndexFive] == '6n+3'){
-        game.add.tween(totalsteps).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'coefficients1'){
-        game.add.tween(note6).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineFive[wordIndexFive] == 'O1'){
-        game.add.tween(note6).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(notationfunction).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+        //game.add.tween(note1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+        game.add.tween(graph1).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
     }
+
 
     wordIndexFive++;
     //  Last word?

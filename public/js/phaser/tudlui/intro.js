@@ -10,6 +10,8 @@ game.state.add('part_3', partThree);
 game.state.add('part_4', partFour);
 game.state.add('part_5', partFive);
 game.state.add('part_6', partSix);
+game.state.add('part_7', partSeven);
+game.state.add('part_8', partEight);
 
 
 function preload() {

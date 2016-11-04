@@ -138,12 +138,12 @@ function resumePartSeven() {
 
 function backChapterSeven(){
     partSevenMusic.stop();
-    game.state.start('part_4', true, false,code,name);
+    game.state.start('part_7', true, false,code,name);
 }
 
 function nextChapterSeven(){
     if(correct){
         partSevenMusic.stop();
-        game.state.start('part_6', true, false,code,name);
+        //game.state.start('part_6', true, false,code,name);
     }
 }

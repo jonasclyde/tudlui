@@ -193,9 +193,11 @@ function resumePartThree() {
 }
 
 function backChapterThree(){
+    partThreeMusic.stop();
     game.state.start('part_3', true, false,code,name);
 }
 
 function nextChapterThree(){
+    partThreeMusic.stop();
     game.state.start('part_5', true, false,code,name);
 }

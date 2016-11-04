@@ -63,8 +63,8 @@ function create() {
         circle[i] = new Phaser.Circle(1150, 120, 6);
     }
 
-    //music = game.add.audio('snow');
-    //sound = game.add.sprite(1030, 30, 'sounds');
+    music = game.add.audio('snow');
+    sound = game.add.sprite(1060, 30, 'sounds');
     title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Raleway", fill: "#000000", align: "center" });
     about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#000000", align: "center" });
     about_us_constant= game.add.text(330,150, "         This e-Learning material was created to help students better understand \n" +
@@ -84,15 +84,15 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
-    //music = game.add.audio('snow');
-    //music.loop = true;
-    //music.play();
+    music = game.add.audio('snow');
+    music.loop = true;
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
 
-    //sound.inputEnabled = true;
-    //sound.events.onInputDown.add(toggleSound, this);
+    sound.inputEnabled = true;
+    sound.events.onInputDown.add(toggleSound, this);
 
     //line1 = game.add.sprite(80, 100, 'line');
     //line2 = game.add.sprite(20, 100, 'line');
@@ -189,7 +189,6 @@ function tweenBalls(){
 
 function startGame(){
     game.state.start('select_char');
-    //game.state.start('part_2');
 }
 
 function backToHome(){

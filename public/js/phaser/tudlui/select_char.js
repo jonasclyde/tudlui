@@ -42,10 +42,10 @@ selectChar.prototype = {
 
 
 
-        //sound = game.add.sprite(1030, 30, 'sounds');
-        //
-        //sound.inputEnabled = true;
-        //sound.events.onInputDown.add(toggleSound, this);
+        sound = game.add.sprite(1060, 30, 'sounds');
+
+        sound.inputEnabled = true;
+        sound.events.onInputDown.add(toggleSound, this);
 
         girl_1 = game.add.button(100, 250, 'girl_1','', this, 1, 0, 1, 1);
         girl_2 = game.add.button(300, 250, 'girl_2', '', this, 1, 0, 1, 1);
@@ -220,7 +220,8 @@ function selectAvatar(char){
 function enterGame(){
     name = input_name.value;
     if(name) {
-        game.state.start('part_8', true, false,code,name);
+        music.stop();
+        game.state.start('part_1', true, false,code,name);
     }
 
 }

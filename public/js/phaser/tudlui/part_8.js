@@ -75,7 +75,7 @@ partEight.prototype = {
 
         note1 =  game.add.text(650,180, "* This function returns the value at the given index.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
         note2 =  game.add.text(650,210, "* There are only 2 steps which is array access and returning the value",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
-        note3 =  game.add.text(650,240, "* Edit the input value to test and click on the 'Run Code' button.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
+        note3 =  game.add.text(650,240, "* Edit the input index to test and click on the 'Run Code' button.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
 
         game.onPause.add(pausePartSeven, this);
         game.onResume.add(resumePartSeven, this);

@@ -10,6 +10,7 @@
              </div>
         </div>
     </section>
+    <script src="/js/phaser/tudlui/quiz.js"></script>
     <script src="/js/phaser/tudlui/part_10.js"></script>
     <script src="/js/phaser/tudlui/part_9.js"></script>
     <script src="/js/phaser/tudlui/part_8.js"></script>

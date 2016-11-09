@@ -7,7 +7,7 @@
       "c": "Gary Adalgar",
       "d": "Edward Ami",
       "correct_answer" : "b",
-      "image_src" : ""
+      "image_src" : "quiz1"
     },
     "2": {
       "question": "1. The Big-O notation was invented by which German number theoretician?",
@@ -16,7 +16,7 @@
       "c": "Edward Ami",
       "d": "Gary Adalgar",
       "correct_answer" : "a",
-      "image_src" : ""
+      "image_src" : "quiz1"
     },
     "3": {
       "question": "1. The Big-O notation was invented by which German number theoretician?",
@@ -25,7 +25,7 @@
       "c": "Gary Adalgar",
       "d": "Edmund Landau",
       "correct_answer" : "d",
-      "image_src" : ""
+      "image_src" : "quiz1"
     },
     "4": {
       "question": "1. The Big-O notation was invented by which German number theoretician?",
@@ -34,7 +34,7 @@
       "c": "Edmund Landau",
       "d": "Edward Ami",
       "correct_answer" : "c",
-      "image_src" : ""
+      "image_src" : "quiz1"
     },
     "5": {
       "question": "1. The Big-O notation was invented by which German number theoretician?",
@@ -43,7 +43,7 @@
       "c": "Gary Adalgar",
       "d": "Paul Bachmann",
       "correct_answer" : "b",
-      "image_src" : ""
+      "image_src" : "quiz1"
     }
   },
   "question2" : {
@@ -54,7 +54,7 @@
       "c": "8",
       "d": "14",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz2"
     },
     "2": {
       "question": "2. Based on the function found below, how many steps will be executed if the input is 1?",
@@ -63,7 +63,7 @@
       "c": "7",
       "d": "23",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz2"
     },
     "3": {
       "question": "2. Based on the function found below, how many steps will be executed if the input is 2?",
@@ -72,7 +72,7 @@
       "c": "26",
       "d": "9",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz2"
     },
     "4": {
       "question": "2. Based on the function found below, how many steps will be executed if the input is 3?",
@@ -81,7 +81,7 @@
       "c": "9",
       "d": "4",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz2"
     },
     "5": {
       "question": "2. Based on the function found below, how many steps will be executed if the input is 4?",
@@ -90,7 +90,7 @@
       "c": "4",
       "d": "29",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz2"
     }
   },
   "question3" : {
@@ -101,7 +101,7 @@
       "c": "O(1)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz3"
     },
     "2": {
       "question": "3. Which notation represents the complexity of the linear time?",
@@ -110,7 +110,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz3"
     },
     "3": {
       "question": "3. Which notation represents the complexity of the logarithmic time?",
@@ -119,7 +119,7 @@
       "c": "O(1)",
       "d": "O(n^2)",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz3"
     },
     "4": {
       "question": "3. Which notation represents the complexity of the exponential time??",
@@ -128,7 +128,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz3"
     },
     "5": {
       "question": "3. Which notation represents the complexity of the constant time?",
@@ -137,7 +137,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz3"
     }
   },
   "question4" : {
@@ -147,8 +147,8 @@
       "b": "O(log n)",
       "c": "O(1)",
       "d": "O(n^2)",
-      "correct_answer": "a",
-      "image_src": ""
+      "correct_answer": "c",
+      "image_src": "quiz4"
     },
     "2": {
       "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
@@ -156,8 +156,8 @@
       "b": "O(n)",
       "c": "O(2^n)",
       "d": "O(log n)",
-      "correct_answer": "b",
-      "image_src": ""
+      "correct_answer": "a",
+      "image_src": "quiz4"
     },
     "3": {
       "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
@@ -165,8 +165,8 @@
       "b": "O(log n)",
       "c": "O(1)",
       "d": "O(n^2)",
-      "correct_answer": "b",
-      "image_src": ""
+      "correct_answer": "c",
+      "image_src": "quiz4"
     },
     "4": {
       "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
@@ -174,8 +174,8 @@
       "b": "O(n)",
       "c": "O(2^n)",
       "d": "O(log n)",
-      "correct_answer": "c",
-      "image_src": ""
+      "correct_answer": "a",
+      "image_src": "quiz4"
     },
     "5": {
       "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
@@ -184,7 +184,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz4"
     }
   },
   "question5" : {
@@ -195,7 +195,7 @@
       "c": "O(n)",
       "d": "O(2^n)",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz5"
     },
     "2": {
       "question": "5. Which is the most efficient among these time complexity?",
@@ -204,7 +204,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz5"
     },
     "3": {
       "question": "5. Which is the most efficient among these time complexity?",
@@ -213,7 +213,7 @@
       "c": "O(n^5)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz5"
     },
     "4": {
       "question": "5. Which is the most efficient among these time complexity?",
@@ -222,7 +222,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz5"
     },
     "5": {
       "question": "5. Which is the most efficient among these time complexity?",
@@ -231,7 +231,7 @@
       "c": "O(n)",
       "d": "O(log n)",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz5"
     }
   },
   "question6" : {
@@ -242,43 +242,43 @@
       "c": "F-G-C-D-A-E-B",
       "d": "F-C-D-G-B-A-E",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz6"
     },
     "2": {
-      "question": "6. Which is the most efficient among these time complexity?",
+      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
       "a": "F-C-D-G-B-A-E",
       "b": "F-C-G-D-A-E-B",
       "c": "G-F-C-D-A-E-B",
       "d": "F-G-C-D-A-E-B",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz6"
     },
     "3": {
-      "question": "6. Which is the most efficient among these time complexity?",
+      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
       "a": "G-F-C-D-A-E-B",
       "b": "F-G-C-D-A-E-B",
       "c": "F-C-G-D-A-E-B",
       "d": "F-C-D-G-B-A-E",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz6"
     },
     "4": {
-      "question": "6. Which is the most efficient among these time complexity?",
+      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
       "a": "G-F-C-D-A-E-B",
       "b": "F-G-C-D-A-E-B",
       "c": "F-C-D-G-B-A-E",
       "d": "F-C-G-D-A-E-B",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz6"
     },
     "5": {
-      "question": "6. Which is the most efficient among these time complexity?",
+      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
       "a": "F-G-C-D-A-E-B",
       "b": "G-F-C-D-A-E-B",
       "c": "F-C-D-G-B-A-E",
       "d": "F-C-G-D-A-E-B",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz6"
     }
   },
   "question7" : {
@@ -289,7 +289,7 @@
       "c": "O(1)",
       "d": "O(3)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz7"
     },
     "2": {
       "question": "7. What is the complexity of this snippet of code?",
@@ -298,7 +298,7 @@
       "c": "O(1)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz7"
     },
     "3": {
       "question": "7. What is the complexity of this snippet of code?",
@@ -307,7 +307,7 @@
       "c": "O(3)",
       "d": "O(1)",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz7"
     },
     "4": {
       "question": "7. What is the complexity of this snippet of code?",
@@ -316,7 +316,7 @@
       "c": "O(n)",
       "d": "O(n^2)",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz7"
     },
     "5": {
       "question": "7. What is the complexity of this snippet of code?",
@@ -325,7 +325,7 @@
       "c": "O(1)",
       "d": "O(n)",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz7"
     }
   },"question8" : {
     "1": {
@@ -335,7 +335,7 @@
       "c": "7",
       "d": "81",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz8"
     },
     "2": {
       "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
@@ -344,7 +344,7 @@
       "c": "2",
       "d": "7",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz8"
     },
     "3": {
       "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
@@ -353,7 +353,7 @@
       "c": "2",
       "d": "81",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz8"
     },
     "4": {
       "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
@@ -362,7 +362,7 @@
       "c": "81",
       "d": "2",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz8"
     },
     "5": {
       "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
@@ -371,7 +371,7 @@
       "c": "7",
       "d": "1",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz8"
     }
   },"question9": {
     "1": {
@@ -381,7 +381,7 @@
       "c": "O(n)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz9"
     },
     "2": {
       "question": "9. What is the big O of the binary search?",
@@ -390,7 +390,7 @@
       "c": "O(n)",
       "d": "O(n log n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz9"
     },
     "3": {
       "question": "9. What is the big O of the binary search?",
@@ -399,7 +399,7 @@
       "c": "O(n^2)",
       "d": "O(log n)",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz9"
     },
     "4": {
       "question": "9. What is the big O of the binary search?",
@@ -408,7 +408,7 @@
       "c": "O(log n)",
       "d": "O(n^2)",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz9"
     },
     "5": {
       "question": "9. What is the big O of the binary search?",
@@ -417,7 +417,7 @@
       "c": "O(n)",
       "d": "O(n log n)",
       "correct_answer": "B",
-      "image_src": ""
+      "image_src": "quiz9"
     }
   },"question10": {
     "1": {
@@ -427,7 +427,7 @@
       "c": "O(n)",
       "d": "O(n^2)",
       "correct_answer": "d",
-      "image_src": ""
+      "image_src": "quiz10"
     },
     "2": {
       "question": "10. What is the complexity of this snippet of code?",
@@ -436,7 +436,7 @@
       "c": "O(n^3)",
       "d": "O(n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz10"
     },
     "3": {
       "question": "10. What is the complexity of this snippet of code?",
@@ -445,7 +445,7 @@
       "c": "O(n^2)",
       "d": "O(n)",
       "correct_answer": "c",
-      "image_src": ""
+      "image_src": "quiz10"
     },
     "4": {
       "question": "10. What is the complexity of this snippet of code?",
@@ -454,7 +454,7 @@
       "c": "O(n^3)",
       "d": "O(n)",
       "correct_answer": "b",
-      "image_src": ""
+      "image_src": "quiz10"
     },
     "5": {
       "question": "10. What is the complexity of this snippet of code?",
@@ -463,7 +463,7 @@
       "c": "O(n^3)",
       "d": "O(n log n)",
       "correct_answer": "a",
-      "image_src": ""
+      "image_src": "quiz10"
     }
   }
 }

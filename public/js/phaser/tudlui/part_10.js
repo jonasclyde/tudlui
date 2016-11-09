@@ -131,12 +131,10 @@ function resumePartNine() {
 
 function backChapterNine(){
     partNineMusic.stop();
-    game.state.start('part_7', true, false,code,name);
+    game.state.start('part_9', true, false,code,name);
 }
 
 function nextChapterNine(){
-    if(correct){
         partNineMusic.stop();
-        //game.state.start('part_6', true, false,code,name);
-    }
+        game.state.start('quiz', true, false,code,name);
 }

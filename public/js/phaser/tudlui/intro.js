@@ -14,6 +14,7 @@ game.state.add('part_7', partSeven);
 game.state.add('part_8', partEight);
 game.state.add('part_9', partNine);
 game.state.add('part_10', partTen);
+game.state.add('quiz', quiz);
 
 
 function preload() {
@@ -86,9 +87,9 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
-    //music = game.add.audio('snow');
-    //music.loop = true;
-    //music.play();
+    music = game.add.audio('snow');
+    music.loop = true;
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -190,8 +191,7 @@ function tweenBalls(){
 }
 
 function startGame(){
-    //game.state.start('select_char');
-    game.state.start('part_10');
+    game.state.start('select_char');
 }
 
 function backToHome(){

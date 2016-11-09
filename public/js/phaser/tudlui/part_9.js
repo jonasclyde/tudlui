@@ -66,7 +66,7 @@ partNine.prototype = {
         note3 =  game.add.text(650,270, "* In this example, the for loop was repeated 3 times.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
         note4 =  game.add.text(650,305, "* We only consider the worst case running time which is the size of\n" +
         " the whole array or the number elements inside the array (n).",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
-        note5 =  game.add.text(650,360, "* This is an example of O(n) where n is the number of elements in the array.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
+        note5 =  game.add.text(650,360, "* This is the of O(n) where n is the number of elements in the array.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
         note6 =  game.add.text(650,395, "* Imagine if the array has 1000 elements and 'O' is at the last element\n" +
         " of the array, the for loop or inner code is ran 1000 times.",  { font: "14px Raleway", fill: "#000000", fontWeight: 'bold'});
 

@@ -142,8 +142,7 @@ function backChapterSeven(){
 }
 
 function nextChapterSeven(){
-    if(correct){
         partSevenMusic.stop();
-        //game.state.start('part_6', true, false,code,name);
-    }
+        game.state.start('part_9', true, false,code,name);
+
 }

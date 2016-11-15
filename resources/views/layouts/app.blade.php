@@ -11,8 +11,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/tudlui.ico" />
 
     <!-- Fonts -->
+    <link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Slabo+27px">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link type="text/css" href="https://fonts.googleapis.com/css?family=Candal" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
 
     <!-- Styles -->
@@ -32,6 +32,8 @@
         body {
             font-family: 'Raleway';
         }
+
+
 
         .fa-btn {
             margin-right: 6px;

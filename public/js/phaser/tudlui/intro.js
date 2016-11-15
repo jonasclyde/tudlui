@@ -46,7 +46,7 @@ var about_us_constant;
 var ball_counter = 0;
 
 var vars, body1, body2, body3, body4, output1, output2;
-var text1, text2, text3, text4, text5, text6, text7;
+var text1, text2, text3, text4, text5, text6, text7, text8;
 var for_1, for_2, for_3;
 var tween_counter = 1;
 
@@ -66,10 +66,9 @@ function create() {
         circle[i] = new Phaser.Circle(1150, 120, 6);
     }
 
-    music = game.add.audio('snow');
     sound = game.add.sprite(1060, 30, 'sounds');
-    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Raleway", fill: "#000000", align: "center" });
-    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#000000", align: "center" });
+    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center", stroke: "#34486b", strokeThickness:3.5 });
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#FFFFFF", align: "center" });
     about_us_constant= game.add.text(330,150, "         This e-Learning material was created to help students better understand \n" +
         "the complexity of an algorithm using the 'Big-O notation'. The main objective \n" +
         "of the module is to provide a simple and effective material with the help of\n" +
@@ -78,8 +77,8 @@ function create() {
         "they want to and at their own pace."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#000000", align: 'left'});
-    O = game.add.text(620, 70, "O", { font: "55px Raleway", fill: "#ff0000", align: "center" });
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#FFFFFF", align: 'left'});
+    O = game.add.text(635, 70, "O", { font: "55px Raleway", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -87,9 +86,9 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
-    music = game.add.audio('snow');
-    music.loop = true;
-    music.play();
+    //music = game.add.audio('snow');
+    //music.loop = true;
+    //music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -114,24 +113,26 @@ function create() {
 
     tweenBalls();
 
-    vars = ["var text = 'Hello World';", "var x = 0;"];
+    vars = ["char word[ ] = 'Hello World' ;", "int x = 0 ;"];
 
-    body1 = ["while ( x < 3 ){"];
-    body2 = ["  echo text;"];
-    body3 = ["  x++;"];
+    body1 = ["while ( x < word_length ) {"];
+    body2 = ["  printf( '%s' , word ) ;"];
+    body3 = ["  x++ ;"];
     body4 = ["}"];
 
     output1= ["x : 0"];
     output2= ["output : "];
 
-    text1 =  game.add.text(10, 150, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
     text1.alpha = 0;
-    text2 =  game.add.text(10, 240, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text3 =  game.add.text(10, 270, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text4 =  game.add.text(10, 300, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text5 =  game.add.text(10, 330, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text6 =  game.add.text(10, 390, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
-    text7 =  game.add.text(10, 410, '', { font: "18px Raleway", fill: "#000000", align: "left", fontWeight: "bold"});
+    text2 =  game.add.text(10, 240, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
+    text3 =  game.add.text(10, 270, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
+    text4 =  game.add.text(10, 300, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
+    text5 =  game.add.text(10, 330, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
+    text6 =  game.add.text(10, 390, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
+    text7 =  game.add.text(10, 410, '', { font: "16px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
+    text8 =  game.add.text(10, 500, 'O(n) complexity', { font: "19px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
+    text8.alpha = 0;
 
     for_1 = game.add.tween(text2.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, false, 0, 0, true);
     for_2 = game.add.tween(text3.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, false, 0, 0, true);
@@ -147,13 +148,13 @@ function update() {
 
 function render() {
 
-    game.debug.geom(circle[0], '#ff0000');
-    game.debug.geom(circle[1], '#ff0000');
-    game.debug.geom(circle[2], '#ff0000');
-    game.debug.geom(circle[3], '#ff0000');
-    game.debug.geom(circle[4], '#ff0000');
-    game.debug.geom(circle[5], '#ff0000');
-    game.debug.geom(circle[6], '#ff0000');
+    game.debug.geom(circle[0], '#34486b');
+    game.debug.geom(circle[1], '#34486b');
+    game.debug.geom(circle[2], '#34486b');
+    game.debug.geom(circle[3], '#34486b');
+    game.debug.geom(circle[4], '#34486b');
+    game.debug.geom(circle[5], '#34486b');
+    game.debug.geom(circle[6], '#34486b');
 
 }
 
@@ -170,7 +171,7 @@ function toggleSound(){
 function tweenBalls(){
     setTimeout(function () {    //  call a 3s setTimeout when the loop is called
         game.add.tween(circle[ball_counter]).to({
-            x: [1045 ,642, 631, 624, 627, 642, 652, 659, 653, 642, 631, 624, 627, 627],
+            x: [1060 ,657, 646, 639, 642, 657, 667, 674, 668, 657, 646, 639, 642, 642],
             y: [120 , 120, 113, 102, 90, 84, 87, 102, 116, 120, 113, 102, 90, -40]
         }, 1500,"Linear", true);
         ball_counter++;
@@ -292,10 +293,10 @@ function nextWord1() {
 
     text1.text = text1.text.concat(line1[wordIndex1] + " ");
 
-    text1.addColor('#ff0000', 4);
-    text1.addColor('#000000', 8);
-    text1.addColor('#ff0000', 30);
-    text1.addColor('#000000', 31);
+    //text1.addColor('#ff0000', 4);
+    //text1.addColor('#000000', 8);
+    //text1.addColor('#ff0000', 30);
+    //text1.addColor('#000000', 31);
 
     wordIndex1++;
 
@@ -331,10 +332,10 @@ function nextWord2() {
     text2.text = text2.text.concat(line2[wordIndex2] + " ");
 
 
-    text2.addColor('#ff0000', 8);
-    text2.addColor('#000000', 9);
-    text2.addColor('#ff0000', 12);
-    text2.addColor('#000000', 13);
+    //text2.addColor('#ff0000', 8);
+    //text2.addColor('#000000', 9);
+    //text2.addColor('#ff0000', 12);
+    //text2.addColor('#000000', 13);
 
     wordIndex2++;
 
@@ -369,8 +370,8 @@ function nextWord3() {
 
     text3.text = text3.text.concat(line3[wordIndex3] + " ");
 
-    text3.addColor('#ff0000', 7);
-    text3.addColor('#000000', 11);
+    //text3.addColor('#ff0000', 7);
+    //text3.addColor('#000000', 11);
 
     wordIndex3++;
 
@@ -406,8 +407,8 @@ function nextWord4() {
 
     text4.text = text4.text.concat(line4[wordIndex4] + " ");
 
-    text4.addColor('#ff0000', 2);
-    text4.addColor('#000000', 3);
+    //text4.addColor('#ff0000', 2);
+    //text4.addColor('#000000', 3);
 
     wordIndex4++;
 
@@ -475,8 +476,8 @@ function nextWord6() {
 
     text6.text = text6.text.concat(line6[wordIndex6] + " ");
 
-    text6.addColor('#ff0000', 0);
-    text6.addColor('#000000', 1);
+    //text6.addColor('#ff0000', 0);
+    //text6.addColor('#000000', 1);
 
     wordIndex6++;
 
@@ -512,8 +513,8 @@ function nextWord7() {
 
     text7.text = text7.text.concat(line7[wordIndex7] + " ");
 
-    text7.addColor('#ff0000', 0);
-    text7.addColor('#000000', 6);
+    //text7.addColor('#ff0000', 0);
+    //text7.addColor('#000000', 6);
 
     wordIndex7++;
 
@@ -551,8 +552,11 @@ function for3Tween(){
     if(tween_counter < 4){
         for_3.onComplete.addOnce(for1Tween, this);
     }else{
-        tween_counter=1;
-        for_3.onComplete.addOnce(fadeOutTween, this);
+        game.add.tween(text8).to({alpha:1}, 1000, "Linear", true, 0, 0, false);
+        setTimeout(function(){
+            tween_counter=1;
+            for_3.onComplete.addOnce(fadeOutTween, this);
+        }, 1000);
     }
     for_3.start();
 }
@@ -566,6 +570,7 @@ function fadeOutTween(){
     game.add.tween(text5).to({alpha:0}, 1000, "Linear", true, 0, 0, true);
     game.add.tween(text6).to({alpha:0}, 1000, "Linear", true, 0, 0, true);
     game.add.tween(text7).to({alpha:0}, 1000, "Linear", true, 0, 0, true);
+    game.add.tween(text8).to({alpha:0}, 1000, "Linear", true, 0, 0, false);
 
     setTimeout(function () {
         startAnimation()

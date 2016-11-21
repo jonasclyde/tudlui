@@ -6,11 +6,14 @@
 var selectChar = function(game){
 };
 
-var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter;
+var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter, help1;
 var girl_1_pic, girl_2_pic , girl_3_pic, boy_1_pic, boy_2_pic, boy_3_pic;
-var selected, choose, input_name, name, code;
+var selected, choose, input_name, name, code, error;
 
 selectChar.prototype = {
+    init: function(bool_music) {
+
+    },
     preload: function(){
         this.load.spritesheet('girl_1','../images/phaser/girl_1_sheet.jpg', 150, 150 );
         this.load.spritesheet('girl_2','../images/phaser/girl_2_sheet.jpg', 150, 150 );
@@ -19,6 +22,7 @@ selectChar.prototype = {
         this.load.spritesheet('boy_2','../images/phaser/boy_2_sheet.jpg', 150, 150 );
         this.load.spritesheet('boy_3','../images/phaser/boy_3_sheet.jpg', 150, 150 );
         this.load.spritesheet('enter','../images/phaser/button_enter_sprite.jpg', 193, 71 );
+        this.load.audio('error', '../music/error.mp3');
 
     },
     create: function(){
@@ -27,22 +31,26 @@ selectChar.prototype = {
         game.add.plugin(Fabrique.Plugins.InputField);
 
         input_name = game.add.inputField(780, 190, {
-            font: '18px Raleway',
-            fill: '#212121',
+            font: '18px Varela',
+            fill: '#34486b',
             fontWeight: 'bold',
             width: 220,
             height: 20,
             padding: 10,
-            borderWidth: 1,
-            borderColor: '#000',
+            borderWidth: 3,
+            borderColor: '#34486b',
             borderRadius: 6,
             placeHolder: 'Enter your nickname.'
         });
 
 
 
+        if(bool_music){
+            sound = game.add.sprite(1060, 30, 'sounds');
+        }else{
+            sound = game.add.sprite(1060, 30, 'mute');
+        }
 
-        sound = game.add.sprite(1060, 30, 'sounds');
 
         sound.inputEnabled = true;
         sound.events.onInputDown.add(toggleSound, this);
@@ -115,8 +123,11 @@ selectChar.prototype = {
         boy_3.inputEnabled = true;
         boy_3.events.onInputDown.add(selectAvatar, this);
 
-        choose = game.add.text(750, 30, 'Select your character and\n'+
-            'enter your name.',  { font: "24px Raleway", fill: "#000000", align: "center" });
+        help1 = game.add.button(1010, 30, 'help', helpOne, this, 1, 0, 1);
+        error = game.add.audio('error');
+
+        choose = game.add.text(750, 80, 'Select your character and\n'+
+            'enter your name.',  { font: "24px Varela", fill: "#34486b", align: 'center', stroke: "#E9FBE9", strokeThickness:.5  });
 
     },
     update: function(){
@@ -128,6 +139,7 @@ selectChar.prototype = {
 }
 
 function selectAvatar(char){
+    click.play();
     selected = char.variable;
     code = char.code;
     switch(selected) {
@@ -218,12 +230,28 @@ function selectAvatar(char){
 }
 
 function enterGame(){
+
     name = input_name.value;
-    if(name) {
+    if(name && selected != undefined) {
         music.stop();
         game.state.start('part_1', true, false,code,name);
-    }
+    }else if(!name){
+        input_name = game.add.inputField(780, 190, {
+            font: '18px Varela',
+            fill: '#34486b',
+            fontWeight: 'bold',
+            width: 220,
+            height: 20,
+            padding: 10,
+            borderWidth: 3,
+            borderColor: '#FF0000',
+            borderRadius: 6,
+            placeHolder: 'Enter your nickname.'
+        });
 
+        error.play();
+    }
+    console.log(  input_name.inputOptions.borderColor);
 }
 
 

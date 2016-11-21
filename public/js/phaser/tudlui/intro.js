@@ -31,7 +31,10 @@ function preload() {
     this.load.audio('click', '../music/click.mp3');
     this.load.audio('help_sound', '../music/help.mp3');
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
-    this.load.spritesheet('help','../images/phaser/help_sprite.png', 40, 40 );
+    this.load.image('help','../images/phaser/help.png');
+    this.load.image('helper1','../images/phaser/start_help.png');
+    this.load.image('helper2','../images/phaser/about_help.png');
+    this.load.image('help_arr','../images/phaser/button_help.png');
 
 }
 
@@ -44,7 +47,7 @@ var circle = [];
 //var line1, line2, line3;
 var btn1, btn2, btn3;
 var about_us_header;
-var about_us_constant, help1;
+var about_us_constant, help1, bool_music = 1;
 
 var ball_counter = 0;
 
@@ -57,6 +60,8 @@ var line1 = [], line2 =[], line3 =[], line4 =[], line5 =[], line6 =[], line7 =[]
 
 var wordIndex1 = 0, wordIndex2 = 0, wordIndex3 = 0, wordIndex4 = 0, wordIndex5 = 0, wordIndex6 = 0, wordIndex7 = 0;
 var lineIndex1 = 0, lineIndex2 = 0, lineIndex3 = 0, lineIndex4 = 0, lineIndex5 = 0, lineIndex6 = 0, lineIndex7 = 0;
+
+var arr1, arr2, arr3, helper1, helper2, page=0;
 
 var wordDelay = 180;
 var lineDelay = 300;
@@ -72,16 +77,15 @@ function create() {
     sound = game.add.sprite(1060, 30, 'sounds');
 
     title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center"});
-    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#FFFFFF", align: "center" });
-    about_us_constant= game.add.text(330,150, "         This e-Learning material was created to help students better understand \n" +
-        "the complexity of an algorithm using the 'Big-O notation'. The main objective \n" +
-        "of the module is to provide a simple and effective material with the help of\n" +
-        "text and graphic animations. What's best about this is that students can now \n" +
-        "learn anywhere " +
-        "they want to and at their own pace."+
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:2  });
+    about_us_constant= game.add.text(330,150, "         This eLearning course aims to help students better comprehend the \n" +
+        "complexity of an algorithm using the 'Big-O notation'. The main objective of the \n" +
+        "module is to provide a simple, effective, and portable tool that teaches students \n" +
+        "how to compute the Big-O and allows them to practice this anywhere they \n" +
+        "want with the help of animations and sounds."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#FFFFFF", align: 'left'});
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#34486b", align: 'left', stroke: "#E9FBE9", strokeThickness:.08  });
     O = game.add.text(635, 70, "O", { font: "55px Varela", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
 
     about_us_constant.lineSpacing = 13;
@@ -89,6 +93,17 @@ function create() {
 
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
+
+    helper1 = game.add.sprite(780, 420, 'helper1');
+    helper2 = game.add.sprite(780, 420, 'helper2');
+    arr1 = game.add.sprite(410, 335, 'help_arr');
+    arr2 = game.add.sprite(410, 435, 'help_arr');
+    arr3 = game.add.sprite(460, 453, 'help_arr');
+    helper1.alpha = 0;
+    helper2.alpha = 0;
+    arr1.alpha = 0;
+    arr2.alpha = 0;
+    arr3.alpha = 0;
 
     music = game.add.audio('happy');
     click = game.add.audio('click');
@@ -114,8 +129,6 @@ function create() {
     btn1.alpha = 0;
     btn2.alpha = 0;
     btn3.alpha = 0;
-    btn1.inputEnabled = false;
-    btn2.inputEnabled = false;
 
 
     tweenBalls();
@@ -167,15 +180,58 @@ function render() {
 
 function helpOne(){
     help_sound.play();
+    if(!page){
+        btn1.inputEnabled = false;
+        btn2.inputEnabled = false;
+        game.add.tween(helper1).to({ alpha: 1 }, 1000, "Linear", true);
+        setTimeout(function(){
+            game.add.tween(helper1).to({ alpha: 0 }, 1000, "Linear", true);
+        },4000)
+
+        game.add.tween(arr1).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
+        game.add.tween(arr2).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
+
+        setTimeout(function(){
+            game.add.tween(arr1).to({ alpha: 1 }, 1000, "Linear", true);
+            game.add.tween(arr2).to({ alpha: 1 }, 1000, "Linear", true);
+        },2000)
+
+        setTimeout(function(){
+            game.add.tween(arr1).to({ alpha: 0 }, 1000, "Linear", true);
+            game.add.tween(arr2).to({ alpha: 0 }, 1000, "Linear", true);
+            btn1.inputEnabled = true;
+            btn2.inputEnabled = true;
+        },3000)
+    }else{
+        btn3.inputEnabled = false;
+        game.add.tween(helper2).to({ alpha: 1 }, 1000, "Linear", true);
+        setTimeout(function(){
+            game.add.tween(helper2).to({ alpha: 0 }, 1000, "Linear", true);
+        },4000)
+
+        game.add.tween(arr3).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
+
+        setTimeout(function(){
+            game.add.tween(arr3).to({ alpha: 1 }, 1000, "Linear", true);
+        },2000)
+
+        setTimeout(function(){
+            game.add.tween(arr3).to({ alpha: 0 }, 1000, "Linear", true);
+            btn3.inputEnabled = true;
+        },3000)
+    }
+
 }
 
 function toggleSound(){
     if(sound.key == 'sounds'){
         music.mute = true;
-        sound.loadTexture('mute')
+        sound.loadTexture('mute');
+        bool_music = 0;
     }else{
         music.mute = false;
         sound.loadTexture('sounds')
+        bool_music = 1;
     }
 }
 
@@ -194,8 +250,6 @@ function tweenBalls(){
                 setTimeout(function (){
                     game.add.tween(btn1).to({ alpha: 1 }, 2000, "Linear", true);
                     game.add.tween(btn2).to({ alpha: 1 }, 2000, "Linear", true);
-                    btn1.inputEnabled = true;
-                    btn2.inputEnabled = true;
                 }, 1000)
             }, 1000)
         }                                    //  ..  setTimeout()
@@ -204,11 +258,12 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('select_char');
+    game.state.start('select_char', true, false,bool_music);
 }
 
 function backToHome(){
     click.play();
+    page=0;
     O.alpha = 1;
     title.alpha = 1;
     btn1.alpha = 1;
@@ -226,6 +281,7 @@ function backToHome(){
 function showAbout(){
 
     click.play();
+    page=1;
     O.alpha = 0;
     title.alpha = 0;
     btn1.alpha = 0;

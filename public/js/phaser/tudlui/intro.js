@@ -23,30 +23,33 @@ function preload() {
 
     this.load.image('background', '../images/phaser/background.jpg');
     this.load.image('sounds', '../images/phaser/sounds.png');
-    this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 193, 71);
-    this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 193, 71);
-    this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 193, 71);
+    this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 150, 50);
+    this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 150, 50);
+    this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
     this.load.image('mute', '../images/phaser/mute.png');
-    this.load.audio('snow', '../music/snow.mp3');
+    this.load.audio('happy', '../music/happy.mp3');
+    this.load.audio('click', '../music/click.mp3');
+    this.load.audio('help_sound', '../music/help.mp3');
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
+    this.load.spritesheet('help','../images/phaser/help_sprite.png', 40, 40 );
 
 }
 
 var music;
 var point;
-var sound;
+var sound, click;
 var title, O;
 var loop;
 var circle = [];
 //var line1, line2, line3;
 var btn1, btn2, btn3;
 var about_us_header;
-var about_us_constant;
+var about_us_constant, help1;
 
 var ball_counter = 0;
 
 var vars, body1, body2, body3, body4, output1, output2;
-var text1, text2, text3, text4, text5, text6, text7, text8;
+var text1, text2, text3, text4, text5, text6, text7, text8, help_sound;
 var for_1, for_2, for_3;
 var tween_counter = 1;
 
@@ -67,8 +70,9 @@ function create() {
     }
 
     sound = game.add.sprite(1060, 30, 'sounds');
-    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center", stroke: "#34486b", strokeThickness:3.5 });
-    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Raleway", fill: "#FFFFFF", align: "center" });
+
+    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center"});
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#FFFFFF", align: "center" });
     about_us_constant= game.add.text(330,150, "         This e-Learning material was created to help students better understand \n" +
         "the complexity of an algorithm using the 'Big-O notation'. The main objective \n" +
         "of the module is to provide a simple and effective material with the help of\n" +
@@ -77,8 +81,8 @@ function create() {
         "they want to and at their own pace."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Raleway", fill: "#FFFFFF", align: 'left'});
-    O = game.add.text(635, 70, "O", { font: "55px Raleway", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#FFFFFF", align: 'left'});
+    O = game.add.text(635, 70, "O", { font: "55px Varela", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -86,9 +90,11 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
-    //music = game.add.audio('snow');
-    //music.loop = true;
-    //music.play();
+    music = game.add.audio('happy');
+    click = game.add.audio('click');
+    help_sound = game.add.audio('help_sound');
+    music.loop = true;
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -100,9 +106,10 @@ function create() {
     //line2 = game.add.sprite(20, 100, 'line');
     //line3 = game.add.sprite(140, 100, 'line');
 
-    btn1 = game.add.button(490, 245, 'start', startGame, this, 1, 0, 2);
-    btn2 = game.add.button(490, 370, 'about', showAbout, this, 1, 0, 2);
+    btn1 = game.add.button(520, 350, 'start', startGame, this, 1, 0, 2);
+    btn2 = game.add.button(520, 450, 'about', showAbout, this, 1, 0, 2);
     btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
+    help1 = game.add.button(1010, 30, 'help', helpOne, this, 1, 0, 1);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
@@ -158,6 +165,10 @@ function render() {
 
 }
 
+function helpOne(){
+    help_sound.play();
+}
+
 function toggleSound(){
     if(sound.key == 'sounds'){
         music.mute = true;
@@ -192,10 +203,12 @@ function tweenBalls(){
 }
 
 function startGame(){
+    click.play();
     game.state.start('select_char');
 }
 
 function backToHome(){
+    click.play();
     O.alpha = 1;
     title.alpha = 1;
     btn1.alpha = 1;
@@ -212,6 +225,7 @@ function backToHome(){
 
 function showAbout(){
 
+    click.play();
     O.alpha = 0;
     title.alpha = 0;
     btn1.alpha = 0;

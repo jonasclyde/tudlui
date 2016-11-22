@@ -8,7 +8,7 @@ var partTwo = function(game){
 
 var lineOne = [];
 var wordIndexOne;
-var avatar,nick, textO, picLandau, textCode, textOutput,textOutputLabel, textDescription, textTitle, btnnOne, partOneMusic, textIterator;
+var avatar,nick, textO, picLandau, textCode, textOutput,textOutputLabel, textDescription, textTitle, btnnOne, partOneMusic, textIterator, help5;
 var contentOne =
     "The Big O notation or the Landau's symbol is used to describe the performance or complexity of an algorithm. " +
     "It gives the estimation of the worst-case scenario and execution time of an algorithm. " +
@@ -29,17 +29,20 @@ partTwo.prototype = {
 
         game.background = this.game.add.sprite(0,0, 'background');
 
+        name_bg = game.add.sprite(885, 5, 'name_bg');
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;
         avatar.scale.setTo(0.4,0.4);
-        nick = game.add.text(960,25, name, { font: "24px Raleway", fill: "#000000"});
+
+        nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
+        help4 = game.add.button(840, 25, 'help', helpThree, this, 1, 0, 1);
         partOneMusic = game.add.audio('partOne');
         partOneMusic.play();
 
-        textTitle= game.add.text(100,40, "II. The Big O Notation.", { font: "27px Raleway", fill: "#000000"});
+        textTitle= game.add.text(100,40, "The Big O Notation", {  font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  });
         textDescription = game.add.text(170, 120, "The Big O notation (Landau's symbol) is used to describe the performance or complexity of an \n" +
             "algorithm. It gives the estimation of the worst-case scenario and execution time of an algorithm.\n" +
             "To be more specific, it measures the efficiency and the growth rate of the time the algorithm takes \n" +
@@ -74,7 +77,7 @@ partTwo.prototype = {
         game.onPause.add(pausePartOne, this);
         game.onResume.add(resumePartOne, this);
 
-        btnnOne = game.add.button(1050, 500, 'next', nextChapterOne, this, 1, 0, 1);
+        btnnOne = game.add.button(947, 547, 'next', nextChapterOne, this, 1, 0, 1);
     },
     update: function(){
 

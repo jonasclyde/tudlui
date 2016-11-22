@@ -35,6 +35,7 @@ function preload() {
     this.load.image('helper1','../images/phaser/start_help.png');
     this.load.image('helper2','../images/phaser/about_help.png');
     this.load.image('help_arr','../images/phaser/button_help.png');
+    this.load.image('test','../images/phaser/test.png');
 
 }
 
@@ -51,7 +52,7 @@ var about_us_constant, help1, bool_music = 1;
 
 var ball_counter = 0;
 
-var vars, body1, body2, body3, body4, output1, output2;
+var vars, body1, body2, body3, body4, output1, output2, test;
 var text1, text2, text3, text4, text5, text6, text7, text8, help_sound;
 var for_1, for_2, for_3;
 var tween_counter = 1;
@@ -77,7 +78,8 @@ function create() {
     sound = game.add.sprite(1060, 30, 'sounds');
 
     title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center"});
-    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:2  });
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:2, fontWeight: '900'  });
+    //test =game.add.sprite(300,140, 'test');
     about_us_constant= game.add.text(330,150, "         This eLearning course aims to help students better comprehend the \n" +
         "complexity of an algorithm using the 'Big-O notation'. The main objective of the \n" +
         "module is to provide a simple, effective, and portable tool that teaches students \n" +
@@ -85,7 +87,7 @@ function create() {
         "want with the help of animations and sounds."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#34486b", align: 'left', stroke: "#E9FBE9", strokeThickness:.08  });
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#34486b", align: 'left', fontWeight: '900'});
     O = game.add.text(635, 70, "O", { font: "55px Varela", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
 
     about_us_constant.lineSpacing = 13;
@@ -109,7 +111,7 @@ function create() {
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     music.loop = true;
-    music.play();
+    //music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -183,6 +185,8 @@ function helpOne(){
     if(!page){
         btn1.inputEnabled = false;
         btn2.inputEnabled = false;
+        help1.inputEnabled = false;
+
         game.add.tween(helper1).to({ alpha: 1 }, 1000, "Linear", true);
         setTimeout(function(){
             game.add.tween(helper1).to({ alpha: 0 }, 1000, "Linear", true);
@@ -201,9 +205,11 @@ function helpOne(){
             game.add.tween(arr2).to({ alpha: 0 }, 1000, "Linear", true);
             btn1.inputEnabled = true;
             btn2.inputEnabled = true;
+            help1.inputEnabled = true;
         },3000)
     }else{
         btn3.inputEnabled = false;
+        help1.inputEnabled = false;
         game.add.tween(helper2).to({ alpha: 1 }, 1000, "Linear", true);
         setTimeout(function(){
             game.add.tween(helper2).to({ alpha: 0 }, 1000, "Linear", true);
@@ -218,6 +224,7 @@ function helpOne(){
         setTimeout(function(){
             game.add.tween(arr3).to({ alpha: 0 }, 1000, "Linear", true);
             btn3.inputEnabled = true;
+            help1.inputEnabled = true;
         },3000)
     }
 

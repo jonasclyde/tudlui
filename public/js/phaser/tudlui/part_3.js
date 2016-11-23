@@ -10,7 +10,7 @@ var partThree = function(game){
 
 var wordIndexTwo;
 //var lineTwo = [],
-var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo;
+var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how;
 var contentTwo =
     "The marker0 big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
     " We use the Big O notation to express how quickly the algorithm's runtime grows given the number of marker4 input. " +
@@ -30,17 +30,24 @@ partThree.prototype = {
         game.background = this.game.add.sprite(0,0, 'background');
 
 
+        name_bg = game.add.sprite(885, 5, 'name_bg');
+
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;
         avatar.scale.setTo(0.4,0.4);
-        nick = game.add.text(960,25, name, { font: "24px Raleway", fill: "#000000"});
+
+        nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
-        partTwoMusic = game.add.audio('partTwoMusic');
-        partTwoMusic.play();
 
-        textTitle= game.add.text(100,40, "III. Why Big O and How?", { font: "27px Raleway", fill: "#000000"});
+        help6 = game.add.button(840, 25, 'help', helpFour, this, 1, 0, 1);
+        helper6 = game.add.sprite(430, 425, 'helper5');
+        helper6.alpha = 0;
+        //partTwoMusic = game.add.audio('partTwoMusic');
+        //partTwoMusic.play();
 
-        textO = game.add.text(100, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
+        textTitle= game.add.text(100,40, "What is Big-O and how?", {  font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  });
+
+        //textO = game.add.text(100, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
 
         descriptionO = game.add.text(370, 110, "The big O of an algorithm is represented by O(n) - pronounced 'Oh of en'.\n" +
             "It's a function, O, of the time an algorithm takes to run or the running time,\n" +
@@ -80,8 +87,8 @@ partThree.prototype = {
         game.onPause.add(pausePartTwo, this);
         game.onResume.add(resumePartTwo, this);
 
-        btnbTwo = game.add.button(960, 500, 'back', backChapterTwo, this, 0, 1, 0);
-        btnnTwo = game.add.button(1050, 500, 'next', nextChapterTwo, this, 1, 0, 1);
+        btnbTwo = game.add.button(3, 547, 'back', backChapterTwo, this, 1, 0, 1);
+        btnnTwo = game.add.button(945, 547, 'next', nextChapterTwo, this, 1, 0, 1);
     },
     update: function(){
 
@@ -96,53 +103,54 @@ function nextWordTwo() {
     console.log(lineTwo[wordIndexTwo])
     if(lineTwo[wordIndexTwo] == 'marker4'){
         partTwoMusic.pause();
-    }else if(lineTwo[wordIndexTwo] == "marker1"){
-        partTwoMusic.resume();
-        game.add.tween(countTwo).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineTwo[wordIndexTwo] == "inputs."){
-        game.add.tween(textCount).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-        game.add.tween(textCode).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
-    }else if(lineTwo[wordIndexTwo] == "marker2"){
-        textCode.addColor('#ff0000', 9);
-        textCode.addColor('#000000', 44);
-    } else if(lineTwo[wordIndexTwo] == "marker3"){
-        textCode.addColor('#000000', 9);
-        setTimeout(function(){
-            textCode.addColor('#ff0000', 11);
-            textCode.addColor('#000000', 16);
-        }, 1000);
-        setTimeout(function(){
-            textCode.addColor('#ff0000', 93);
-            textCode.addColor('#000000', 99);
-            textCount.setText("COUNT : 1");
-        }, 2000);
-        setTimeout(function(){
-            textCode.addColor('#000000', 93);
-            textCode.addColor('#ff0000', 106);
-            textCode.addColor('#000000', 121);
-            textCount.setText("COUNT : 2");
-        }, 3500);
-        setTimeout(function(){
-            textCode.addColor('#ff0000', 102);
-            textCode.addColor('#000000', 121);
-            textCount.setText("COUNT : 3");
-        }, 5000);
-        setTimeout(function(){
-            textCode.addColor('#000000', 102);
-            textCode.addColor('#000000', 106);
-            textCode.addColor('#ff0000', 135);
-            textCode.addColor('#000000', 163);
-            textCount.setText("COUNT : 4");
-        }, 6500);
-        setTimeout(function(){
-            textCode.addColor('#000000', 135);
-            textCode.addColor('#ff0000', 124);
-            textCode.addColor('#000000', 128);
-            textCount.setText("COUNT : 5");
-        }, 8000);
-    }else if(lineTwo[wordIndexTwo] == "marker0"){
-        game.add.tween(descriptionO).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
     }
+    // else if(lineTwo[wordIndexTwo] == "marker1"){
+    //    partTwoMusic.resume();
+    //    game.add.tween(countTwo).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    //}else if(lineTwo[wordIndexTwo] == "inputs."){
+    //    game.add.tween(textCount).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    //    game.add.tween(textCode).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    //}else if(lineTwo[wordIndexTwo] == "marker2"){
+    //    textCode.addColor('#ff0000', 9);
+    //    textCode.addColor('#000000', 44);
+    //} else if(lineTwo[wordIndexTwo] == "marker3"){
+    //    textCode.addColor('#000000', 9);
+    //    setTimeout(function(){
+    //        textCode.addColor('#ff0000', 11);
+    //        textCode.addColor('#000000', 16);
+    //    }, 1000);
+    //    setTimeout(function(){
+    //        textCode.addColor('#ff0000', 93);
+    //        textCode.addColor('#000000', 99);
+    //        textCount.setText("COUNT : 1");
+    //    }, 2000);
+    //    setTimeout(function(){
+    //        textCode.addColor('#000000', 93);
+    //        textCode.addColor('#ff0000', 106);
+    //        textCode.addColor('#000000', 121);
+    //        textCount.setText("COUNT : 2");
+    //    }, 3500);
+    //    setTimeout(function(){
+    //        textCode.addColor('#ff0000', 102);
+    //        textCode.addColor('#000000', 121);
+    //        textCount.setText("COUNT : 3");
+    //    }, 5000);
+    //    setTimeout(function(){
+    //        textCode.addColor('#000000', 102);
+    //        textCode.addColor('#000000', 106);
+    //        textCode.addColor('#ff0000', 135);
+    //        textCode.addColor('#000000', 163);
+    //        textCount.setText("COUNT : 4");
+    //    }, 6500);
+    //    setTimeout(function(){
+    //        textCode.addColor('#000000', 135);
+    //        textCode.addColor('#ff0000', 124);
+    //        textCode.addColor('#000000', 128);
+    //        textCount.setText("COUNT : 5");
+    //    }, 8000);
+    //}else if(lineTwo[wordIndexTwo] == "marker0"){
+    //    game.add.tween(descriptionO).to({alpha: 1}, 1000, "Linear", true, 0, 0, false);
+    //}
 
     wordIndexTwo++;
     //  Last word?

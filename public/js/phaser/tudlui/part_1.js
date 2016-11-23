@@ -64,7 +64,7 @@ partOne.prototype = {
         help4 = game.add.button(840, 25, 'help', helpThree, this, 1, 0, 1);
 
         btnb = game.add.button(3, 547, 'back', '', this, 1, 0, 1);
-        btnn = game.add.button(947, 547, 'next', nextChapter, this, 1, 0, 1);
+        btnn = game.add.button(945, 547, 'next', nextChapter, this, 1, 0, 1);
         btnb.alpha = 0;
 
         gs_title= game.add.text(100,40, "Getting Started", { font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  })

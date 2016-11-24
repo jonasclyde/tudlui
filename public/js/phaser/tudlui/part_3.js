@@ -10,7 +10,7 @@ var partThree = function(game){
 
 var wordIndexTwo;
 //var lineTwo = [],
-var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how;
+var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how, learn_more, selected = 0;
 var contentTwo =
     "The marker0 big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
     " We use the Big O notation to express how quickly the algorithm's runtime grows given the number of marker4 input. " +
@@ -24,11 +24,12 @@ partThree.prototype = {
     },
     preload: function(){
         game.load.audio('partTwoMusic', '../music/partTwo.mp3');
+        game.load.spritesheet('what', '../images/phaser/what.png', 200, 100);
+        game.load.spritesheet('how', '../images/phaser/how.png', 200, 100);
     },
     create: function(){
 
         game.background = this.game.add.sprite(0,0, 'background');
-
 
         name_bg = game.add.sprite(885, 5, 'name_bg');
 
@@ -39,8 +40,13 @@ partThree.prototype = {
         nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
+
+        what = game.add.button(300, 180, 'what',showWhat, this, 1, 0, 1);
+        how = game.add.button(600, 180, 'how',showHow, this, 1, 0, 1);
+
         help6 = game.add.button(840, 25, 'help', helpFour, this, 1, 0, 1);
         helper6 = game.add.sprite(430, 425, 'helper5');
+
         helper6.alpha = 0;
         //partTwoMusic = game.add.audio('partTwoMusic');
         //partTwoMusic.play();
@@ -84,8 +90,8 @@ partThree.prototype = {
 
         lineTwo = contentTwo.split(' ');
         game.time.events.repeat(Phaser.Timer.QUARTER * 1.5, lineTwo.length, nextWordTwo, this);
-        game.onPause.add(pausePartTwo, this);
-        game.onResume.add(resumePartTwo, this);
+        //game.onPause.add(pausePartTwo, this);
+        //game.onResume.add(resumePartTwo, this);
 
         btnbTwo = game.add.button(3, 547, 'back', backChapterTwo, this, 1, 0, 1);
         btnnTwo = game.add.button(945, 547, 'next', nextChapterTwo, this, 1, 0, 1);
@@ -96,6 +102,26 @@ partThree.prototype = {
     render: function(){
 
     }
+
+}
+
+function showWhat(){
+    //game.add.tween(what).to({ size: 0 }, 1000, "Linear", true);
+    //game.add.tween(how).to({ alpha: 0 }, 1000, "Linear", true);
+   game.add.tween(what.scale).to({x: .5, y:.5}, 800, Phaser.Easing.Linear.None, true);
+   game.add.tween(how.scale).to({x:.5, y:.5}, 800, Phaser.Easing.Linear.None, true);
+    game.add.tween(what).to({
+        x: [300],
+        y: [475]
+    }, 1000,"Linear", true);
+    game.add.tween(how).to({
+        x: [600],
+        y: [475]
+    }, 1000,"Linear", true);
+}
+
+
+function showHow(){
 
 }
 

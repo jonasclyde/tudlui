@@ -61,7 +61,7 @@ partOne.prototype = {
         nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
-        help4 = game.add.button(840, 25, 'help', helpThree, this, 1, 0, 1);
+        help4 = game.add.button(840, 10, 'help', helpThree, this, 1, 0, 1);
 
         btnb = game.add.button(3, 547, 'back', '', this, 1, 0, 1);
         btnn = game.add.button(945, 547, 'next', nextChapter, this, 1, 0, 1);

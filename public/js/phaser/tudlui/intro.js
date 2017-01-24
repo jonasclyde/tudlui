@@ -31,7 +31,7 @@ function preload() {
     this.load.audio('click', '../music/click.mp3');
     this.load.audio('help_sound', '../music/help.mp3');
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
-    this.load.image('help','../images/phaser/help.png');
+    this.load.image('help','../images/phaser/help1.png');
     this.load.image('helper1','../images/phaser/start_help.png');
     this.load.image('helper2','../images/phaser/about_help.png');
     this.load.image('help_arr','../images/phaser/button_help.png');
@@ -75,7 +75,7 @@ function create() {
         circle[i] = new Phaser.Circle(1150, 120, 6);
     }
 
-    sound = game.add.sprite(1060, 30, 'sounds');
+    sound = game.add.sprite(1015, 10, 'sounds');
 
     title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center"});
     about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:2, fontWeight: '900'  });
@@ -111,7 +111,7 @@ function create() {
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     music.loop = true;
-    //music.play();
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -126,7 +126,7 @@ function create() {
     btn1 = game.add.button(520, 350, 'start', startGame, this, 1, 0, 2);
     btn2 = game.add.button(520, 450, 'about', showAbout, this, 1, 0, 2);
     btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
-    help1 = game.add.button(1010, 30, 'help', helpOne, this, 1, 0, 1);
+    help1 = game.add.button(1065, 10, 'help', helpOne, this, 1, 0, 1);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
@@ -144,6 +144,7 @@ function create() {
 
     output1= ["x : 0"];
     output2= ["output : "];
+
 
     text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
     text1.alpha = 0;
@@ -265,8 +266,8 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    //game.state.start('select_char', true, false,bool_music);
-    game.state.start('part_3');
+    game.state.start('select_char', true, false,bool_music);
+    //game.state.start('part_3');
 }
 
 function backToHome(){

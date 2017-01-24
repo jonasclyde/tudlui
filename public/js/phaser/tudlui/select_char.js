@@ -46,9 +46,9 @@ selectChar.prototype = {
         });
 
         if(bool_music){
-            sound = game.add.sprite(1060, 30, 'sounds');
+            sound = game.add.sprite(1015, 10, 'sounds');
         }else{
-            sound = game.add.sprite(1060, 30, 'mute');
+            sound = game.add.sprite(1015, 10, 'mute');
         }
 
 
@@ -123,7 +123,7 @@ selectChar.prototype = {
         boy_3.inputEnabled = true;
         boy_3.events.onInputDown.add(selectAvatar, this);
 
-        help3 = game.add.button(1010, 30, 'help', helpTwo, this, 1, 0, 1);
+        help3 = game.add.button(1065, 10, 'help', helpTwo, this, 1, 0, 1);
         error = game.add.audio('error');
 
         helper3 = game.add.sprite(780, 420, 'helper3');

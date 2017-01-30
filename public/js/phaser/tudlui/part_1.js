@@ -41,6 +41,7 @@ partOne.prototype = {
         game.load.image('arrow1','../images/phaser/arrow1.png');
         game.load.spritesheet('next','../images/phaser/button_next_sprite.png', 150, 50);
         game.load.spritesheet('back','../images/phaser/button_back_sprite_image.png', 150, 50);
+        game.load.spritesheet('back','../images/phaser/teacher_sprite', 150, 50);
         game.load.audio('intro', '../music/intro.mp3');
         this.load.image('name_bg','../images/phaser/name_bg.png');
         this.load.image('helper4','../images/phaser/part1_help.png');
@@ -68,13 +69,13 @@ partOne.prototype = {
         btnb.alpha = 0;
 
         gs_title= game.add.text(100,40, "Getting Started", { font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  })
-        text = game.add.text(170, 140, "In this learning session, you will learn how to measure the efficiency of your algorithm \n" +
+        text = game.add.text(100, 140, "In this learning session, you will learn how to measure the efficiency of your algorithm \n" +
         "and check its related speed using the Big-O notation. Throughout the tutorial, you can \n" +
         "navigate through the different sections and learn on your own pace. \n" +
             "\n" +
         "To navigate through out the lessons, you can just click NEXT to move forward and if \n" +
         "you've missed out on a topic, you can click  BACK to return to previous pages. The final \n" +
-        "part of the material will be a short quiz. So be prepared and have fun!",{ font: "19px Varela",fill: "#E9FBE9", align: "justify", fontWeight: '900'  });
+        "part of the material will be a short quiz. So be prepared and have fun!",{ font: "17px Varela",fill: "#E9FBE9", align: "justify", fontWeight: '900'  });
         text.lineSpacing = 13;
 
         lineZero = contentZero.split(' ');
@@ -82,9 +83,6 @@ partOne.prototype = {
 
         helper4 = game.add.sprite(430, 425, 'helper4');
         helper4.alpha = 0;
-
-        arr31 = game.add.sprite(955, 480, 'arr31');
-        arr31.alpha =0;
 
         game.onPause.add(pauseMusic, this);
         game.onResume.add(resumeMusic, this);
@@ -113,14 +111,7 @@ function helpThree(){
         game.add.tween(helper4).to({ alpha: 0 }, 1000, "Linear", true);
     },4000)
 
-    game.add.tween(arr31).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
-
     setTimeout(function(){
-        game.add.tween(arr31).to({ alpha: 1 }, 1000, "Linear", true);
-    },2000)
-
-    setTimeout(function(){
-        game.add.tween(arr31).to({ alpha: 0 }, 1000, "Linear", true);
         help4.inputEnabled = true;
         btnn.inputEnabled = true;
     },3000)

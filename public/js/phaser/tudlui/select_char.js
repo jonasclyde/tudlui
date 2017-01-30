@@ -129,9 +129,6 @@ selectChar.prototype = {
         helper3 = game.add.sprite(780, 420, 'helper3');
         helper3.alpha = 0;
 
-        arr21 = game.add.sprite(295, 450, 'arr21');
-        arr21.alpha = 0;
-
         choose = game.add.text(750, 80, 'Select your character and\n'+
             'enter your name.',  { font: "24px Varela", fill: "#34486b", align: 'center', stroke: "#E9FBE9", strokeThickness:.5, fontWeight: '900'  });
 
@@ -158,14 +155,7 @@ function showHelp(){
         game.add.tween(helper3).to({ alpha: 0 }, 1000, "Linear", true);
     },4000)
 
-    game.add.tween(arr21).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
-
     setTimeout(function(){
-        game.add.tween(arr21).to({ alpha: 1 }, 1000, "Linear", true);
-    },2000)
-
-    setTimeout(function(){
-        game.add.tween(arr21).to({ alpha: 0 }, 1000, "Linear", true);
         help3.inputEnabled = true;
         enter.inputEnabled = true;
     },3000)

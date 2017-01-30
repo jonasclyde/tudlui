@@ -193,17 +193,8 @@ function helpOne(){
             game.add.tween(helper1).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
 
-        game.add.tween(arr1).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
-        game.add.tween(arr2).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
 
         setTimeout(function(){
-            game.add.tween(arr1).to({ alpha: 1 }, 1000, "Linear", true);
-            game.add.tween(arr2).to({ alpha: 1 }, 1000, "Linear", true);
-        },2000)
-
-        setTimeout(function(){
-            game.add.tween(arr1).to({ alpha: 0 }, 1000, "Linear", true);
-            game.add.tween(arr2).to({ alpha: 0 }, 1000, "Linear", true);
             btn1.inputEnabled = true;
             btn2.inputEnabled = true;
             help1.inputEnabled = true;
@@ -216,14 +207,7 @@ function helpOne(){
             game.add.tween(helper2).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
 
-        game.add.tween(arr3).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
-
         setTimeout(function(){
-            game.add.tween(arr3).to({ alpha: 1 }, 1000, "Linear", true);
-        },2000)
-
-        setTimeout(function(){
-            game.add.tween(arr3).to({ alpha: 0 }, 1000, "Linear", true);
             btn3.inputEnabled = true;
             help1.inputEnabled = true;
         },3000)

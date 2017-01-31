@@ -88,37 +88,37 @@ selectChar.prototype = {
 
         enter = game.add.button(830, 320, 'enter', enterGame, this, 1, 0, 1, 1);
 
-        girl_1.variable = 0;
+        girl_1.variable = 1;
         girl_1.code = 'girl_1';
         girl_1.inputEnabled = true;
         girl_1.events.onInputDown.add(selectAvatar, this);
 
 
-        girl_2.variable =  1;
+        girl_2.variable =  2;
         girl_2.code = 'girl_2';
         girl_2.inputEnabled = true;
         girl_2.events.onInputDown.add(selectAvatar, this);
 
 
-        girl_3.variable =  2;
+        girl_3.variable =  3;
         girl_3.code = 'girl_3';
         girl_3.inputEnabled = true;
         girl_3.events.onInputDown.add(selectAvatar, this);
 
 
-        boy_1.variable =  3;
+        boy_1.variable =  4;
         boy_1.code = 'boy_1';
         boy_1.inputEnabled = true;
         boy_1.events.onInputDown.add(selectAvatar, this);
 
 
-        boy_2.variable =  4 ;
+        boy_2.variable =  5 ;
         boy_2.code = 'boy_2';
         boy_2.inputEnabled = true;
         boy_2.events.onInputDown.add(selectAvatar, this);
 
 
-        boy_3.variable =  5 ;
+        boy_3.variable =  6 ;
         boy_3.code = 'boy_3';
         boy_3.inputEnabled = true;
         boy_3.events.onInputDown.add(selectAvatar, this);
@@ -167,7 +167,7 @@ function selectAvatar(char){
     selected = char.variable;
     code = char.code;
     switch(selected) {
-        case 0:
+        case 1:
             girl_1_pic.alpha = 1;
             girl_2_pic.alpha = 0;
             girl_3_pic.alpha = 0;
@@ -181,7 +181,7 @@ function selectAvatar(char){
             boy_2.alpha = 1;
             boy_3.alpha = 1;
             break;
-        case 1:
+        case 2:
             girl_1_pic.alpha = 0;
             girl_2_pic.alpha = 1;
             girl_3_pic.alpha = 0;
@@ -195,7 +195,7 @@ function selectAvatar(char){
             boy_2.alpha = 1;
             boy_3.alpha = 1;
             break;
-        case 2:
+        case 3:
             girl_1_pic.alpha = 0;
             girl_2_pic.alpha = 0;
             girl_3_pic.alpha = 1;
@@ -209,7 +209,7 @@ function selectAvatar(char){
             boy_2.alpha = 1;
             boy_3.alpha = 1;
             break;
-        case 3:
+        case 4:
             girl_1_pic.alpha = 0;
             girl_2_pic.alpha = 0;
             girl_3_pic.alpha = 0;
@@ -223,7 +223,7 @@ function selectAvatar(char){
             boy_2.alpha = 1;
             boy_3.alpha = 1;
             break;
-        case 4:
+        case 5:
             girl_1_pic.alpha = 0;
             girl_2_pic.alpha = 0;
             girl_3_pic.alpha = 0;
@@ -237,7 +237,7 @@ function selectAvatar(char){
             boy_2.alpha = 0;
             boy_3.alpha = 1;
             break;
-        case 5:
+        case 6:
             girl_1_pic.alpha = 0;
             girl_2_pic.alpha = 0;
             girl_3_pic.alpha = 0;
@@ -256,7 +256,8 @@ function selectAvatar(char){
 function enterGame(){
 
     name = input_name.value;
-    if(name && selected != undefined) {
+    console.log(selected);
+    if(name && selected != 0) {
         music.stop();
         game.state.start('part_1', true, false,code,name);
     }else if(!name){
@@ -273,7 +274,7 @@ function enterGame(){
             placeHolder: 'Enter your nickname.'
         });
         error.play();
-    }else if(selected == undefined){
+    }else if(selected == 0){
         showHelp();
         input_name = game.add.inputField(780, 190, {
             font: '18px Varela',

@@ -111,7 +111,7 @@ function create() {
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     music.loop = true;
-    music.play();
+    //music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -250,7 +250,7 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('select_char', true, false,bool_music);
+    game.state.start('part_1', true, false,bool_music);
     //game.state.start('part_3');
 }
 

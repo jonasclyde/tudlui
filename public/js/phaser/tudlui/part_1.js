@@ -42,7 +42,7 @@ partOne.prototype = {
         game.load.image('arrow1','../images/phaser/arrow1.png');
         game.load.spritesheet('next','../images/phaser/button_next_sprite.png', 150, 50);
         game.load.spritesheet('back','../images/phaser/button_back_sprite_image.png', 150, 50);
-        game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 188, 321, 9);
+        game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
         game.load.audio('intro', '../music/intro.mp3');
         this.load.image('name_bg','../images/phaser/name_bg.png');
         this.load.image('helper4','../images/phaser/part1_help.png');
@@ -57,7 +57,7 @@ partOne.prototype = {
         name_bg = game.add.sprite(885, 5, 'name_bg');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
-        teacher.animations.play('talk', 2, true);
+        teacher.animations.play('talk', 11, true);
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;

@@ -57,7 +57,7 @@ partOne.prototype = {
         name_bg = game.add.sprite(885, 5, 'name_bg');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
-        teacher.animations.play('talk', 11, true);
+        teacher.animations.play('talk', 11                              , true);
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;

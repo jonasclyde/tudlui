@@ -6,7 +6,7 @@
 var selectChar = function(game){
 };
 
-var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter, help3;
+var boy_1, boy_2, boy_3, girl_1, girl_2, girl_3, enter, help3, helper1_shadow;
 var girl_1_pic, girl_2_pic , girl_3_pic, boy_1_pic, boy_2_pic, boy_3_pic;
 var selected, choose, input_name, name, code, error, helper3, arr21, name_bg;
 
@@ -126,7 +126,9 @@ selectChar.prototype = {
         help3 = game.add.button(1065, 10, 'help', helpTwo, this, 1, 0, 1);
         error = game.add.audio('error');
 
-        helper3 = game.add.sprite(780, 420, 'helper3');
+        helper1_shadow = game.add.sprite(835, 450, 'helper1_shadow');
+        helper1_shadow.alpha = 0;
+        helper3 = game.add.sprite(835, 450, 'helper3');
         helper3.alpha = 0;
 
         choose = game.add.text(750, 80, 'Select your character and\n'+
@@ -151,7 +153,12 @@ function showHelp(){
     enter.inputEnabled = false;
 
     game.add.tween(helper3).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    game.add.tween(helper1_shadow.position).to( { x:835-12, y: 450-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
     setTimeout(function(){
+        game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
         game.add.tween(helper3).to({ alpha: 0 }, 1000, "Linear", true);
     },4000)
 

@@ -33,6 +33,7 @@ function preload() {
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
     this.load.image('help','../images/phaser/help1.png');
     this.load.image('helper1','../images/phaser/start_help.png');
+    this.load.image('helper1_shadow','../images/phaser/start_help_1.png');
     this.load.image('helper2','../images/phaser/about_help.png');
     this.load.image('help_arr','../images/phaser/button_help.png');
     this.load.image('test','../images/phaser/test.png');
@@ -62,7 +63,7 @@ var line1 = [], line2 =[], line3 =[], line4 =[], line5 =[], line6 =[], line7 =[]
 var wordIndex1 = 0, wordIndex2 = 0, wordIndex3 = 0, wordIndex4 = 0, wordIndex5 = 0, wordIndex6 = 0, wordIndex7 = 0;
 var lineIndex1 = 0, lineIndex2 = 0, lineIndex3 = 0, lineIndex4 = 0, lineIndex5 = 0, lineIndex6 = 0, lineIndex7 = 0;
 
-var arr1, arr2, arr3, helper1, helper2, page=0;
+var arr1, arr2, arr3, helper1, helper2, page= 0,helper1_shadow;
 
 var wordDelay = 180;
 var lineDelay = 300;
@@ -96,13 +97,15 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
 
-    helper1 = game.add.sprite(780, 420, 'helper1');
-    helper2 = game.add.sprite(780, 420, 'helper2');
+    helper1_shadow = game.add.sprite(835, 450, 'helper1_shadow');
+    helper1 = game.add.sprite(835, 450, 'helper1');
+    helper2 = game.add.sprite(835, 450, 'helper2');
     arr1 = game.add.sprite(410, 335, 'help_arr');
     arr2 = game.add.sprite(410, 435, 'help_arr');
     arr3 = game.add.sprite(460, 453, 'help_arr');
     helper1.alpha = 0;
     helper2.alpha = 0;
+    helper1_shadow.alpha = 0;
     arr1.alpha = 0;
     arr2.alpha = 0;
     arr3.alpha = 0;
@@ -188,8 +191,13 @@ function helpOne(){
         btn2.inputEnabled = false;
         help1.inputEnabled = false;
 
-        game.add.tween(helper1).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(helper1).to({ alpha: 1 }, 700, "Linear", true);
+        game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+        game.add.tween(helper1_shadow.position).to( { x:835-12, y: 450-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
         setTimeout(function(){
+            game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
             game.add.tween(helper1).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
 
@@ -202,8 +210,12 @@ function helpOne(){
     }else{
         btn3.inputEnabled = false;
         help1.inputEnabled = false;
-        game.add.tween(helper2).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(helper2).to({ alpha: 1 }, 700, "Linear", true);
+        game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+        game.add.tween(helper1_shadow.position).to( { x:835-12, y: 450-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
         setTimeout(function(){
+            game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
             game.add.tween(helper2).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
 
@@ -250,7 +262,7 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('part_1', true, false,bool_music);
+    game.state.start('select_char', true, false,bool_music);
     //game.state.start('part_3');
 }
 

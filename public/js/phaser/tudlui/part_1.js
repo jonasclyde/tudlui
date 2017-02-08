@@ -7,12 +7,12 @@ var partOne = function(game){
 };
 
 var sound;
-var btnb, btnn, help4, lineZero = [], wordIndexZero = 0, letterIndexZero = 0, helper4, arr31;
+var btnb, btnn, help4, lineZero = [], wordIndexZero = 0, letterIndexZero = 0, helper4, arr31, helper1_shadow;
 var gs_title;
 var contentZero = "In this learning session, you will learn how to measure the efficiency of your algorithm" +
     " and check its related speed using the Big-O notation. Throughout the tutorial, you can navigate" +
     " through the different sections and learn on your own pace." +
-    " To navigate through out the lessons, you can just click next to move forward" +
+    " To navigate through1 out the lessons, you can just click next to move forward" +
     " and if you've missed out on a topic, you can click1 back" +
     " to return to previous pages. The final part of the material will be a short quiz." +
     " So be prepared and have fun!";
@@ -41,7 +41,7 @@ partOne.prototype = {
 
         game.load.image('arrow1','../images/phaser/arrow1.png');
         game.load.spritesheet('next','../images/phaser/button_next_sprite.png', 150, 50);
-        game.load.spritesheet('back','../images/phaser/button_back_sprite_image.png', 150, 50);
+        game.load.spritesheet('back','../images/phaser/button_back_sprite.png', 150, 50);
         game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
         game.load.audio('intro', '../music/intro.mp3');
         this.load.image('name_bg','../images/phaser/name_bg.png');
@@ -57,7 +57,7 @@ partOne.prototype = {
         name_bg = game.add.sprite(885, 5, 'name_bg');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
-        teacher.animations.play('talk', 11                              , true);
+        teacher.animations.play('talk', 11, true);
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;
@@ -67,6 +67,8 @@ partOne.prototype = {
         nick.fontWeight = 'bold';
 
         help4 = game.add.button(840, 10, 'help', helpThree, this, 1, 0, 1);
+        helper1_shadow = game.add.sprite(430, 435, 'helper1_shadow');
+        helper1_shadow.alpha = 0;
 
         btnb = game.add.button(3, 547, 'back', '', this, 1, 0, 1);
         btnn = game.add.button(945, 547, 'next', nextChapter, this, 1, 0, 1);
@@ -77,7 +79,7 @@ partOne.prototype = {
         "and check its related speed using the Big-O notation. Throughout the tutorial, you can \n" +
         "navigate through the different sections and learn on your own pace. \n" +
             "\n" +
-        "To navigate through out the lessons, you can just click NEXT to move forward and if \n" +
+        "To navigate through  out the lessons, you can just click NEXT to move forward and if \n" +
         "you've missed out on a topic, you can click  BACK to return to previous pages. The final \n" +
         "part of the material will be a short quiz. So be prepared and have fun!",{ font: "17px Varela",fill: "#E9FBE9", align: "justify", fontWeight: '900'  });
         text.lineSpacing = 13;
@@ -85,7 +87,7 @@ partOne.prototype = {
         lineZero = contentZero.split(' ');
         game.time.events.repeat(Phaser.Timer.QUARTER * 1.15, lineZero.length, nextWordZero, this);
 
-        helper4 = game.add.sprite(430, 425, 'helper4');
+        helper4 = game.add.sprite(430, 435, 'helper4');
         helper4.alpha = 0;
 
         game.onPause.add(pauseMusic, this);
@@ -111,7 +113,12 @@ function helpThree(){
     btnn.inputEnabled = false;
 
     game.add.tween(helper4).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    game.add.tween(helper1_shadow.position).to( { x:430-12, y: 435-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
     setTimeout(function(){
+        game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
         game.add.tween(helper4).to({ alpha: 0 }, 1000, "Linear", true);
     },4000)
 
@@ -130,9 +137,16 @@ function nextWordZero() {
 
     letterIndexZero = b + 1;
 
+
+
     if(lineZero[wordIndexZero] == 'click1'){
         game.add.tween(btnb).to({alpha: 1}, 2000, "Linear", true, 0, 0, true)
-
+    }else if(lineZero[wordIndexZero] == 'pace.'){
+        teacher.animations.stop(null, true);
+    }else if(lineZero[wordIndexZero] == 'through1'){
+        teacher.animations.play('talk', 11, true);
+    }else if(lineZero[wordIndexZero] == 'fun!'){
+        teacher.animations.stop(null, true);
     }
 
     wordIndexZero++;

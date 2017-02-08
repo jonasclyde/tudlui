@@ -8,7 +8,7 @@ var partTwo = function(game){
 
 var lineOne = [];
 var wordIndexOne, letterIndexOne=0;
-var avatar,nick, textO, picLandau, picO, textDescription, textTitle, btnnOne, partOneMusic, textIterator, helper5, help5, arr41;
+var avatar,nick, textO, picLandau, picO, textDescription, textTitle, btnnOne, partOneMusic, textIterator, helper5, help5, helper1_shadow;
 var contentOne =
     "The Big-O notation or the Landau's symbol is used to describe the " +
     "performance or complexity of an algorithm. It is used to give an " +
@@ -42,8 +42,11 @@ partTwo.prototype = {
         nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
+
+        helper1_shadow = game.add.sprite(430, 435, 'helper1_shadow');
+        helper1_shadow.alpha = 0;
         help5 = game.add.button(840, 25, 'help', helpFour, this, 1, 0, 1);
-        helper5 = game.add.sprite(430, 425, 'helper5');
+        helper5 = game.add.sprite(430, 435, 'helper5');
         helper5.alpha = 0;
         partOneMusic = game.add.audio('partOne');
         partOneMusic.play();
@@ -66,8 +69,6 @@ partTwo.prototype = {
         game.onResume.add(resumePartOne, this);
 
         btnnOne = game.add.button(945, 547, 'next', nextChapterOne, this, 1, 0, 1);
-        arr41 = game.add.sprite(955, 480, 'arr31');
-        arr41.alpha = 0;
 
     },
     update: function(){
@@ -86,18 +87,16 @@ function helpFour(){
     btnnOne.inputEnabled = false;
 
     game.add.tween(helper5).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    game.add.tween(helper1_shadow.position).to( { x:430-12, y: 435-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
     setTimeout(function(){
+        game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
         game.add.tween(helper5).to({ alpha: 0 }, 1000, "Linear", true);
     },4000)
 
-    game.add.tween(arr41).to({ alpha: 1 }, 1000, "Linear", true, 0, 0, true);
-
     setTimeout(function(){
-        game.add.tween(arr41).to({ alpha: 1 }, 1000, "Linear", true);
-    },2000)
-
-    setTimeout(function(){
-        game.add.tween(arr41).to({ alpha: 0 }, 1000, "Linear", true);
         help5.inputEnabled = true;
         btnnOne.inputEnabled = true;
     },3000)

@@ -114,7 +114,7 @@ function create() {
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     music.loop = true;
-    //music.play();
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -198,9 +198,10 @@ function helpOne(){
 
         setTimeout(function(){
             game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
+            game.add.tween(helper1_shadow.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
+            game.add.tween(helper1_shadow.position).to( { x:835, y: 450}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false );
             game.add.tween(helper1).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
-
 
         setTimeout(function(){
             btn1.inputEnabled = true;
@@ -214,8 +215,11 @@ function helpOne(){
         game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
         game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
         game.add.tween(helper1_shadow.position).to( { x:835-12, y: 450-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
         setTimeout(function(){
             game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
+            game.add.tween(helper1_shadow.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
+            game.add.tween(helper1_shadow.position).to( { x:835, y: 450}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false );
             game.add.tween(helper2).to({ alpha: 0 }, 1000, "Linear", true);
         },4000)
 

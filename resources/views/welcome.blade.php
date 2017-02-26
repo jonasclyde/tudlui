@@ -5,11 +5,11 @@
     <div class="container clearfix">
         <div class="register-container">
             <div class="register-label">
-                <h1>Learn to be a<br>
-                    better developer</h1>
+                <h1>Learn more about<br>
+                    the Big-O.</h1>
                 <br>
-                <p>Learn wherever, and whenever<br>
-                    you want on your own pace.</p>
+                <p>Learn anytime, and anywhere<br>
+                    at your own pace.</p>
                 <br>
             </div>
             <form id="register-form" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">

@@ -14,6 +14,9 @@
                 <button id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
             </div>
         </div>
+        <div class="container" id="categories-container">
+            <h3>All Courses</h3>
+        </div>
         <div class="container" id="subjects-container">
             <div class="col-md-4 text-center">
                 <a href="{{url('/course/1')}}">

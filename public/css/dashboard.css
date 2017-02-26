@@ -27,12 +27,25 @@
 #search::-moz-placeholder  { color: darkgray; font-size: 18px; font-weight: bold;}
 #search:-ms-input-placeholder { color: darkgray; font-size: 18px; font-weight: bold;}
 
+#categories-container{
+    margin-top: 30px;
+    text-align: center;
+}
+
+#categories-container h3{
+    color: #337ab7;
+}
+
 #subjects-container{
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 #subjects-container p{
     font-size: 16px;
+}
+
+#subjects-container{
+    text-align: left;
 }
 
 #subjects-container h2{

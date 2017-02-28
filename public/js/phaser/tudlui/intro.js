@@ -31,11 +31,13 @@ function preload() {
     this.load.image('sounds', '../images/phaser/sounds.png');
     this.load.image('mute', '../images/phaser/mute.png');
     this.load.image('help','../images/phaser/help1.png');
+
+    //helper
     this.load.image('helper1','../images/phaser/start_help.png');
     this.load.image('helper1_shadow','../images/phaser/start_help_1.png');
     this.load.image('helper2','../images/phaser/about_help.png');
     this.load.image('help_arr','../images/phaser/button_help.png');
-    this.load.image('test','../images/phaser/test.png');
+    this.load.image('helper3','../images/phaser/pref_help.png');
 
     this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 150, 50);
     this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 150, 50);
@@ -43,7 +45,12 @@ function preload() {
     this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
 
-    this.load.audio('happy', '../music/happy.mp3');
+    //audio
+    this.load.audio('bg1', '../music/bg1.mp3');
+    this.load.audio('bg2', '../music/bg2.mp3');
+    this.load.audio('bg3', '../music/bg3.mp3');
+    this.load.audio('bg4', '../music/bg4.mp3');
+    this.load.audio('bg5', '../music/bg5.mp3');
     this.load.audio('click', '../music/click.mp3');
     this.load.audio('help_sound', '../music/help.mp3');
 
@@ -74,17 +81,19 @@ var line1 = [], line2 =[], line3 =[], line4 =[], line5 =[], line6 =[], line7 =[]
 var wordIndex1 = 0, wordIndex2 = 0, wordIndex3 = 0, wordIndex4 = 0, wordIndex5 = 0, wordIndex6 = 0, wordIndex7 = 0;
 var lineIndex1 = 0, lineIndex2 = 0, lineIndex3 = 0, lineIndex4 = 0, lineIndex5 = 0, lineIndex6 = 0, lineIndex7 = 0;
 
-var arr1, arr2, arr3, helper1, helper2, page= 0,helper1_shadow;
+var arr1, arr2, arr3, helper1, helper2, helper3, page= 0,helper1_shadow, theme_header, music_header, music_constant;
 
 var wordDelay = 180;
 var lineDelay = 300;
 
 function create() {
 
-    bg = 'green';
+    bg = 'blue';
     //font = '#E9FBE9';
     font = '#ffff1c';
+    //stroke = '#939393';
     stroke = '#34486b';
+    music_constant='bg1';
 
     game.background = this.game.add.sprite(0,0, bg);
 
@@ -104,29 +113,36 @@ function create() {
         "want with the help of animations and sounds."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: stroke, align: 'left', fontWeight: '900'});
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: font, stroke:stroke, strokeThickness:3, align: 'left', fontWeight: '900'});
     O = game.add.text(635, 70, "O", { font: "55px Varela", fill: stroke, align: "center",  stroke: font, strokeThickness:2 });
+
+    theme_header= game.add.text(330,250, "THEME", { font: "28px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
+    music_header= game.add.text(330,450, "MUSIC", { font: "28px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
 
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
+    theme_header.alpha =0;
+    music_header.alpha =0;
 
     helper1_shadow = game.add.sprite(835, 450, 'helper1_shadow');
     helper1 = game.add.sprite(835, 450, 'helper1');
     helper2 = game.add.sprite(835, 450, 'helper2');
+    helper3 = game.add.sprite(835, 450, 'helper3');
     arr1 = game.add.sprite(410, 335, 'help_arr');
     arr2 = game.add.sprite(410, 435, 'help_arr');
     arr3 = game.add.sprite(460, 453, 'help_arr');
     helper1.alpha = 0;
     helper2.alpha = 0;
+    helper3.alpha = 0;
     helper1_shadow.alpha = 0;
     arr1.alpha = 0;
     arr2.alpha = 0;
     arr3.alpha = 0;
 
-    music = game.add.audio('happy');
+    music = game.add.audio(music_constant);
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     //music.loop = true;
@@ -142,11 +158,11 @@ function create() {
     //line2 = game.add.sprite(20, 100, 'line');
     //line3 = game.add.sprite(140, 100, 'line');
 
-    btn1 = game.add.button(520, 350, 'start', startGame, this, 1, 0, 2);
-    btn2 = game.add.button(520, 450, 'about', showAbout, this, 1, 0, 2);
+    btn1 = game.add.button(520, 330, 'start', startGame, this, 1, 0, 2);
+    btn2 = game.add.button(520, 400, 'about', showAbout, this, 1, 0, 2);
     btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
-    btn4 = game.add.button(560, 470, 'pref', showPreferences, this, 1, 0, 2);
-    help1 = game.add.button(1065, 10, 'help', helpOne, this, 1, 0, 1);
+    btn4 = game.add.button(520, 470, 'pref', showPreferences, this, 1, 0, 2);
+    help1 = game.add.button(1065, 12, 'help', helpOne, this, 1, 0, 1);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
@@ -167,7 +183,7 @@ function create() {
     output2= ["output : "];
 
 
-    text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: font, align: "left",stroke: "#34486b", strokeThickness:4 });
+    text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: font, align: "left",stroke: stroke, strokeThickness:4 });
     text1.alpha = 0;
     text2 =  game.add.text(10, 240, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
     text3 =  game.add.text(10, 270, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
@@ -207,6 +223,7 @@ function helpOne(){
     if(!page){
         btn1.inputEnabled = false;
         btn2.inputEnabled = false;
+        btn4.inputEnabled = false;
         help1.inputEnabled = false;
 
         game.add.tween(helper1).to({ alpha: 1 }, 700, "Linear", true);
@@ -224,9 +241,10 @@ function helpOne(){
         setTimeout(function(){
             btn1.inputEnabled = true;
             btn2.inputEnabled = true;
+            btn4.inputEnabled = true;
             help1.inputEnabled = true;
         },3000)
-    }else{
+    }else if(page == 1){
         btn3.inputEnabled = false;
         help1.inputEnabled = false;
         game.add.tween(helper2).to({ alpha: 1 }, 700, "Linear", true);
@@ -245,6 +263,25 @@ function helpOne(){
             btn3.inputEnabled = true;
             help1.inputEnabled = true;
         },3000)
+    }else{
+        btn3.inputEnabled = false;
+        help1.inputEnabled = false;
+        game.add.tween(helper3).to({ alpha: 1 }, 700, "Linear", true);
+        game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+        game.add.tween(helper1_shadow.position).to( { x:835-12, y: 450-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
+        setTimeout(function(){
+            game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
+            game.add.tween(helper1_shadow.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
+            game.add.tween(helper1_shadow.position).to( { x:835, y: 450}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false );
+            game.add.tween(helper3).to({ alpha: 0 }, 1000, "Linear", true);
+        },4000)
+
+        setTimeout(function() {
+            btn3.inputEnabled = true;
+            help1.inputEnabled = true;
+        });
     }
 
 }
@@ -276,6 +313,7 @@ function tweenBalls(){
                 setTimeout(function (){
                     game.add.tween(btn1).to({ alpha: 1 }, 2000, "Linear", true);
                     game.add.tween(btn2).to({ alpha: 1 }, 2000, "Linear", true);
+                    game.add.tween(btn4).to({ alpha: 1 }, 2000, "Linear", true);
                 }, 1000)
             }, 1000)
         }                                    //  ..  setTimeout()
@@ -295,8 +333,10 @@ function backToHome(){
     title.alpha = 1;
     btn1.alpha = 1;
     btn2.alpha = 1;
+    btn4.alpha = 1;
     btn1.inputEnabled = true;
     btn2.inputEnabled = true;
+    btn4.inputEnabled = true;
 
     about_us_constant.alpha = 0;
     about_us_header.alpha = 0;
@@ -313,8 +353,10 @@ function showAbout() {
     title.alpha = 0;
     btn1.alpha = 0;
     btn2.alpha = 0;
+    btn4.alpha = 0;
     btn1.inputEnabled = false;
     btn2.inputEnabled = false;
+    btn4.inputEnabled = false;
 
     about_us_constant.alpha = 1;
     about_us_header.alpha = 1;
@@ -325,6 +367,22 @@ function showAbout() {
 
 function showPreferences(){
 
+    click.play();
+    page = 3;
+    O.alpha = 0;
+    title.alpha = 0;
+    btn1.alpha = 0;
+    btn2.alpha = 0;
+    btn4.alpha = 0;
+    btn1.inputEnabled = false;
+    btn2.inputEnabled = false;
+    btn4.inputEnabled = false;
+
+    btn3.alpha = 1;
+    btn3.inputEnabled = true;
+
+    theme_header.alpha = 1;
+    music_header.alpha = 1;
 
 }
 

@@ -21,16 +21,15 @@ function preload() {
 
     this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
-    this.load.image('background', '../images/phaser/background.jpg');
+    //background
+    this.load.image('green', '../images/phaser/bg_green.png');
+    this.load.image('blue', '../images/phaser/bg_blue.png');
+    this.load.image('yellow', '../images/phaser/bg_yellow.png');
+    this.load.image('black', '../images/phaser/bg_black.png');
+
+    //images
     this.load.image('sounds', '../images/phaser/sounds.png');
-    this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 150, 50);
-    this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 150, 50);
-    this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
     this.load.image('mute', '../images/phaser/mute.png');
-    this.load.audio('happy', '../music/happy.mp3');
-    this.load.audio('click', '../music/click.mp3');
-    this.load.audio('help_sound', '../music/help.mp3');
-    this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
     this.load.image('help','../images/phaser/help1.png');
     this.load.image('helper1','../images/phaser/start_help.png');
     this.load.image('helper1_shadow','../images/phaser/start_help_1.png');
@@ -38,8 +37,20 @@ function preload() {
     this.load.image('help_arr','../images/phaser/button_help.png');
     this.load.image('test','../images/phaser/test.png');
 
+    this.load.spritesheet('start', '../images/phaser/button_start_sprite.png', 150, 50);
+    this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 150, 50);
+    this.load.spritesheet('pref', '../images/phaser/button_preference_sprite.png', 150, 50);
+    this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
+    this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
+
+    this.load.audio('happy', '../music/happy.mp3');
+    this.load.audio('click', '../music/click.mp3');
+    this.load.audio('help_sound', '../music/help.mp3');
+
+
 }
 
+var bg, font, stroke;
 var music;
 var point;
 var sound, click;
@@ -47,7 +58,7 @@ var title, O;
 var loop;
 var circle = [];
 //var line1, line2, line3;
-var btn1, btn2, btn3;
+var btn1, btn2, btn3, btn4;
 var about_us_header;
 var about_us_constant, help1, bool_music = 1;
 
@@ -70,7 +81,12 @@ var lineDelay = 300;
 
 function create() {
 
-    game.background = this.game.add.sprite(0,0, 'background');
+    bg = 'green';
+    //font = '#E9FBE9';
+    font = '#ffff1c';
+    stroke = '#34486b';
+
+    game.background = this.game.add.sprite(0,0, bg);
 
     for(var i=0; i<8;i++){
         circle[i] = new Phaser.Circle(1150, 120, 6);
@@ -78,8 +94,8 @@ function create() {
 
     sound = game.add.sprite(1015, 10, 'sounds');
 
-    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: "#E9FBE9", align: "center"});
-    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:2, fontWeight: '900'  });
+    title = game.add.text(280, 70, "Learning Big-    Notation", { font: "55px Varela", fill: font, align: "center"});
+    about_us_header= game.add.text(330,70, "What 'Big-O Notation' e-learning is about?", { font: "35px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
     //test =game.add.sprite(300,140, 'test');
     about_us_constant= game.add.text(330,150, "         This eLearning course aims to help students better comprehend the \n" +
         "complexity of an algorithm using the 'Big-O notation'. The main objective of the \n" +
@@ -88,8 +104,8 @@ function create() {
         "want with the help of animations and sounds."+
         "\n"+
         "         This presentation was created by Jonas Almocera, a BSCS4 student of\n" +
-        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: "#34486b", align: 'left', fontWeight: '900'});
-    O = game.add.text(635, 70, "O", { font: "55px Varela", fill: "#34486b", align: "center",  stroke: "#E9FBE9", strokeThickness:2 });
+        "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: stroke, align: 'left', fontWeight: '900'});
+    O = game.add.text(635, 70, "O", { font: "55px Varela", fill: stroke, align: "center",  stroke: font, strokeThickness:2 });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -113,8 +129,8 @@ function create() {
     music = game.add.audio('happy');
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
-    music.loop = true;
-    music.play();
+    //music.loop = true;
+    //music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -129,11 +145,13 @@ function create() {
     btn1 = game.add.button(520, 350, 'start', startGame, this, 1, 0, 2);
     btn2 = game.add.button(520, 450, 'about', showAbout, this, 1, 0, 2);
     btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
+    btn4 = game.add.button(560, 470, 'pref', showPreferences, this, 1, 0, 2);
     help1 = game.add.button(1065, 10, 'help', helpOne, this, 1, 0, 1);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
     btn3.alpha = 0;
+    btn4.alpha = 0;
 
 
     tweenBalls();
@@ -149,15 +167,15 @@ function create() {
     output2= ["output : "];
 
 
-    text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
+    text1 =  game.add.text(10, 150, '', { font: "16px Varela", fill: font, align: "left",stroke: "#34486b", strokeThickness:4 });
     text1.alpha = 0;
-    text2 =  game.add.text(10, 240, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
-    text3 =  game.add.text(10, 270, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
-    text4 =  game.add.text(10, 300, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
-    text5 =  game.add.text(10, 330, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
-    text6 =  game.add.text(10, 390, '', { font: "16px Varela", fill: "#E9FBE9", align: "left", stroke: "#34486b", strokeThickness:4 });
-    text7 =  game.add.text(10, 410, '', { font: "16px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
-    text8 =  game.add.text(10, 500, 'O(n) complexity', { font: "19px Varela", fill: "#E9FBE9", align: "left",stroke: "#34486b", strokeThickness:4 });
+    text2 =  game.add.text(10, 240, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
+    text3 =  game.add.text(10, 270, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
+    text4 =  game.add.text(10, 300, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
+    text5 =  game.add.text(10, 330, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
+    text6 =  game.add.text(10, 390, '', { font: "16px Varela", fill: font, align: "left", stroke: stroke, strokeThickness:4 });
+    text7 =  game.add.text(10, 410, '', { font: "16px Varela", fill: font, align: "left",stroke: stroke, strokeThickness:4 });
+    text8 =  game.add.text(10, 500, 'O(n) complexity', { font: "19px Varela", fill: font, align: "left",stroke: stroke, strokeThickness:4 });
     text8.alpha = 0;
 
     for_1 = game.add.tween(text2.scale).to({x: 1.2, y:1.2}, 800, Phaser.Easing.Linear.None, false, 0, 0, true);
@@ -174,13 +192,13 @@ function update() {
 
 function render() {
 
-    game.debug.geom(circle[0], '#34486b');
-    game.debug.geom(circle[1], '#34486b');
-    game.debug.geom(circle[2], '#34486b');
-    game.debug.geom(circle[3], '#34486b');
-    game.debug.geom(circle[4], '#34486b');
-    game.debug.geom(circle[5], '#34486b');
-    game.debug.geom(circle[6], '#34486b');
+    game.debug.geom(circle[0], stroke);
+    game.debug.geom(circle[1], stroke);
+    game.debug.geom(circle[2], stroke);
+    game.debug.geom(circle[3], stroke);
+    game.debug.geom(circle[4], stroke);
+    game.debug.geom(circle[5], stroke);
+    game.debug.geom(circle[6], stroke);
 
 }
 
@@ -287,10 +305,10 @@ function backToHome(){
 
 }
 
-function showAbout(){
+function showAbout() {
 
     click.play();
-    page=1;
+    page = 1;
     O.alpha = 0;
     title.alpha = 0;
     btn1.alpha = 0;
@@ -302,6 +320,11 @@ function showAbout(){
     about_us_header.alpha = 1;
     btn3.alpha = 1;
     btn3.inputEnabled = true;
+
+}
+
+function showPreferences(){
+
 
 }
 

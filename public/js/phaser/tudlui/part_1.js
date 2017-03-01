@@ -33,7 +33,7 @@ var teacher, talk;
 
 partOne.prototype = {
 
-    init: function(code, name) {
+    init: function(code, name, bg, bool_music) {
 
     },
 
@@ -49,8 +49,17 @@ partOne.prototype = {
         this.load.image('arr31','../images/phaser/button_next.png');
     },
     create: function(){
-        game.background = this.game.add.sprite(0,0, 'background');
-        //sound = game.add.sprite(1030, 30, 'sounds');
+        game.background = this.game.add.sprite(0,0, bg);
+        music.volume = 0.15;
+        if(bool_music){
+            sound = game.add.sprite(790, 10, 'sounds');
+        }else{
+            sound = game.add.sprite(790, 10, 'mute');
+        }
+
+        sound.inputEnabled = true;
+        sound.events.onInputDown.add(toggleSound, this);
+
         recording = game.add.audio('intro');
         recording.play();
 
@@ -74,14 +83,14 @@ partOne.prototype = {
         btnn = game.add.button(945, 547, 'next', nextChapter, this, 1, 0, 1);
         btnb.alpha = 0;
 
-        gs_title= game.add.text(100,40, "Getting Started", { font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  })
+        gs_title= game.add.text(100,40, "Getting Started", { font: "32px Varela",fill: font, align: "center", stroke: stroke, strokeThickness:2, fontWeight: '900'  })
         text = game.add.text(100, 140, "In this learning session, you will learn how to measure the efficiency of your algorithm \n" +
         "and check its related speed using the Big-O notation. Throughout the tutorial, you can \n" +
         "navigate through the different sections and learn on your own pace. \n" +
             "\n" +
         "To navigate through  out the lessons, you can just click NEXT to move forward and if \n" +
         "you've missed out on a topic, you can click  BACK to return to previous pages. The final \n" +
-        "part of the material will be a short quiz. So be prepared and have fun!",{ font: "17px Varela",fill: "#E9FBE9", align: "justify", fontWeight: '900'  });
+        "part of the material will be a short quiz. So be prepared and have fun!",{ font: "17px Varela",fill: "#d3d3d3", stroke: stroke, strokeThickness:2,  align: "justify", fontWeight: '900'  });
         text.lineSpacing = 13;
 
         lineZero = contentZero.split(' ');
@@ -132,8 +141,8 @@ function helpThree(){
 function nextWordZero() {
     var a = letterIndexZero;
     var b = letterIndexZero +  lineZero[wordIndexZero].length;
-    text.addColor('#34486b' ,a);
-    text.addColor('#E9FBE9',b );
+    text.addColor(font ,a);
+    text.addColor("#d3d3d3",b );
 
     letterIndexZero = b + 1;
 
@@ -159,5 +168,15 @@ function nextWordZero() {
 function nextChapter(){
     click.play();
     recording.stop();
-    game.state.start('part_2', true, false,code,name);
+    game.state.start('part_2', true, false,code,name,bg, bool_music);
+}
+
+function toggleSound(){
+    if(sound.key == 'sounds'){
+        music.mute = true;
+        sound.loadTexture('mute')
+    }else{
+        music.mute = false;
+        sound.loadTexture('sounds')
+    }
 }

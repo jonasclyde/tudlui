@@ -24,13 +24,21 @@ function preload() {
     //background
     this.load.image('green', '../images/phaser/bg_green.png');
     this.load.image('blue', '../images/phaser/bg_blue.png');
-    this.load.image('yellow', '../images/phaser/bg_yellow.png');
     this.load.image('black', '../images/phaser/bg_black.png');
 
     //images
     this.load.image('sounds', '../images/phaser/sounds.png');
     this.load.image('mute', '../images/phaser/mute.png');
     this.load.image('help','../images/phaser/help1.png');
+
+    this.load.image('bg1sel','../images/phaser/bg1sel.png');
+    this.load.image('bg2sel','../images/phaser/bg2sel.png');
+    this.load.image('bg3sel','../images/phaser/bg3sel.png');
+    this.load.image('bg4sel','../images/phaser/bg4sel.png');
+    this.load.image('bg5sel','../images/phaser/bg5sel.png');
+    this.load.image('th1sel','../images/phaser/th1sel.png');
+    this.load.image('th2sel','../images/phaser/th2sel.png');
+    this.load.image('th3sel','../images/phaser/th3sel.png');
 
     //helper
     this.load.image('helper1','../images/phaser/start_help.png');
@@ -45,19 +53,28 @@ function preload() {
     this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
 
+    this.load.spritesheet('bg1','../images/phaser/bg1.png', 100, 50);
+    this.load.spritesheet('bg2','../images/phaser/bg2.png', 100, 50 );
+    this.load.spritesheet('bg3','../images/phaser/bg3.png', 100, 50 );
+    this.load.spritesheet('bg4','../images/phaser/bg4.png', 100, 50 );
+    this.load.spritesheet('bg5','../images/phaser/bg5.png', 100, 50 );
+    this.load.spritesheet('th1','../images/phaser/th1.png', 100, 50 );
+    this.load.spritesheet('th2','../images/phaser/th2.png', 100, 50 );
+    this.load.spritesheet('th3','../images/phaser/th3.png', 100, 50 );
+
     //audio
-    this.load.audio('bg1', '../music/bg1.mp3');
-    this.load.audio('bg2', '../music/bg2.mp3');
-    this.load.audio('bg3', '../music/bg3.mp3');
-    this.load.audio('bg4', '../music/bg4.mp3');
-    this.load.audio('bg5', '../music/bg5.mp3');
+    this.load.audio('bg1m', '../music/bg1.mp3');
+    this.load.audio('bg2m', '../music/bg2.mp3');
+    this.load.audio('bg3m', '../music/bg3.mp3');
+    this.load.audio('bg4m', '../music/bg4.mp3');
+    this.load.audio('bg5m', '../music/bg5.mp3');
     this.load.audio('click', '../music/click.mp3');
     this.load.audio('help_sound', '../music/help.mp3');
 
 
 }
 
-var bg, font, stroke;
+var bg, font, stroke, bgTheme;
 var music;
 var point;
 var sound, click;
@@ -71,7 +88,7 @@ var about_us_constant, help1, bool_music = 1;
 
 var ball_counter = 0;
 
-var vars, body1, body2, body3, body4, output1, output2, test;
+var vars, body1, body2, body3, body4, output1, output2;
 var text1, text2, text3, text4, text5, text6, text7, text8, help_sound;
 var for_1, for_2, for_3;
 var tween_counter = 1;
@@ -81,21 +98,20 @@ var line1 = [], line2 =[], line3 =[], line4 =[], line5 =[], line6 =[], line7 =[]
 var wordIndex1 = 0, wordIndex2 = 0, wordIndex3 = 0, wordIndex4 = 0, wordIndex5 = 0, wordIndex6 = 0, wordIndex7 = 0;
 var lineIndex1 = 0, lineIndex2 = 0, lineIndex3 = 0, lineIndex4 = 0, lineIndex5 = 0, lineIndex6 = 0, lineIndex7 = 0;
 
-var arr1, arr2, arr3, helper1, helper2, helper3, page= 0,helper1_shadow, theme_header, music_header, music_constant;
+var arr1, arr2, arr3, helper1, helper2, helper3, page= 0,helper1_shadow, theme_header, music_header, music_constant,pref_header;
+var th1, th2, th3, th1sel, th2sel, th3sel, bg1, bg2, bg3, bg4, bg5, bg1sel, bg2sel, bg3sel, bg4sel, bg5sel;
 
 var wordDelay = 180;
 var lineDelay = 300;
 
 function create() {
 
-    bg = 'blue';
-    //font = '#E9FBE9';
-    font = '#ffff1c';
-    //stroke = '#939393';
-    stroke = '#34486b';
-    music_constant='bg1';
+    bg = 'green';
+    font = '#ffff1c'; //yellow
+    stroke = '#34486b'; //blue
+    music_constant='bg1m';
 
-    game.background = this.game.add.sprite(0,0, bg);
+    bgTheme = this.game.add.sprite(0,0, bg);
 
     for(var i=0; i<8;i++){
         circle[i] = new Phaser.Circle(1150, 120, 6);
@@ -116,8 +132,9 @@ function create() {
         "the University of the Philippines with the help of Prof. Demelo Lao, SP Adviser.", { font: "18px Varela", fill: font, stroke:stroke, strokeThickness:3, align: 'left', fontWeight: '900'});
     O = game.add.text(635, 70, "O", { font: "55px Varela", fill: stroke, align: "center",  stroke: font, strokeThickness:2 });
 
-    theme_header= game.add.text(330,250, "THEME", { font: "28px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
-    music_header= game.add.text(330,450, "MUSIC", { font: "28px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
+    theme_header= game.add.text(590,150, "THEME", { font: "28px Varela", fill: font, align: "center", stroke: stroke, strokeThickness:2, fontWeight: '900'  });
+    music_header= game.add.text(590,300 , "MUSIC", { font: "28px Varela", fill: font, align: "center", stroke: stroke, strokeThickness:2, fontWeight: '900'  });
+    pref_header= game.add.text(330,70, "Choose your setting.", { font: "35px Varela", fill: stroke, align: "center", stroke: font, strokeThickness:2, fontWeight: '900'  });
 
     about_us_constant.lineSpacing = 13;
     O.alpha = 0;
@@ -125,6 +142,7 @@ function create() {
     about_us_header.alpha = 0;
     about_us_constant.alpha =0;
     theme_header.alpha =0;
+    pref_header.alpha =0;
     music_header.alpha =0;
 
     helper1_shadow = game.add.sprite(835, 450, 'helper1_shadow');
@@ -142,11 +160,11 @@ function create() {
     arr2.alpha = 0;
     arr3.alpha = 0;
 
-    music = game.add.audio(music_constant);
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
-    //music.loop = true;
-    //music.play();
+    music = game.add.audio(music_constant);
+    music.loop = true;
+    music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -169,6 +187,77 @@ function create() {
     btn3.alpha = 0;
     btn4.alpha = 0;
 
+    th1 = game.add.button(410, 210, 'th1', '', this, 1, 0, 1);
+    th2 = game.add.button(590, 210, 'th2', '', this, 1, 0, 1);
+    th3 = game.add.button(770, 210, 'th3', '', this, 1, 0, 1);
+
+    th1sel = game.add.sprite(410, 210, 'th1sel');
+    th2sel = game.add.sprite(590, 210, 'th2sel');
+    th3sel = game.add.sprite(770, 210, 'th3sel');
+
+    th1.code = 'green';
+    th1.inputEnabled = false;
+    th1.events.onInputDown.add(selectTheme, this);
+
+    th2.code = 'blue';
+    th2.inputEnabled = false;
+    th2.events.onInputDown.add(selectTheme, this);
+
+    th3.code = 'black';
+    th3.inputEnabled = false;
+    th3.events.onInputDown.add(selectTheme, this);
+
+    th1.alpha = 0;
+    th2.alpha = 0;
+    th3.alpha = 0;
+    th1sel.alpha = 0;
+    th2sel.alpha = 0;
+    th3sel.alpha = 0;
+
+
+    bg1 = game.add.button(330, 380, 'bg1', '', this, 1, 0, 1);
+    bg2 = game.add.button(460, 380, 'bg2', '', this, 1, 0, 1);
+    bg3 = game.add.button(590, 380, 'bg3', '', this, 1, 0, 1);
+    bg4 = game.add.button(720, 380, 'bg4', '', this, 1, 0, 1);
+    bg5 = game.add.button(850, 380, 'bg5', '', this, 1, 0, 1);
+
+    bg1sel = game.add.sprite(330, 380, 'bg1sel');
+    bg2sel = game.add.sprite(460, 380, 'bg2sel');
+    bg3sel = game.add.sprite(590, 380, 'bg3sel');
+    bg4sel = game.add.sprite(720, 380, 'bg4sel');
+    bg5sel = game.add.sprite(850, 380, 'bg5sel');
+
+    bg1.code = 'bg1m';
+    bg1.inputEnabled = false;
+    bg1.events.onInputDown.add(selectMusic, this);
+
+    bg2.code = 'bg2m';
+    bg2.inputEnabled = false;
+    bg2.events.onInputDown.add(selectMusic, this);
+
+    bg3.code = 'bg3m';
+    bg3.inputEnabled = false;
+    bg3.events.onInputDown.add(selectMusic, this);
+
+    bg4.code = 'bg4m';
+    bg4.inputEnabled = false;
+    bg4.events.onInputDown.add(selectMusic, this);
+
+    bg5.code = 'bg5m';
+    bg5.inputEnabled = false;
+    bg5.events.onInputDown.add(selectMusic, this);
+
+
+    bg1.alpha = 0;
+    bg2.alpha = 0;
+    bg3.alpha = 0;
+    bg4.alpha = 0;
+    bg5.alpha = 0;
+    bg1sel.alpha = 0;
+    bg2sel.alpha = 0;
+    bg3sel.alpha = 0;
+    bg4sel.alpha = 0;
+    bg5sel.alpha = 0;
 
     tweenBalls();
 
@@ -322,8 +411,8 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('select_char', true, false,bool_music);
-    //game.state.start('part_3');
+    game.state.start('select_char', true, false,bool_music,music_constant,bg);
+    //game.state.start('part_2');
 }
 
 function backToHome(){
@@ -340,8 +429,40 @@ function backToHome(){
 
     about_us_constant.alpha = 0;
     about_us_header.alpha = 0;
+    theme_header.alpha = 0;
+    music_header.alpha = 0;
+    pref_header.alpha = 0;
+    pref_header.alpha = 0;
     btn3.alpha = 0;
     btn3.inputEnabled = false;
+
+    th1.alpha = 0;
+    th2.alpha = 0;
+    th3.alpha = 0;
+    th1sel.alpha = 0;
+    th2sel.alpha = 0;
+    th3sel.alpha = 0;
+
+    th1.inputEnabled = false;
+    th2.inputEnabled = false;
+    th3.inputEnabled = false;
+
+    bg1.alpha = 0;
+    bg2.alpha = 0;
+    bg3.alpha = 0;
+    bg4.alpha = 0;
+    bg5.alpha = 0;
+    bg1sel.alpha = 0;
+    bg2sel.alpha = 0;
+    bg3sel.alpha = 0;
+    bg4sel.alpha = 0;
+    bg5sel.alpha = 0;
+
+    bg1.inputEnabled = false;
+    bg2.inputEnabled = false;
+    bg3.inputEnabled = false;
+    bg4.inputEnabled = false;
+    bg5.inputEnabled = false;
 
 }
 
@@ -381,9 +502,103 @@ function showPreferences(){
     btn3.alpha = 1;
     btn3.inputEnabled = true;
 
+    th1.inputEnabled = true;
+    th2.inputEnabled = true;
+    th3.inputEnabled = true;
+
+    pref_header.alpha = 1;
     theme_header.alpha = 1;
     music_header.alpha = 1;
 
+    if(bg=="green"){
+        th1.alpha = 0;
+        th2.alpha = 1;
+        th3.alpha = 1;
+        th1sel.alpha = 1;
+        th2sel.alpha = 0;
+        th3sel.alpha = 0;
+
+    }else if(bg=="blue"){
+        th1.alpha = 1;
+        th2.alpha = 0;
+        th3.alpha = 1;
+        th1sel.alpha = 0;
+        th2sel.alpha = 1;
+        th3sel.alpha = 0;
+
+    }else if(bg=="black"){
+        th1.alpha = 1;
+        th2.alpha = 1;
+        th3.alpha = 0;
+        th1sel.alpha = 0;
+        th2sel.alpha = 0;
+        th3sel.alpha = 1;
+    }
+
+    bg1.inputEnabled = true;
+    bg2.inputEnabled = true;
+    bg3.inputEnabled = true;
+    bg4.inputEnabled = true;
+    bg5.inputEnabled = true;
+
+    if(music_constant=="bg1m"){
+        bg1.alpha = 0;
+        bg2.alpha = 1;
+        bg3.alpha = 1;
+        bg4.alpha = 1;
+        bg5.alpha = 1;
+        bg1sel.alpha = 1;
+        bg2sel.alpha = 0;
+        bg3sel.alpha = 0;
+        bg4sel.alpha = 0;
+        bg5sel.alpha = 0;
+
+    }else if(music_constant=="bg2m"){
+        bg1.alpha = 1;
+        bg2.alpha = 0;
+        bg3.alpha = 1;
+        bg4.alpha = 1;
+        bg5.alpha = 1;
+        bg1sel.alpha = 0;
+        bg2sel.alpha = 1;
+        bg3sel.alpha = 0;
+        bg4sel.alpha = 0;
+        bg5sel.alpha = 0;
+
+    }else if(music_constant=="bg3m"){
+        bg1.alpha = 1;
+        bg2.alpha = 1;
+        bg3.alpha = 0;
+        bg4.alpha = 1;
+        bg5.alpha = 1;
+        bg1sel.alpha = 0;
+        bg2sel.alpha = 0;
+        bg3sel.alpha = 1;
+        bg4sel.alpha = 0;
+        bg5sel.alpha = 0;
+    }else if(music_constant=="bg4m"){
+        bg1.alpha = 1;
+        bg2.alpha = 1;
+        bg3.alpha = 1;
+        bg4.alpha = 0;
+        bg5.alpha = 1;
+        bg1sel.alpha = 0;
+        bg2sel.alpha = 0;
+        bg3sel.alpha = 0;
+        bg4sel.alpha = 1;
+        bg5sel.alpha = 0;
+    }else if(music_constant=="bg5m"){
+        bg1.alpha = 1;
+        bg2.alpha = 1;
+        bg3.alpha = 1;
+        bg4.alpha = 1;
+        bg5.alpha = 0;
+        bg1sel.alpha = 0;
+        bg2sel.alpha = 0;
+        bg3sel.alpha = 0;
+        bg4sel.alpha = 0;
+        bg5sel.alpha = 1;
+    }
 }
 
 function startAnimation(){
@@ -735,4 +950,122 @@ function fadeOutTween(){
     setTimeout(function () {
         startAnimation()
     },1100);
+}
+
+function selectTheme(theme){
+    var selected = theme.code;
+    switch (selected){
+        case "green":
+            th1sel.alpha = 1;
+            th2sel.alpha = 0;
+            th3sel.alpha = 0;
+            th1.alpha = 0;
+            th2.alpha = 1;
+            th3.alpha = 1;
+            bg="green";
+
+            break;
+        case "blue":
+            th1sel.alpha = 0;
+            th2sel.alpha = 1;
+            th3sel.alpha = 0;
+            th1.alpha = 1;
+            th2.alpha = 0;
+            th3.alpha = 1;
+            bg="blue";
+            break;
+        case "black":
+            th1sel.alpha = 0;
+            th2sel.alpha = 0;
+            th3sel.alpha = 1;
+            th1.alpha = 1;
+            th2.alpha = 1;
+            th3.alpha = 0;
+            bg="black";
+            break;
+    }
+    bgTheme.loadTexture(bg);
+}
+
+function selectMusic(musc){
+    var selected = musc.code;
+    switch (selected){
+        case "bg1m":
+            bg1.alpha = 0;
+            bg2.alpha = 1;
+            bg3.alpha = 1;
+            bg4.alpha = 1;
+            bg5.alpha = 1;
+            bg1sel.alpha = 1;
+            bg2sel.alpha = 0;
+            bg3sel.alpha = 0;
+            bg4sel.alpha = 0;
+            bg5sel.alpha = 0;
+            music_constant="bg1m";
+            break;
+        case "bg2m":
+            bg1.alpha = 1;
+            bg2.alpha = 0;
+            bg3.alpha = 1;
+            bg4.alpha = 1;
+            bg5.alpha = 1;
+            bg1sel.alpha = 0;
+            bg2sel.alpha = 1;
+            bg3sel.alpha = 0;
+            bg4sel.alpha = 0;
+            bg5sel.alpha = 0;
+            music_constant="bg2m"
+            break;
+        case "bg3m":
+            bg1.alpha = 1;
+            bg2.alpha = 1;
+            bg3.alpha = 0;
+            bg4.alpha = 1;
+            bg5.alpha = 1;
+            bg1sel.alpha = 0;
+            bg2sel.alpha = 0;
+            bg3sel.alpha = 1;
+            bg4sel.alpha = 0;
+            bg5sel.alpha = 0;
+            music_constant="bg3m";
+            break;
+        case "bg4m":
+            bg1.alpha = 1;
+            bg2.alpha = 1;
+            bg3.alpha = 1;
+            bg4.alpha = 0;
+            bg5.alpha = 1;
+            bg1sel.alpha = 0;
+            bg2sel.alpha = 0;
+            bg3sel.alpha = 0;
+            bg4sel.alpha = 1;
+            bg5sel.alpha = 0;
+            music_constant="bg4m";
+            break;
+        case "bg5m":
+            bg1.alpha = 1;
+            bg2.alpha = 1;
+            bg3.alpha = 1;
+            bg4.alpha = 1;
+            bg5.alpha = 0;
+            bg1sel.alpha = 0;
+            bg2sel.alpha = 0;
+            bg3sel.alpha = 0;
+            bg4sel.alpha = 0;
+            bg5sel.alpha = 1;
+            music_constant="bg5m";
+            break;
+    }
+    music.stop();
+    music.destroy(true);
+    music = game.add.audio(music_constant);
+    music.loop = true;
+    music.play();
+
+    if(sound.key == 'sounds'){
+        music.mute = false;
+    }else{
+        music.mute = true;
+    }
+
 }

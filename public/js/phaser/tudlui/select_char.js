@@ -11,7 +11,7 @@ var girl_1_pic, girl_2_pic , girl_3_pic, boy_1_pic, boy_2_pic, boy_3_pic;
 var selected, choose, input_name, name, code, error, helper3, arr21, name_bg;
 
 selectChar.prototype = {
-    init: function(bool_music) {
+    init: function(bool_music, music_constant, bg) {
 
     },
     preload: function(){
@@ -21,7 +21,7 @@ selectChar.prototype = {
         this.load.spritesheet('boy_1','../images/phaser/boy_1_sheet.jpg', 150, 150 );
         this.load.spritesheet('boy_2','../images/phaser/boy_2_sheet.jpg', 150, 150 );
         this.load.spritesheet('boy_3','../images/phaser/boy_3_sheet.jpg', 150, 150 );
-        this.load.spritesheet('enter','../images/phaser/button_enter_sprite.jpg', 150, 50);
+        this.load.spritesheet('enter','../images/phaser/button_enter_sprite.png', 150, 50);
         this.load.audio('error', '../music/error.mp3');
         this.load.image('helper3','../images/phaser/select_help.png');
         this.load.image('arr21','../images/phaser/select_arrow.png');
@@ -30,7 +30,7 @@ selectChar.prototype = {
     },
     create: function(){
 
-        game.background = this.game.add.sprite(0,0, 'background');
+        game.background = this.game.add.sprite(0,0, bg);
         game.add.plugin(Fabrique.Plugins.InputField);
 
         input_name = game.add.inputField(780, 190, {
@@ -132,7 +132,7 @@ selectChar.prototype = {
         helper3.alpha = 0;
 
         choose = game.add.text(750, 80, 'Select your character and\n'+
-            'enter your name.',  { font: "24px Varela", fill: "#34486b", align: 'center', stroke: "#E9FBE9", strokeThickness:.5, fontWeight: '900'  });
+            'enter your name.',  { font: "24px Varela", fill: font, align: 'center', stroke: stroke, strokeThickness:2, fontWeight: '900'  });
 
     },
     update: function(){
@@ -265,8 +265,7 @@ function enterGame(){
     name = input_name.value;
     console.log(selected);
     if(name && selected != 0) {
-        music.stop();
-        game.state.start('part_1', true, false,code,name);
+        game.state.start('part_1', true, false,code,name, bg, bool_music);
     }else if(!name){
         showHelp();
         input_name = game.add.inputField(780, 190, {

@@ -29,7 +29,14 @@ partThree.prototype = {
     },
     create: function(){
 
-        game.background = this.game.add.sprite(0,0, 'background');
+        game.background = this.game.add.sprite(0,0, bg);
+        music.volume = 0.15;
+        if(bool_music){
+            sound = game.add.sprite(790, 10, 'sounds');
+        }else{
+            sound = game.add.sprite(790, 10, 'mute');
+        }
+
 
         name_bg = game.add.sprite(885, 5, 'name_bg');
 
@@ -48,8 +55,8 @@ partThree.prototype = {
         helper6 = game.add.sprite(430, 425, 'helper5');
 
         helper6.alpha = 0;
-        //partTwoMusic = game.add.audio('partTwoMusic');
-        //partTwoMusic.play();
+        partTwoMusic = game.add.audio('partTwoMusic');
+        partTwoMusic.play();
 
         textTitle= game.add.text(100,40, "What is Big-O and how?", {  font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  });
 
@@ -196,10 +203,10 @@ function resumePartTwo() {
 
 function backChapterTwo(){
     partTwoMusic.stop();
-    game.state.start('part_2', true, false,code,name);
+    game.state.start('part_2', true, false,code,name, bg, bool_music);
 }
 
 function nextChapterTwo(){
     partTwoMusic.stop();
-    game.state.start('part_4', true, false,code,name);
+    game.state.start('part_4', true, false,code,name, bg, bool_music);
 }

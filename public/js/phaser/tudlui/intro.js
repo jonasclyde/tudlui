@@ -52,6 +52,7 @@ function preload() {
     this.load.spritesheet('pref', '../images/phaser/button_preference_sprite.png', 150, 50);
     this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
     this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
+    this.load.spritesheet('apply','../images/phaser/button_apply_sprite.png', 150, 50);
 
     this.load.spritesheet('bg1','../images/phaser/bg1.png', 100, 50);
     this.load.spritesheet('bg2','../images/phaser/bg2.png', 100, 50 );
@@ -82,7 +83,7 @@ var title, O;
 var loop;
 var circle = [];
 //var line1, line2, line3;
-var btn1, btn2, btn3, btn4;
+var btn1, btn2, btn3, btn4, btn5;
 var about_us_header;
 var about_us_constant, help1, bool_music = 1;
 
@@ -99,7 +100,7 @@ var wordIndex1 = 0, wordIndex2 = 0, wordIndex3 = 0, wordIndex4 = 0, wordIndex5 =
 var lineIndex1 = 0, lineIndex2 = 0, lineIndex3 = 0, lineIndex4 = 0, lineIndex5 = 0, lineIndex6 = 0, lineIndex7 = 0;
 
 var arr1, arr2, arr3, helper1, helper2, helper3, page= 0,helper1_shadow, theme_header, music_header, music_constant,pref_header;
-var th1, th2, th3, th1sel, th2sel, th3sel, bg1, bg2, bg3, bg4, bg5, bg1sel, bg2sel, bg3sel, bg4sel, bg5sel;
+var th1, th2, th3, th1sel, th2sel, th3sel, bg1, bg2, bg3, bg4, bg5, bg1sel, bg2sel, bg3sel, bg4sel, bg5sel, tempbg, tempmus;
 
 var wordDelay = 180;
 var lineDelay = 300;
@@ -107,9 +108,11 @@ var lineDelay = 300;
 function create() {
 
     bg = 'green';
+    tempbg = 'green';
     font = '#ffff1c'; //yellow
     stroke = '#34486b'; //blue
     music_constant='bg1m';
+    tempmus = 'bg1m';
 
     bgTheme = this.game.add.sprite(0,0, bg);
 
@@ -178,14 +181,19 @@ function create() {
 
     btn1 = game.add.button(520, 330, 'start', startGame, this, 1, 0, 2);
     btn2 = game.add.button(520, 400, 'about', showAbout, this, 1, 0, 2);
-    btn3 = game.add.button(560, 470, 'back', backToHome, this, 1, 0, 3);
+    btn3 = game.add.button(560, 540, 'back', backToHome, this, 1, 0, 3);
     btn4 = game.add.button(520, 470, 'pref', showPreferences, this, 1, 0, 2);
+    btn5 = game.add.button(560, 470, 'apply', applyPref, this, 1, 0, 2);
     help1 = game.add.button(1065, 12, 'help', helpOne, this, 1, 0, 1);
 
     btn1.alpha = 0;
     btn2.alpha = 0;
     btn3.alpha = 0;
     btn4.alpha = 0;
+    btn5.alpha = 0;
+
+    btn3.inputEnabled = false;
+    btn5.inputEnabled = false;
 
     th1 = game.add.button(410, 210, 'th1', '', this, 1, 0, 1);
     th2 = game.add.button(590, 210, 'th2', '', this, 1, 0, 1);
@@ -353,7 +361,8 @@ function helpOne(){
             help1.inputEnabled = true;
         },3000)
     }else{
-        btn3.inputEnabled = false;
+        btn4.inputEnabled = false;
+        btn5.inputEnabled = false;
         help1.inputEnabled = false;
         game.add.tween(helper3).to({ alpha: 1 }, 700, "Linear", true);
         game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
@@ -368,7 +377,8 @@ function helpOne(){
         },4000)
 
         setTimeout(function() {
-            btn3.inputEnabled = true;
+            btn4.inputEnabled = true;
+            btn5.inputEnabled = true;
             help1.inputEnabled = true;
         });
     }
@@ -435,6 +445,8 @@ function backToHome(){
     pref_header.alpha = 0;
     btn3.alpha = 0;
     btn3.inputEnabled = false;
+    btn5.alpha = 0;
+    btn5.inputEnabled = false;
 
     th1.alpha = 0;
     th2.alpha = 0;
@@ -464,6 +476,26 @@ function backToHome(){
     bg4.inputEnabled = false;
     bg5.inputEnabled = false;
 
+    if(tempbg != bg){
+        bg = tempbg;
+        bgTheme.loadTexture(bg);
+    }
+
+    if(tempmus != music_constant){
+        music_constant = tempmus;
+
+        music.stop();
+        music.destroy(true);
+        music = game.add.audio(music_constant);
+        music.loop = true;
+        music.play();
+        if(sound.key == 'sounds'){
+            music.mute = false;
+        }else{
+            music.mute = true;
+        }
+    }
+
 }
 
 function showAbout() {
@@ -478,6 +510,7 @@ function showAbout() {
     btn1.inputEnabled = false;
     btn2.inputEnabled = false;
     btn4.inputEnabled = false;
+    btn5.inputEnabled = false;
 
     about_us_constant.alpha = 1;
     about_us_header.alpha = 1;
@@ -500,7 +533,9 @@ function showPreferences(){
     btn4.inputEnabled = false;
 
     btn3.alpha = 1;
+    btn5.alpha = 1;
     btn3.inputEnabled = true;
+    btn5.inputEnabled = true;
 
     th1.inputEnabled = true;
     th2.inputEnabled = true;
@@ -599,6 +634,12 @@ function showPreferences(){
         bg4sel.alpha = 0;
         bg5sel.alpha = 1;
     }
+}
+
+function applyPref(){
+
+    tempbg = bg;
+    tempmus = music_constant;
 }
 
 function startAnimation(){
@@ -985,6 +1026,7 @@ function selectTheme(theme){
             break;
     }
     bgTheme.loadTexture(bg);
+
 }
 
 function selectMusic(musc){
@@ -1056,6 +1098,7 @@ function selectMusic(musc){
             music_constant="bg5m";
             break;
     }
+
     music.stop();
     music.destroy(true);
     music = game.add.audio(music_constant);

@@ -6,7 +6,7 @@
         <div class="register-container">
             <div class="register-label">
                 <h1>Learn more about<br>
-                    the Big-O.</h1>
+                    the <img src="/images/word_art_bigo.png"> </h1>
                 <br>
                 <p>Learn anytime, and anywhere<br>
                     at your own pace.</p>

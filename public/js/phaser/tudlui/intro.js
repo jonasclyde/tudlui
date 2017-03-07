@@ -51,7 +51,7 @@ function preload() {
     this.load.spritesheet('about', '../images/phaser/button_about_sprite.png', 150, 50);
     this.load.spritesheet('pref', '../images/phaser/button_preference_sprite.png', 150, 50);
     this.load.spritesheet('back', '../images/phaser/button_back_sprite.png', 150, 50);
-    this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 193, 71 );
+    this.load.spritesheet('next','../images/phaser/button_next_sprite.png', 150, 50);
     this.load.spritesheet('apply','../images/phaser/button_apply_sprite.png', 150, 50);
 
     this.load.spritesheet('bg1','../images/phaser/bg1.png', 100, 50);
@@ -166,8 +166,8 @@ function create() {
     click = game.add.audio('click');
     help_sound = game.add.audio('help_sound');
     music = game.add.audio(music_constant);
-    music.loop = true;
-    music.play();
+    //music.loop = true;
+    //music.play();
 
     title.fontWeight = 'bold';
     O.fontWeight = 'bold';
@@ -421,8 +421,8 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('select_char', true, false,bool_music,music_constant,bg);
-    //game.state.start('part_2');
+    //game.state.start('select_char', true, false,bool_music,music_constant,bg);
+    game.state.start('part_3');
 }
 
 function backToHome(){

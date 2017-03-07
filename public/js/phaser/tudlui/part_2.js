@@ -21,6 +21,7 @@ var contentOne =
 partTwo.prototype = {
     init: function(code, name, bg, bool_music) {
         wordIndexOne=0;
+        letterIndexOne=0;
 
     },
     preload: function(){
@@ -188,7 +189,7 @@ function nextChapterOne(){
     partOneMusic.stop();
     partOne1.stop();
     partOne2.stop();
-    //game.state.start('part_3', true, false,code,name, bg, bool_music);
+    game.state.start('part_3', true, false,code,name, bg, bool_music);
 }
 
 function showO(){

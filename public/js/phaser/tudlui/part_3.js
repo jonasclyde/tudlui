@@ -10,7 +10,7 @@ var partThree = function(game){
 
 var wordIndexTwo;
 //var lineTwo = [],
-var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how, learn_more, selected = 0;
+var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how, learn_more, selected = 0, whats, hows;
 var contentTwo =
     "The marker0 big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
     " We use the Big O notation to express how quickly the algorithm's runtime grows given the number of marker4 input. " +
@@ -26,6 +26,9 @@ partThree.prototype = {
         game.load.audio('partTwoMusic', '../music/partTwo.mp3');
         game.load.spritesheet('what', '../images/phaser/what.png', 200, 100);
         game.load.spritesheet('how', '../images/phaser/how.png', 200, 100);
+        game.load.spritesheet('whats', '../images/phaser/whats.png', 150, 50);
+        game.load.spritesheet('hows', '../images/phaser/hows.png', 150, 50);
+        game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
     },
     create: function(){
 
@@ -37,7 +40,6 @@ partThree.prototype = {
             sound = game.add.sprite(790, 10, 'mute');
         }
 
-
         name_bg = game.add.sprite(885, 5, 'name_bg');
 
         avatar = game.add.sprite(890, 10, code);
@@ -48,17 +50,28 @@ partThree.prototype = {
         nick.fontWeight = 'bold';
 
 
-        what = game.add.button(300, 180, 'what',showWhat, this, 1, 0, 1);
-        how = game.add.button(600, 180, 'how',showHow, this, 1, 0, 1);
+        teacher = game.add.sprite(860, 120, 'teacher');
+        talk =  teacher.animations.add('talk');
 
-        help6 = game.add.button(840, 25, 'help', helpFour, this, 1, 0, 1);
+        what = game.add.button(250, 180, 'what',whatOne, this, 1, 0, 1);
+        how = game.add.button(550, 180, 'how',howOne, this, 1, 0, 1);
+        whats = game.add.button(250, 530, 'whats',showWhat, this, 1, 0, 1);
+        hows = game.add.button(450, 530, 'hows',showHow, this, 1, 0, 1);
+        whats.alpha = 0;
+        hows.alpha = 0;
+        whats.inputEnabled = false;
+        hows.inputEnabled = false;
+        what.inputEnabled = false;
+        how.inputEnabled = false;
+
+        help6 = game.add.button(840, 10, 'help', helpFour, this, 1, 0, 1);
         helper6 = game.add.sprite(430, 425, 'helper5');
 
         helper6.alpha = 0;
         partTwoMusic = game.add.audio('partTwoMusic');
         partTwoMusic.play();
 
-        textTitle= game.add.text(100,40, "What is Big-O and how?", {  font: "32px Varela",fill: "#34486b", align: "center", stroke: "#E9FBE9", strokeThickness:1, fontWeight: '900'  });
+        textTitle= game.add.text(100,40, "What is Big-O and how?", {  font: "32px Varela",fill: font, align: "center", stroke: stroke, strokeThickness:2, fontWeight: '900'  });
 
         //textO = game.add.text(100, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
 
@@ -102,6 +115,8 @@ partThree.prototype = {
 
         btnbTwo = game.add.button(3, 547, 'back', backChapterTwo, this, 1, 0, 1);
         btnnTwo = game.add.button(945, 547, 'next', nextChapterTwo, this, 1, 0, 1);
+
+        startIntro();
     },
     update: function(){
 
@@ -112,19 +127,75 @@ partThree.prototype = {
 
 }
 
-function showWhat(){
-    //game.add.tween(what).to({ size: 0 }, 1000, "Linear", true);
-    //game.add.tween(how).to({ alpha: 0 }, 1000, "Linear", true);
-   game.add.tween(what.scale).to({x: .5, y:.5}, 800, Phaser.Easing.Linear.None, true);
-   game.add.tween(how.scale).to({x:.5, y:.5}, 800, Phaser.Easing.Linear.None, true);
+function startIntro(){
+    teacher.animations.play('talk', 11, true);
+    setTimeout(function(){
+        game.add.tween(what.scale).to( { x: 1.1, y: 1.1 }, 700, Phaser.Easing.Linear.None, true, 0, 0, true);
+        game.add.tween(what.position).to( { x:250-12, y: 180-7}, 700, Phaser.Easing.Linear.None, true, 0, 0, true );
+    }, 1500);
+
+    setTimeout(function(){
+        game.add.tween(how.scale).to( { x: 1.1, y: 1.1 }, 600, Phaser.Easing.Linear.None, true, 0, 0, true);
+        game.add.tween(how.position).to( { x:550-12, y: 180-7}, 600, Phaser.Easing.Linear.None, true, 0, 0, true );
+    }, 7100);
+
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+        what.inputEnabled = true;
+        how.inputEnabled = true;
+    }, 10100);
+
+}
+
+function whatOne(){
+    whats.inputEnabled = true;
+    hows.inputEnabled = true;
+    what.inputEnabled = false;
+    how.inputEnabled = false;
+    game.add.tween(what).to({ alpha: 0 }, 1000, "Linear", true);
+    game.add.tween(how).to({ alpha: 0 }, 1000, "Linear", true);
+    game.add.tween(whats).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(hows).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(what.scale).to({x: .8, y:.8}, 800, Phaser.Easing.Linear.None, true);
+    game.add.tween(how.scale).to({x:.8, y:.8}, 800, Phaser.Easing.Linear.None, true);
     game.add.tween(what).to({
-        x: [300],
-        y: [475]
+        x: [250],
+        y: [530]
     }, 1000,"Linear", true);
     game.add.tween(how).to({
-        x: [600],
-        y: [475]
+        x: [450],
+        y: [530]
     }, 1000,"Linear", true);
+    showWhat();
+
+}
+
+
+function howOne(){
+    whats.inputEnabled = true;
+    hows.inputEnabled = true;
+    what.inputEnabled = false;
+    how.inputEnabled = false;
+    game.add.tween(what).to({ alpha: 0 }, 1000, "Linear", true);
+    game.add.tween(how).to({ alpha: 0 }, 1000, "Linear", true);
+    game.add.tween(whats).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(hows).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(what.scale).to({x: .5, y:.5}, 800, Phaser.Easing.Linear.None, true);
+    game.add.tween(how.scale).to({x:.5, y:.5}, 800, Phaser.Easing.Linear.None, true);
+    game.add.tween(what).to({
+        x: [250],
+        y: [530]
+    }, 1000,"Linear", true);
+    game.add.tween(how).to({
+        x: [450],
+        y: [530]
+    }, 1000,"Linear", true);
+    showHow();
+
+}
+
+function showWhat(){
+
 }
 
 
@@ -133,7 +204,6 @@ function showHow(){
 }
 
 function nextWordTwo() {
-    console.log(lineTwo[wordIndexTwo])
     if(lineTwo[wordIndexTwo] == 'marker4'){
         partTwoMusic.pause();
     }

@@ -421,8 +421,8 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    //game.state.start('select_char', true, false,bool_music,music_constant,bg);
-    game.state.start('part_3');
+    game.state.start('select_char', true, false,bool_music,music_constant,bg);
+    //game.state.start('part_3');
 }
 
 function backToHome(){

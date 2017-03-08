@@ -10,7 +10,7 @@ var partThree = function(game){
 
 var wordIndexTwo;
 //var lineTwo = [],
-var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how, learn_more, selected = 0, whats, hows;
+var avatar, nick, btnnTwo, btnbTwo, textO, descriptionO, countTwo, textCode, textCount, partTwoMusic, lineTwo,help6, helper6, what, how, learn_more, selected = 0, whats, hows, b1, b2, b3, b4, b5, b6, whatmus, howmus;
 var contentTwo =
     "The marker0 big O of an algorithm is represented by O of N. It is a function, O, of the time an algorithm takes to run or the running time which is represented by n." +
     " We use the Big O notation to express how quickly the algorithm's runtime grows given the number of marker4 input. " +
@@ -24,6 +24,7 @@ partThree.prototype = {
     },
     preload: function(){
         game.load.audio('partTwoMusic', '../music/partTwo.mp3');
+        game.load.audio('whatm', '../music/new.mp3');
         game.load.spritesheet('what', '../images/phaser/what.png', 200, 100);
         game.load.spritesheet('how', '../images/phaser/how.png', 200, 100);
         game.load.spritesheet('whats', '../images/phaser/whats.png', 150, 50);
@@ -50,6 +51,7 @@ partThree.prototype = {
         nick.fontWeight = 'bold';
 
 
+        whatmus = game.add.audio('whatm');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
 
@@ -73,40 +75,31 @@ partThree.prototype = {
 
         textTitle= game.add.text(100,40, "What is Big-O and how?", {  font: "32px Varela",fill: font, align: "center", stroke: stroke, strokeThickness:2, fontWeight: '900'  });
 
-        //textO = game.add.text(100, 100, "O( n )", { font: "80px Raleway", fill: "#000000"});
+        b1 = game.add.text(120, 100, "So what is the Big O notation? and why is it important? \n"+
+            "In programming, we can simplify the Big O notation into these points:",
+            { font: "16px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
+        b2 = game.add.text(120, 180, "* Big O is the notation used to give an estimate on how long an algorithm takes to run. \n" +
+            "It is used to check if the algorithm being used is efficient when approaching the problem.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
+        b3 = game.add.text(120, 250, "* The notation focuses on the worst case complexity or running time of an algorithm. \n" +
+            "We will  identify the longest running time performed by an algorithm given any input of size N.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
+        b4 = game.add.text(120, 320, "* The Big O of an algorithm is not an exact number. The notation uses the runtime growth in terms of its input.\n" +
+            " For example, O(n) is phrased as, on the order of the size of the input. For O(n2) squared, it will be, on the order of the\n"+
+            " square of the size of the input. An algorithm of O(n2), the running time is represented by squaring the input (n2).",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        descriptionO = game.add.text(370, 110, "The big O of an algorithm is represented by O(n) - pronounced 'Oh of en'.\n" +
-            "It's a function, O, of the time an algorithm takes to run or the running time,\n" +
-            "which is represented by N."
-            , { font: "16px Raleway", fill: "#000000"});
-        descriptionO.addFontWeight('bold', 43);
-        descriptionO.addFontWeight('normal', 48);
+        b5 =  game.add.text(120, 420, "* Big O is important for programmers, and mathematicians as well, because they can identify if the algorithm \n" +
+            " is fast and efficient when dealing with very large inputs or quantities. If the input is 1000 items,\n"+
+            " will O(n) be faster than O(n2)?",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        descriptionO.addFontWeight('bold',90);
-        descriptionO.addFontWeight('normal',91);
 
-        descriptionO.addFontWeight('bold',175);
-        descriptionO.addFontWeight('normal',176);
-
-        textCount = game.add.text(180, 300,"COUNT :", { font: "24px Raleway", fill: "#0000FF", fontWeight: "bold"});
-
-        textCode = game.add.text(450,230, "$array = [ 'The' , 'Big' , 'O' , 'Notation'];\n" +
-            "\n"+
-            "public function addContents( $array ){\n"+
-            "    for ( $i = 0 ; i < count( $array ) ; $i++ ){\n"+
-            "        echo $array[ $i ].'<br>';\n"+
-            "    }\n"+
-            "}", { font: "23px Raleway", fill: "#000000", fontWeight:'bold'});
-
-        countTwo = game.add.text(130, 500,"To find the big O of an algorithm, we " +
-            "will need to determine how long it takes " +
-            "to run the function based on the\nnumber" +
-            " of inputs.", { font: "16px Raleway", fill: "#000000"});
-
-        textCount.alpha = 0;
-        textCode.alpha = 0;
-        countTwo.alpha = 0;
-        descriptionO.alpha =0;
+        b1.alpha = 0;
+        b2.alpha = 0;
+        b3.alpha = 0;
+        b4.alpha = 0;
+        b5.alpha = 0;
 
         lineTwo = contentTwo.split(' ');
         game.time.events.repeat(Phaser.Timer.QUARTER * 1.5, lineTwo.length, nextWordTwo, this);
@@ -195,7 +188,54 @@ function howOne(){
 }
 
 function showWhat(){
-
+    b1.alpha = 0;
+    b2.alpha = 0;
+    b3.alpha = 0;
+    b4.alpha = 0;
+    b5.alpha = 0;
+    whatmus.stop();
+    whatmus.play()
+    teacher.animations.play('talk', 11, true);
+    game.add.tween(b1).to({ alpha: 1 }, 1000, "Linear", true)
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 7800);
+    setTimeout(function(){
+        game.add.tween(b2).to({ alpha: 1 }, 1000, "Linear", true);
+    }, 7500);
+    setTimeout(function(){
+        teacher.animations.play('talk', 11, true);
+    }, 8600);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 18100);
+    setTimeout(function(){
+        game.add.tween(b3).to({ alpha: 1 }, 1000, "Linear", true);
+    }, 18500);
+    setTimeout(function(){
+        teacher.animations.play('talk', 11, true);
+    }, 18900);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 28600);
+    setTimeout(function(){
+        game.add.tween(b4).to({ alpha: 1 }, 1000, "Linear", true);
+    }, 28000);
+    setTimeout(function(){
+        teacher.animations.play('talk', 11, true);
+    }, 29400)
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 52000);
+    setTimeout(function(){
+        game.add.tween(b5).to({ alpha: 1 }, 1000, "Linear", true);
+    }, 51900);
+    setTimeout(function(){
+        teacher.animations.play('talk', 11, true);
+    }, 52700)
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 74300);
 }
 
 
@@ -273,10 +313,14 @@ function resumePartTwo() {
 
 function backChapterTwo(){
     partTwoMusic.stop();
+    whatmus.stop();
+
     game.state.start('part_2', true, false,code,name, bg, bool_music);
 }
 
 function nextChapterTwo(){
     partTwoMusic.stop();
+    whatmus.stop();
+
     game.state.start('part_4', true, false,code,name, bg, bool_music);
 }

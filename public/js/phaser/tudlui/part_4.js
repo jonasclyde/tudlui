@@ -37,64 +37,64 @@ partFour.prototype = {
         avatar.scale.setTo(0.4,0.4);
         nick = game.add.text(960,25, name, { font: "24px Raleway", fill: "#000000"});
         nick.fontWeight = 'bold';
-        partThreeMusic = game.add.audio('partThreeMusic');
-        partThreeMusic.play();
-
-        textTitle= game.add.text(100,40, "III. Counting Method.", { font: "27px Raleway", fill: "#000000"});
-
-        textDescription = game.add.text(140, 100, "In our previous level, it was stated that the size of the complexity of the algorithm is examined using\n" +
-            "the input and we will need to count the number of steps it runs to find the Big O notation. Let's examine \n" +
-            "this line of code here.",
-            { font: "18px Raleway", fill: "#000000", align: 'left' });
-
-        textCode = game.add.text(380,120, "public function addContents( $array ){\n"+
-            "      $sum = 0;\n"+
-            "      for ( $i = 0 ; $i < count( $array ) ; $i++ ){\n"+
-            "          $sum = $sum + $array[ $i ]; \n"+
-            "      }\n"+
-            "      return $sum;\n"+
-            "}", { font: "23px Raleway", fill: "#000000", fontWeight:'bold'});
-        textCode.lineSpacing = 13;
-
-        note1 = game.add.text(50,120, "* This function adds all the contents of the \n" +
-            " given array.", { font: "14px Raleway", fill: "#000000"});
-        note2 = game.add.text(50,190, "* Count the steps outside the loop.", { font: "14px Raleway", fill: "#000000"});
-        note3 = game.add.text(50,235, "* Processes that are outside the loop only \n" +
-            " occur once.", { font: "14px Raleway", fill: "#000000"});
-        note4 = game.add.text(50,305, "* Count the steps inside the loop.", { font: "14px Raleway", fill: "#000000"});
-        note5 = game.add.text(50,355, "* The number of steps inside the loop \n" +
-            " depends on N (the number of inputs).", { font: "14px Raleway", fill: "#000000"});
-        note6 = game.add.text(50,435, "* For big O, we will not consider the\n" +
-            " coefficients or constant overheads and\n" +
-            " any terms except the fastest growing one.", { font: "14px Raleway", fill: "#000000"});
-
-        outsideloop = game.add.text(860,120, "Outside Loop", { font: "20px Raleway", fill: "#FF0000", fontWeight: "bold"});
-        insideloop = game.add.text(860,220, "Inside Loop", { font: "20px Raleway", fill: "#0000FF", fontWeight: "bold"});
-        totalsteps = game.add.text(860,320, "Total Steps\n" +
-            "     6N + 3", { font: "20px Raleway", fill: "#00FF00", fontWeight: "bold"});
-        notationfunction = game.add.text(820,429, "This function is O(N)", { font: "23px Raleway", fill: "#000000", fontWeight: "bold"});
-
-        textCode.alpha = 0;
-        note1.alpha = 0;
-        note2.alpha = 0;
-        note3.alpha = 0;
-        note4.alpha = 0;
-        note5.alpha = 0;
-        note6.alpha = 0;
-        outsideloop.alpha = 0;
-        insideloop.alpha = 0;
-        totalsteps.alpha = 0;
-        notationfunction.alpha = 0;
-
-        lineThree = contentThree.split(' ');
-        game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineThree.length, nextWordThree, this);
-        game.onPause.add(pausePartThree, this);
-        game.onResume.add(resumePartThree, this);
-
-
-
-        btnbThree = game.add.button(960, 500, 'back', backChapterThree, this, 0, 1, 0);
-        btnnThree = game.add.button(1050, 500, 'next', nextChapterThree, this, 1, 0, 1);
+        //partThreeMusic = game.add.audio('partThreeMusic');
+        //partThreeMusic.play();
+        //
+        //textTitle= game.add.text(100,40, "III. Counting Method.", { font: "27px Raleway", fill: "#000000"});
+        //
+        //textDescription = game.add.text(140, 100, "In our previous level, it was stated that the size of the complexity of the algorithm is examined using\n" +
+        //    "the input and we will need to count the number of steps it runs to find the Big O notation. Let's examine \n" +
+        //    "this line of code here.",
+        //    { font: "18px Raleway", fill: "#000000", align: 'left' });
+        //
+        //textCode = game.add.text(380,120, "public function addContents( $array ){\n"+
+        //    "      $sum = 0;\n"+
+        //    "      for ( $i = 0 ; $i < count( $array ) ; $i++ ){\n"+
+        //    "          $sum = $sum + $array[ $i ]; \n"+
+        //    "      }\n"+
+        //    "      return $sum;\n"+
+        //    "}", { font: "23px Raleway", fill: "#000000", fontWeight:'bold'});
+        //textCode.lineSpacing = 13;
+        //
+        //note1 = game.add.text(50,120, "* This function adds all the contents of the \n" +
+        //    " given array.", { font: "14px Raleway", fill: "#000000"});
+        //note2 = game.add.text(50,190, "* Count the steps outside the loop.", { font: "14px Raleway", fill: "#000000"});
+        //note3 = game.add.text(50,235, "* Processes that are outside the loop only \n" +
+        //    " occur once.", { font: "14px Raleway", fill: "#000000"});
+        //note4 = game.add.text(50,305, "* Count the steps inside the loop.", { font: "14px Raleway", fill: "#000000"});
+        //note5 = game.add.text(50,355, "* The number of steps inside the loop \n" +
+        //    " depends on N (the number of inputs).", { font: "14px Raleway", fill: "#000000"});
+        //note6 = game.add.text(50,435, "* For big O, we will not consider the\n" +
+        //    " coefficients or constant overheads and\n" +
+        //    " any terms except the fastest growing one.", { font: "14px Raleway", fill: "#000000"});
+        //
+        //outsideloop = game.add.text(860,120, "Outside Loop", { font: "20px Raleway", fill: "#FF0000", fontWeight: "bold"});
+        //insideloop = game.add.text(860,220, "Inside Loop", { font: "20px Raleway", fill: "#0000FF", fontWeight: "bold"});
+        //totalsteps = game.add.text(860,320, "Total Steps\n" +
+        //    "     6N + 3", { font: "20px Raleway", fill: "#00FF00", fontWeight: "bold"});
+        //notationfunction = game.add.text(820,429, "This function is O(N)", { font: "23px Raleway", fill: "#000000", fontWeight: "bold"});
+        //
+        //textCode.alpha = 0;
+        //note1.alpha = 0;
+        //note2.alpha = 0;
+        //note3.alpha = 0;
+        //note4.alpha = 0;
+        //note5.alpha = 0;
+        //note6.alpha = 0;
+        //outsideloop.alpha = 0;
+        //insideloop.alpha = 0;
+        //totalsteps.alpha = 0;
+        //notationfunction.alpha = 0;
+        //
+        //lineThree = contentThree.split(' ');
+        //game.time.events.repeat(Phaser.Timer.QUARTER * 1.4, lineThree.length, nextWordThree, this);
+        //game.onPause.add(pausePartThree, this);
+        //game.onResume.add(resumePartThree, this);
+        //
+        //
+        //
+        //btnbThree = game.add.button(960, 500, 'back', backChapterThree, this, 0, 1, 0);
+        //btnnThree = game.add.button(1050, 500, 'next', nextChapterThree, this, 1, 0, 1);
     },
     update: function(){
 

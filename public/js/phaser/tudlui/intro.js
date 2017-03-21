@@ -15,6 +15,7 @@ game.state.add('part_8', partEight);
 game.state.add('part_9', partNine);
 game.state.add('part_10', partTen);
 game.state.add('quiz', quiz);
+game.state.add('quiz_start', quizStart);
 
 
 function preload() {
@@ -421,8 +422,8 @@ function tweenBalls(){
 
 function startGame(){
     click.play();
-    game.state.start('select_char', true, false,bool_music,music_constant,bg);
-    //game.state.start('part_3');
+    //game.state.start('select_char', true, false,bool_music,music_constant,bg);
+    game.state.start('quiz_start', true, false,code,name, bg, bool_music);
 }
 
 function backToHome(){

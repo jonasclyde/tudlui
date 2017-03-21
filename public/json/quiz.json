@@ -1,7 +1,7 @@
 {
   "question1" : {
     "1": {
-      "question": "1. The Big-O notation was invented by which German number theoretician?",
+      "question": "1. The Big-O notation was invented by which German number \n theoretician?",
       "a": "Paul Bachmann",
       "b": "Edmund Landau",
       "c": "Gary Adalgar",
@@ -10,7 +10,7 @@
       "image_src" : "quiz1"
     },
     "2": {
-      "question": "1. The Big-O notation was invented by which German number theoretician?",
+      "question": "1. The Big-O notation was invented by which German number \n theoretician?",
       "a": "Edmund Landau",
       "b": "Paul Bachmann",
       "c": "Edward Ami",
@@ -19,7 +19,7 @@
       "image_src" : "quiz1"
     },
     "3": {
-      "question": "1. The Big-O notation was invented by which German number theoretician?",
+      "question": "1. The Big-O notation was invented by which German number \n theoretician?",
       "a": "Paul Bachmann",
       "b": "Edward Ami",
       "c": "Gary Adalgar",
@@ -28,7 +28,7 @@
       "image_src" : "quiz1"
     },
     "4": {
-      "question": "1. The Big-O notation was invented by which German number theoretician?",
+      "question": "1. The Big-O notation was invented by which German number \n theoretician?",
       "a": "Gary Adalgar",
       "b": "Paul Bachmann",
       "c": "Edmund Landau",
@@ -37,7 +37,7 @@
       "image_src" : "quiz1"
     },
     "5": {
-      "question": "1. The Big-O notation was invented by which German number theoretician?",
+      "question": "1. The Big-O notation was invented by which German number \n theoretician?",
       "a": "Edward Ami",
       "b": "Edmund Landau",
       "c": "Gary Adalgar",
@@ -48,7 +48,7 @@
   },
   "question2" : {
     "1": {
-      "question": "2. Based on the function found below, how many steps will be executed if the input is 0?",
+      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 0?",
       "a": "5",
       "b": "2",
       "c": "8",
@@ -57,7 +57,7 @@
       "image_src": "quiz2"
     },
     "2": {
-      "question": "2. Based on the function found below, how many steps will be executed if the input is 1?",
+      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 1?",
       "a": "9",
       "b": "15",
       "c": "7",
@@ -66,7 +66,7 @@
       "image_src": "quiz2"
     },
     "3": {
-      "question": "2. Based on the function found below, how many steps will be executed if the input is 2?",
+      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 2?",
       "a": "15",
       "b": "4",
       "c": "26",
@@ -75,7 +75,7 @@
       "image_src": "quiz2"
     },
     "4": {
-      "question": "2. Based on the function found below, how many steps will be executed if the input is 3?",
+      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 3?",
       "a": "15",
       "b": "26",
       "c": "9",
@@ -84,7 +84,7 @@
       "image_src": "quiz2"
     },
     "5": {
-      "question": "2. Based on the function found below, how many steps will be executed if the input is 4?",
+      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 4?",
       "a": "15",
       "b": "9",
       "c": "4",
@@ -95,7 +95,7 @@
   },
   "question3" : {
     "1": {
-      "question": "3. Which notation represents the complexity of the quadratic time?",
+      "question": "3. Which notation represents the complexity of the \n quadratic time?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -104,7 +104,7 @@
       "image_src": "quiz3"
     },
     "2": {
-      "question": "3. Which notation represents the complexity of the linear time?",
+      "question": "3. Which notation represents the complexity of the \n linear time?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -113,7 +113,7 @@
       "image_src": "quiz3"
     },
     "3": {
-      "question": "3. Which notation represents the complexity of the logarithmic time?",
+      "question": "3. Which notation represents the complexity of the \n logarithmic time?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -122,7 +122,7 @@
       "image_src": "quiz3"
     },
     "4": {
-      "question": "3. Which notation represents the complexity of the exponential time??",
+      "question": "3. Which notation represents the complexity of the \n exponential time??",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -131,7 +131,7 @@
       "image_src": "quiz3"
     },
     "5": {
-      "question": "3. Which notation represents the complexity of the constant time?",
+      "question": "3. Which notation represents the complexity of the \n constant time?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -142,7 +142,7 @@
   },
   "question4" : {
     "1": {
-      "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -151,7 +151,7 @@
       "image_src": "quiz4"
     },
     "2": {
-      "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -160,7 +160,7 @@
       "image_src": "quiz4"
     },
     "3": {
-      "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -169,7 +169,7 @@
       "image_src": "quiz4"
     },
     "4": {
-      "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -178,7 +178,7 @@
       "image_src": "quiz4"
     },
     "5": {
-      "question": "4. Based on the function found below, what is the complexity of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -191,7 +191,7 @@
     "1": {
       "question": "5. Which is the most efficient among these time complexity?",
       "a": "O(n^3)",
-      "b": "O(log n)",
+      "b": "O(1)",
       "c": "O(n)",
       "d": "O(2^n)",
       "correct_answer": "b",
@@ -202,13 +202,13 @@
       "a": "O(n^2)",
       "b": "O(n)",
       "c": "O(2^n)",
-      "d": "O(log n)",
+      "d": "O(1)",
       "correct_answer": "d",
       "image_src": "quiz5"
     },
     "3": {
       "question": "5. Which is the most efficient among these time complexity?",
-      "a": "O(n)",
+      "a": "O(1)",
       "b": "O(n(log n))",
       "c": "O(n^5)",
       "d": "O(n^2)",
@@ -229,7 +229,7 @@
       "a": "O(n^4)",
       "b": "O(n^2)",
       "c": "O(n)",
-      "d": "O(log n)",
+      "d": "O(1)",
       "correct_answer": "d",
       "image_src": "quiz5"
     }
@@ -329,7 +329,7 @@
     }
   },"question8" : {
     "1": {
-      "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
+      "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "1",
       "b": "2",
       "c": "7",
@@ -338,7 +338,7 @@
       "image_src": "quiz8"
     },
     "2": {
-      "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
+      "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "81",
       "b": "1",
       "c": "2",
@@ -347,7 +347,7 @@
       "image_src": "quiz8"
     },
     "3": {
-      "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
+      "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "7",
       "b": "1",
       "c": "2",
@@ -356,7 +356,7 @@
       "image_src": "quiz8"
     },
     "4": {
-      "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
+      "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "1",
       "b": "7",
       "c": "81",
@@ -365,7 +365,7 @@
       "image_src": "quiz8"
     },
     "5": {
-      "question": "8. How many steps does it take for the binary search algorithm to find '16' from the set?",
+      "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "2",
       "b": "81",
       "c": "7",

@@ -23,9 +23,10 @@ var contentFive = "In this section, we will try to examine the graphs of the dif
 var textTitle,textDescription, partFiveMusic, textCode,graph1a, graph0, graph1, graph2, graph3, graph4, graph5, graph6, note1, note2, note3,note4,note5,note6, leg1, leg2, leg3, leg4, leg5;
 
 partSix.prototype = {
-    init: function(code, name) {
-        wordIndexFive = 0;
+    init: function(code, name, bg, bool_music) {
+
     },
+
     preload: function(){
         game.load.audio('partFiveMusic', '../music/partFive.mp3');
         game.load.image('func0','../images/phaser/func0.png');

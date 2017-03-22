@@ -7,7 +7,7 @@
       "c": "Gary Adalgar",
       "d": "Edward Ami",
       "correct_answer" : "b",
-      "image_src" : "quiz1"
+      "image_src" : ""
     },
     "2": {
       "question": "1. The Big-O notation was invented by which German number \n theoretician?",
@@ -16,7 +16,7 @@
       "c": "Edward Ami",
       "d": "Gary Adalgar",
       "correct_answer" : "a",
-      "image_src" : "quiz1"
+      "image_src" : ""
     },
     "3": {
       "question": "1. The Big-O notation was invented by which German number \n theoretician?",
@@ -25,7 +25,7 @@
       "c": "Gary Adalgar",
       "d": "Edmund Landau",
       "correct_answer" : "d",
-      "image_src" : "quiz1"
+      "image_src" : ""
     },
     "4": {
       "question": "1. The Big-O notation was invented by which German number \n theoretician?",
@@ -34,7 +34,7 @@
       "c": "Edmund Landau",
       "d": "Edward Ami",
       "correct_answer" : "c",
-      "image_src" : "quiz1"
+      "image_src" : ""
     },
     "5": {
       "question": "1. The Big-O notation was invented by which German number \n theoretician?",
@@ -43,52 +43,52 @@
       "c": "Gary Adalgar",
       "d": "Paul Bachmann",
       "correct_answer" : "b",
-      "image_src" : "quiz1"
+      "image_src" : ""
     }
   },
   "question2" : {
     "1": {
-      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 0?",
-      "a": "5",
-      "b": "2",
-      "c": "8",
-      "d": "14",
+      "question": "2. What is the primary focus of the Big O notation? ",
+      "a": "Worst Case Complexity",
+      "b": "Best Case Complexity",
+      "c": "Initial Case Complexity",
+      "d": "Last Case Complexity",
       "correct_answer": "a",
       "image_src": "quiz2"
     },
     "2": {
-      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 1?",
-      "a": "9",
-      "b": "15",
-      "c": "7",
-      "d": "23",
+      "question": "2. What is the primary focus of the Big O notation? ",
+      "a": "Worst Case Complexity",
+      "b": "Best Case Complexity",
+      "c": "Initial Case Complexity",
+      "d": "Last Case Complexity",
       "correct_answer": "a",
       "image_src": "quiz2"
     },
     "3": {
-      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 2?",
-      "a": "15",
-      "b": "4",
-      "c": "26",
-      "d": "9",
+      "question": "2. What is the primary focus of the Big O notation? ",
+      "a": "Worst Case Complexity",
+      "b": "Best Case Complexity",
+      "c": "Initial Case Complexity",
+      "d": "Last Case Complexity",
       "correct_answer": "a",
       "image_src": "quiz2"
     },
     "4": {
-      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 3?",
-      "a": "15",
-      "b": "26",
-      "c": "9",
-      "d": "4",
+      "question": "2. What is the primary focus of the Big O notation? ",
+      "a": "Worst Case Complexity",
+      "b": "Best Case Complexity",
+      "c": "Initial Case Complexity",
+      "d": "Last Case Complexity",
       "correct_answer": "a",
       "image_src": "quiz2"
     },
     "5": {
-      "question": "2. Based on the function found below, how many steps \n will be executed if the input is 4?",
-      "a": "15",
-      "b": "9",
-      "c": "4",
-      "d": "29",
+      "question": "2. What is the primary focus of the Big O notation? ",
+      "a": "Worst Case Complexity",
+      "b": "Best Case Complexity",
+      "c": "Initial Case Complexity",
+      "d": "Last Case Complexity",
       "correct_answer": "a",
       "image_src": "quiz2"
     }
@@ -327,7 +327,8 @@
       "correct_answer": "d",
       "image_src": "quiz7"
     }
-  },"question8" : {
+  },
+  "question8" : {
     "1": {
       "question": "8. How many steps does it take for the binary search algorithm \n to find '16' from the set?",
       "a": "1",
@@ -373,7 +374,8 @@
       "correct_answer": "a",
       "image_src": "quiz8"
     }
-  },"question9": {
+  },
+  "question9": {
     "1": {
       "question": "9. What is the big O of the binary search?",
       "a": "O(log n)",
@@ -419,7 +421,8 @@
       "correct_answer": "B",
       "image_src": "quiz9"
     }
-  },"question10": {
+  },
+  "question10": {
     "1": {
       "question": "10. What is the complexity of this snippet of code?",
       "a": "O(n^3)",

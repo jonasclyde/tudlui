@@ -4,7 +4,7 @@
 var quizStart = function(game){
 };
 
-var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp;
+var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp, picture;
 var quiz_json, question, option_a, option_b, option_c, option_d, rand_number, score, score_text, ending, teacher2, clap, score_bg, teacher3;
 var option_button_a, option_button_b,  option_button_c,  option_button_d;
 var a, b, c, d;
@@ -211,7 +211,9 @@ function nextQuestion(){
 
     rand_number = Math.floor((Math.random() * 5) + 1);
     question.setText(quiz_json['question'+quiz_counter][rand_number]['question']);
-    //picture = game.add.sprite(350,75, quiz_json['question'+quiz_counter][rand_number]['image_src']);
+    if(quiz_json['question'+quiz_counter][rand_number]['image_src'] != "") {
+        picture = game.add.sprite(350, 75, quiz_json['question' + quiz_counter][rand_number]['image_src']);
+    }
     option_a.setText(quiz_json['question'+quiz_counter][rand_number]['a']);
     option_b.setText(quiz_json['question'+quiz_counter][rand_number]['b']);
     option_c.setText(quiz_json['question'+quiz_counter][rand_number]['c']);
@@ -251,7 +253,7 @@ function showScore(){
     score_bg.alpha = 1;
     teacher2.alpha = 0;
     question.setText("");
-    //picture.destroy();
+    picture.destroy();
     option_button_a.destroy();
     option_button_b.destroy();
     option_button_c.destroy();

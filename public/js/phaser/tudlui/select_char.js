@@ -265,8 +265,8 @@ function enterGame(){
     name = input_name.value;
     console.log(selected);
     if(name && selected != 0) {
-        //game.state.start('quiz_start', true, false,code,name, bg, bool_music);
-        game.state.start('part_1', true, false,code,name, bg, bool_music);
+        game.state.start('quiz_start', true, false,code,name, bg, bool_music);
+        //game.state.start('part_1', true, false,code,name, bg, bool_music);
     }else if(!name){
         showHelp();
         input_name = game.add.inputField(780, 190, {

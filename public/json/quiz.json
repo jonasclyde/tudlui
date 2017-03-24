@@ -54,7 +54,7 @@
       "c": "Initial Case Complexity",
       "d": "Last Case Complexity",
       "correct_answer": "a",
-      "image_src": "quiz2"
+      "image_src": ""
     },
     "2": {
       "question": "2. What is the primary focus of the Big O notation? ",
@@ -63,7 +63,7 @@
       "c": "Initial Case Complexity",
       "d": "Last Case Complexity",
       "correct_answer": "a",
-      "image_src": "quiz2"
+      "image_src": ""
     },
     "3": {
       "question": "2. What is the primary focus of the Big O notation? ",
@@ -72,7 +72,7 @@
       "c": "Initial Case Complexity",
       "d": "Last Case Complexity",
       "correct_answer": "a",
-      "image_src": "quiz2"
+      "image_src": ""
     },
     "4": {
       "question": "2. What is the primary focus of the Big O notation? ",
@@ -81,7 +81,7 @@
       "c": "Initial Case Complexity",
       "d": "Last Case Complexity",
       "correct_answer": "a",
-      "image_src": "quiz2"
+      "image_src": ""
     },
     "5": {
       "question": "2. What is the primary focus of the Big O notation? ",
@@ -90,7 +90,7 @@
       "c": "Initial Case Complexity",
       "d": "Last Case Complexity",
       "correct_answer": "a",
-      "image_src": "quiz2"
+      "image_src": ""
     }
   },
   "question3" : {
@@ -101,7 +101,7 @@
       "c": "O(1)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": "quiz3"
+      "image_src": ""
     },
     "2": {
       "question": "3. Which notation represents the complexity of the \n linear time?",
@@ -110,7 +110,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "b",
-      "image_src": "quiz3"
+      "image_src": ""
     },
     "3": {
       "question": "3. Which notation represents the complexity of the \n logarithmic time?",
@@ -119,7 +119,7 @@
       "c": "O(1)",
       "d": "O(n^2)",
       "correct_answer": "b",
-      "image_src": "quiz3"
+      "image_src": ""
     },
     "4": {
       "question": "3. Which notation represents the complexity of the \n exponential time??",
@@ -128,7 +128,7 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "c",
-      "image_src": "quiz3"
+      "image_src": ""
     },
     "5": {
       "question": "3. Which notation represents the complexity of the \n constant time?",
@@ -137,12 +137,12 @@
       "c": "O(2^n)",
       "d": "O(log n)",
       "correct_answer": "a",
-      "image_src": "quiz3"
+      "image_src": ""
     }
   },
   "question4" : {
     "1": {
-      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function sum()?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -151,7 +151,7 @@
       "image_src": "quiz4"
     },
     "2": {
-      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function sum()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -160,7 +160,7 @@
       "image_src": "quiz4"
     },
     "3": {
-      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function sum()?",
       "a": "O(n)",
       "b": "O(log n)",
       "c": "O(1)",
@@ -169,7 +169,7 @@
       "image_src": "quiz4"
     },
     "4": {
-      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function sum()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -178,7 +178,7 @@
       "image_src": "quiz4"
     },
     "5": {
-      "question": "4. Based on the function found below, what is the complexity \n of the given function addItemArray()?",
+      "question": "4. Based on the function found below, what is the complexity \n of the given function sum()?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
@@ -189,94 +189,94 @@
   },
   "question5" : {
     "1": {
-      "question": "5. Which is the most efficient among these time complexity?",
+      "question": "5. Which is the least efficient among these time complexity?",
       "a": "O(n^3)",
       "b": "O(1)",
       "c": "O(n)",
       "d": "O(2^n)",
-      "correct_answer": "b",
-      "image_src": "quiz5"
+      "correct_answer": "d",
+      "image_src": ""
     },
     "2": {
-      "question": "5. Which is the most efficient among these time complexity?",
+      "question": "5. Which is the least efficient among these time complexity?",
       "a": "O(n^2)",
       "b": "O(n)",
       "c": "O(2^n)",
       "d": "O(1)",
-      "correct_answer": "d",
-      "image_src": "quiz5"
+      "correct_answer": "c",
+      "image_src": ""
     },
     "3": {
-      "question": "5. Which is the most efficient among these time complexity?",
+      "question": "5. Which is the least efficient among these time complexity?",
       "a": "O(1)",
       "b": "O(n(log n))",
-      "c": "O(n^5)",
+      "c": "O(2^n)",
       "d": "O(n^2)",
-      "correct_answer": "a",
-      "image_src": "quiz5"
+      "correct_answer": "c",
+      "image_src": ""
     },
     "4": {
-      "question": "5. Which is the most efficient among these time complexity?",
+      "question": "5. Which is the least efficient among these time complexity?",
       "a": "O(1)",
       "b": "O(n)",
       "c": "O(2^n)",
       "d": "O(log n)",
-      "correct_answer": "a",
-      "image_src": "quiz5"
+      "correct_answer": "c",
+      "image_src": ""
     },
     "5": {
-      "question": "5. Which is the most efficient among these time complexity?",
-      "a": "O(n^4)",
+      "question": "5. Which is the least efficient among these time complexity?",
+      "a": "O(2^n)",
       "b": "O(n^2)",
       "c": "O(n)",
       "d": "O(1)",
-      "correct_answer": "d",
-      "image_src": "quiz5"
+      "correct_answer": "a",
+      "image_src": ""
     }
   },
   "question6" : {
     "1": {
-      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
-      "a": "F-C-G-D-A-E-B",
-      "b": "G-F-C-D-A-E-B",
-      "c": "F-G-C-D-A-E-B",
-      "d": "F-C-D-G-B-A-E",
+      "question": "6. Arrange the following Big O complexity from fastest to slowest?",
+      "a": "A-C-E-B-D",
+      "b": "E-C-D-B-A",
+      "c": "A-C-E-D-B",
+      "d": "A-B-D-C-E",
       "correct_answer": "a",
       "image_src": "quiz6"
     },
     "2": {
-      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
-      "a": "F-C-D-G-B-A-E",
-      "b": "F-C-G-D-A-E-B",
-      "c": "G-F-C-D-A-E-B",
-      "d": "F-G-C-D-A-E-B",
+      "question": "6. Arrange the following Big O complexity from fastest to slowest?",
+      "a": "A-C-E-D-B",
+      "b": "A-C-E-B-D",
+      "c": "E-C-D-B-A",
+      "d": "A-B-D-C-E",
       "correct_answer": "b",
       "image_src": "quiz6"
     },
     "3": {
-      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
-      "a": "G-F-C-D-A-E-B",
-      "b": "F-G-C-D-A-E-B",
-      "c": "F-C-G-D-A-E-B",
-      "d": "F-C-D-G-B-A-E",
+      "question": "6. Arrange the following Big O complexity from fastest to slowest?",
+      "a": "C-A-E-B-D",
+      "b": "A-B-D-C-E",
+      "c": "A-C-E-B-D",
+      "d": "A-C-E-D-B",
       "correct_answer": "c",
       "image_src": "quiz6"
     },
     "4": {
-      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
-      "a": "G-F-C-D-A-E-B",
-      "b": "F-G-C-D-A-E-B",
-      "c": "F-C-D-G-B-A-E",
-      "d": "F-C-G-D-A-E-B",
+      "question": "6. Arrange the following Big O complexity from fastest to slowest?",
+      "a": "A-C-E-D-B",
+      "b": "C-A-E-B-D",
+      "c": "A-B-D-C-E",
+      "d": "A-C-E-B-D",
       "correct_answer": "d",
       "image_src": "quiz6"
     },
     "5": {
-      "question": "6. Arrange the following Big O complexity from  fastest to slowest?",
-      "a": "F-G-C-D-A-E-B",
-      "b": "G-F-C-D-A-E-B",
-      "c": "F-C-D-G-B-A-E",
-      "d": "F-C-G-D-A-E-B",
+      "question": "6. Arrange the following Big O complexity from fastest to slowest?",
+      "a": "A-B-C-D-E",
+      "b": "A-C-E-B-D",
+      "c": "C-A-E-B-D",
+      "d": "A-C-E-B-D",
       "correct_answer": "d",
       "image_src": "quiz6"
     }
@@ -383,7 +383,7 @@
       "c": "O(n)",
       "d": "O(n^2)",
       "correct_answer": "a",
-      "image_src": "quiz9"
+      "image_src": ""
     },
     "2": {
       "question": "9. What is the big O of the binary search?",
@@ -392,7 +392,7 @@
       "c": "O(n)",
       "d": "O(n log n)",
       "correct_answer": "a",
-      "image_src": "quiz9"
+      "image_src": ""
     },
     "3": {
       "question": "9. What is the big O of the binary search?",
@@ -401,7 +401,7 @@
       "c": "O(n^2)",
       "d": "O(log n)",
       "correct_answer": "d",
-      "image_src": "quiz9"
+      "image_src": ""
     },
     "4": {
       "question": "9. What is the big O of the binary search?",
@@ -410,7 +410,7 @@
       "c": "O(log n)",
       "d": "O(n^2)",
       "correct_answer": "c",
-      "image_src": "quiz9"
+      "image_src": ""
     },
     "5": {
       "question": "9. What is the big O of the binary search?",
@@ -419,7 +419,7 @@
       "c": "O(n)",
       "d": "O(n log n)",
       "correct_answer": "B",
-      "image_src": "quiz9"
+      "image_src": ""
     }
   },
   "question10": {

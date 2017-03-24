@@ -4,7 +4,7 @@
 var quizStart = function(game){
 };
 
-var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp, picture;
+var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp, picture4, picture6, picture7, picture8, picture10;
 var quiz_json, question, option_a, option_b, option_c, option_d, rand_number, score, score_text, ending, teacher2, clap, score_bg, teacher3;
 var option_button_a, option_button_b,  option_button_c,  option_button_d;
 var a, b, c, d;
@@ -33,6 +33,12 @@ quizStart.prototype = {
         this.load.spritesheet('quiz_start','../images/phaser/start_quiz.png', 200, 100, 2);
         this.load.image('helper_quiz','../images/phaser/quiz_help.png');
         game.load.spritesheet('button','../images/quiz/buttons_prototype.png', 180, 100 );
+        this.load.image('quiz4', '../images/quiz/quiz_4.jpg');
+        this.load.image('quiz4', '../images/quiz/quiz_5.jpg');
+        this.load.image('quiz6', '../images/quiz/quiz_6.jpg');
+        this.load.image('quiz7', '../images/quiz/quiz_7.jpg');
+        this.load.image('quiz8', '../images/quiz/quiz_8.jpg');
+        this.load.image('quiz10', '../images/quiz/quiz_10.jpg');
     },
     create: function(){
         game.background = this.game.add.sprite(0,0, bg);
@@ -128,6 +134,12 @@ quizStart.prototype = {
         game.onPause.add(pauseMusic, this);
         game.onResume.add(resumeMusic, this);
 
+        picture4 = game.add.sprite(350, 75, quiz_json['question' + quiz_counter][rand_number]['image_src']);
+        picture6
+        picture7
+        picture8
+        picture10
+
         pauseTeacher();
 
 
@@ -212,7 +224,9 @@ function nextQuestion(){
     rand_number = Math.floor((Math.random() * 5) + 1);
     question.setText(quiz_json['question'+quiz_counter][rand_number]['question']);
     if(quiz_json['question'+quiz_counter][rand_number]['image_src'] != "") {
-        picture = game.add.sprite(350, 75, quiz_json['question' + quiz_counter][rand_number]['image_src']);
+
+    }else{
+        picture.alpha = 0;
     }
     option_a.setText(quiz_json['question'+quiz_counter][rand_number]['a']);
     option_b.setText(quiz_json['question'+quiz_counter][rand_number]['b']);

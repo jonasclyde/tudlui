@@ -100,7 +100,7 @@
       "b": "O(log n)",
       "c": "O(1)",
       "d": "O(n^2)",
-      "correct_answer": "a",
+      "correct_answer": "d",
       "image_src": ""
     },
     "2": {

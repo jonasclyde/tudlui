@@ -4,7 +4,7 @@
 var quizStart = function(game){
 };
 
-var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp, picture4, picture6, picture7, picture8, picture10;
+var helpquiz, quizStarting, quizStartImage, helper_quiz, nice, oops, clapp, quiz4, quiz6, quiz7, quiz8, quiz10;
 var quiz_json, question, option_a, option_b, option_c, option_d, rand_number, score, score_text, ending, teacher2, clap, score_bg, teacher3;
 var option_button_a, option_button_b,  option_button_c,  option_button_d;
 var a, b, c, d;
@@ -134,11 +134,17 @@ quizStart.prototype = {
         game.onPause.add(pauseMusic, this);
         game.onResume.add(resumeMusic, this);
 
-        picture4 = game.add.sprite(350, 75, quiz_json['question' + quiz_counter][rand_number]['image_src']);
-        picture6
-        picture7
-        picture8
-        picture10
+        quiz4 = game.add.sprite(320, 190, 'quiz4');
+        quiz6 = game.add.sprite(320, 190, 'quiz6');
+        quiz7 = game.add.sprite(320, 150, 'quiz7');
+        quiz8= game.add.sprite(320, 190, 'quiz8');
+        quiz10 = game.add.sprite(410, 135, 'quiz10');
+
+        quiz4.alpha = 0;
+        quiz6.alpha = 0;
+        quiz7.alpha = 0;
+        quiz8.alpha = 0;
+        quiz10.alpha = 0;
 
         pauseTeacher();
 
@@ -221,13 +227,18 @@ function pauseTeacher(){
 }
 function nextQuestion(){
 
+    quiz4.alpha = 0;
+    quiz6.alpha = 0;
+    quiz7.alpha = 0;
+    quiz8.alpha = 0;
+    quiz10.alpha = 0;
+
     rand_number = Math.floor((Math.random() * 5) + 1);
     question.setText(quiz_json['question'+quiz_counter][rand_number]['question']);
     if(quiz_json['question'+quiz_counter][rand_number]['image_src'] != "") {
-
-    }else{
-        picture.alpha = 0;
+        window[quiz_json['question'+quiz_counter][rand_number]['image_src']].alpha = 1;
     }
+
     option_a.setText(quiz_json['question'+quiz_counter][rand_number]['a']);
     option_b.setText(quiz_json['question'+quiz_counter][rand_number]['b']);
     option_c.setText(quiz_json['question'+quiz_counter][rand_number]['c']);
@@ -261,13 +272,20 @@ function submitAnswer(answer){
 
 
 function showScore(){
+
+    quiz4.alpha = 0;
+    quiz6.alpha = 0;
+    quiz7.alpha = 0;
+    quiz8.alpha = 0;
+    quiz10.alpha = 0;
+
+
     music.stop();
     ending.volume = 0.30;
     ending.play();
     score_bg.alpha = 1;
     teacher2.alpha = 0;
     question.setText("");
-    picture.destroy();
     option_button_a.destroy();
     option_button_b.destroy();
     option_button_c.destroy();

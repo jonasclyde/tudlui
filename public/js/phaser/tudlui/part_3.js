@@ -30,6 +30,7 @@ partThree.prototype = {
         game.load.spritesheet('whats', '../images/phaser/whats.png', 150, 50);
         game.load.spritesheet('hows', '../images/phaser/hows.png', 150, 50);
         game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
+
     },
     create: function(){
 
@@ -78,18 +79,18 @@ partThree.prototype = {
         b1 = game.add.text(120, 100, "So what is the Big O notation? and why is it important? \n"+
             "In programming, we can simplify the Big O notation into these points:",
             { font: "16px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
-        b2 = game.add.text(120, 180, "* Big O is the notation used to give an estimate on how long an algorithm takes to run. \n" +
+        b2 = game.add.text(700, 180, "* Big O is the notation used to give an estimate on how long an algorithm takes to run. \n" +
             "It is used to check if the algorithm being used is efficient when approaching the problem.",
             { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
-        b3 = game.add.text(120, 250, "* The notation focuses on the worst case complexity or running time of an algorithm. \n" +
+        b3 = game.add.text(700, 250, "* The notation focuses on the worst case complexity or running time of an algorithm. \n" +
             "We will  identify the longest running time performed by an algorithm given any input of size N.",
             { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
-        b4 = game.add.text(120, 320, "* The Big O of an algorithm is not an exact number. The notation uses the runtime growth in terms of its input.\n" +
+        b4 = game.add.text(700, 320, "* The Big O of an algorithm is not an exact number. The notation uses the runtime growth in terms of its input.\n" +
             " For example, O(n) is phrased as, on the order of the size of the input. For O(n2) squared, it will be, on the order of the\n"+
             " square of the size of the input. An algorithm of O(n2), the running time is represented by squaring the input (n2).",
             { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        b5 =  game.add.text(120, 420, "* Big O is important for programmers, and mathematicians as well, because they can identify if the algorithm \n" +
+        b5 =  game.add.text(700, 420, "* Big O is important for programmers, and mathematicians as well, because they can identify if the algorithm \n" +
             " is fast and efficient when dealing with very large inputs or quantities. If the input is 1000 items,\n"+
             " will O(n) be faster than O(n2)?",
             { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
@@ -201,7 +202,8 @@ function showWhat(){
         teacher.animations.stop(null, true);
     }, 7800);
     setTimeout(function(){
-        game.add.tween(b2).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(b2).to({ alpha: 1 }, 2000, "Linear", true);
+        game.add.tween(b2).to({ x: 120, y:180 }, 1000, "Linear", true)
     }, 7500);
     setTimeout(function(){
         teacher.animations.play('talk', 11, true);
@@ -210,7 +212,8 @@ function showWhat(){
         teacher.animations.stop(null, true);
     }, 18100);
     setTimeout(function(){
-        game.add.tween(b3).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(b3).to({ alpha: 1 }, 2000, "Linear", true);
+        game.add.tween(b3).to({ x: 120, y:250 }, 1000, "Linear", true)
     }, 18500);
     setTimeout(function(){
         teacher.animations.play('talk', 11, true);
@@ -219,7 +222,8 @@ function showWhat(){
         teacher.animations.stop(null, true);
     }, 28600);
     setTimeout(function(){
-        game.add.tween(b4).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(b4).to({ alpha: 1 }, 2000, "Linear", true);
+        game.add.tween(b4).to({ x: 120, y:320 }, 1000, "Linear", true)
     }, 28000);
     setTimeout(function(){
         teacher.animations.play('talk', 11, true);
@@ -228,7 +232,8 @@ function showWhat(){
         teacher.animations.stop(null, true);
     }, 52000);
     setTimeout(function(){
-        game.add.tween(b5).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(b5).to({ alpha: 1 }, 2000, "Linear", true);
+        game.add.tween(b5).to({ x: 120, y:420 }, 1000, "Linear", true)
     }, 51900);
     setTimeout(function(){
         teacher.animations.play('talk', 11, true);
@@ -240,6 +245,14 @@ function showWhat(){
 
 
 function showHow(){
+    b1.alpha = 0;
+    b2.alpha = 0;
+    b3.alpha = 0;
+    b4.alpha = 0;
+    b5.alpha = 0;
+    whatmus.stop();
+    whatmus.play()
+
 
 }
 

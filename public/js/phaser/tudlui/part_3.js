@@ -51,7 +51,6 @@ partThree.prototype = {
         nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
-
         whatmus = game.add.audio('whatm');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
@@ -188,7 +187,7 @@ function howOne(){
 
 }
 
-function showWhat(){
+function shows(){
     b1.alpha = 0;
     b2.alpha = 0;
     b3.alpha = 0;
@@ -253,6 +252,16 @@ function showHow(){
     whatmus.stop();
     whatmus.play()
 
+}
+
+function showWhat(){
+    b1.alpha = 0;
+    b2.alpha = 0;
+    b3.alpha = 0;
+    b4.alpha = 0;
+    b5.alpha = 0;
+    whatmus.stop();
+    whatmus.play()
 
 }
 

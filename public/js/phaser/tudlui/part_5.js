@@ -10,127 +10,186 @@ var partFive = function(game){
 };
 
 
-var wordIndexFour, textTitle, textDescription, codeoutput, btnrun, inputoutside, inputinside, line1correct, line1incorrect, line2correct, line2incorrect;
+var wordIndexFour, help7, helper7, conc1, conc2, conc3, conc4, conc5, conc6, teacher, talk, conc1m, conc2m, conc3m, conc4m, conc5m, conc6m, helper1_shadow;
 var correct = false;
 
 
-var textTitle, partFourMusic, textCode;
+var textTitle, btnbFour, btnnFour;
 
 partFive.prototype = {
     init: function(code, name) {
         wordIndexFour = 0;
     },
     preload: function(){
-        game.load.audio('partFourMusic', '../music/partFour.mp3');
-        game.load.spritesheet('run_code','../images/phaser/button_run_sprite.png', 193, 71);
+        game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
+        this.load.image('helper7','../images/phaser/conc_help.png');
+        this.load.audio('conc1m', '../music/conc1.mp3');
+        this.load.audio('conc2m', '../music/conc2.mp3');
+        this.load.audio('conc3m', '../music/conc3.mp3');
+        this.load.audio('conc4m', '../music/conc4.mp3');
+        this.load.audio('conc5m', '../music/conc5.mp3');
+        this.load.audio('conc6m', '../music/conc6.mp3');
     },
-    create: function(){
+    create: function() {
+        game.background = this.game.add.sprite(0, 0, bg);
+        music.volume = 0.15;
+        if (bool_music) {
+            sound = game.add.sprite(790, 10, 'sounds');
+        } else {
+            sound = game.add.sprite(790, 10, 'mute');
+        }
 
-        game.background = this.game.add.sprite(0,0, 'background');
+        conc1m = game.add.audio('conc1m');
+        conc2m = game.add.audio('conc2m');
+        conc3m = game.add.audio('conc3m');
+        conc4m = game.add.audio('conc4m');
+        conc5m = game.add.audio('conc5m');
+        conc6m = game.add.audio('conc6m');
+
+        name_bg = game.add.sprite(885, 5, 'name_bg');
 
         avatar = game.add.sprite(890, 10, code);
         avatar.frame = 0;
-        avatar.scale.setTo(0.4,0.4);
-        nick = game.add.text(960,25, name, { font: "24px Raleway", fill: "#000000"});
+        avatar.scale.setTo(0.4, 0.4);
+
+        helper1_shadow = game.add.sprite(430, 460, 'helper1_shadow');
+        helper1_shadow.alpha = 0;
+
+        help7 = game.add.button(840, 10, 'help', helpSeven, this, 1, 0, 1);
+        helper7 = game.add.sprite(430, 460, 'helper7');
+        helper7.alpha = 0;
+
+        nick = game.add.text(960, 25, name, {font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
-        partFourMusic = game.add.audio('partFourMusic');
-        partFourMusic.play();
 
-        textTitle= game.add.text(100,40, "IV. Counting Exercise.", { font: "27px Raleway", fill: "#000000"});
+        teacher = game.add.sprite(860, 120, 'teacher');
+        talk =  teacher.animations.add('talk');
+        teacher.animations.play('talk', 11, true);
 
-        textDescription = game.add.text(100, 100, "Try to fill up the number of steps outside and inside the loop. If you get the correct answer, proceed to the next page.",
-            { font: "16px Raleway", fill: "#000000", align: 'left' });
-
-        inputinside = game.add.inputField(210, 140, {
-            font: '18px Raleway',
-            fill: '#212121',
-            fontWeight: 'bold',
-            width: 20,
-            height: 20,
-            padding: 10,
-            borderWidth: 1,
-            borderColor: '#323',
-            borderRadius: 6,
-            min: 1,
-            max: 2,
-            type: 'numeric'
+        textTitle = game.add.text(100, 40, "Conclusion", {
+            font: "32px Varela",
+            fill: font,
+            align: "center",
+            stroke: stroke,
+            strokeThickness: 2,
+            fontWeight: '900'
         });
 
-        inputoutside = game.add.inputField(210, 190, {
-            font: '18px Raleway',
-            fill: '#212121',
-            fontWeight: 'bold',
-            width: 20,
-            height: 20,
-            padding: 10,
-            borderWidth: 1,
-            borderColor: '#323',
-            borderRadius: 6,
-            min: '1',
-            max: '2',
-            type: 'numeric'
-        });
+        conc1 = game.add.text(700, 100, "* The Big O notation is a symbol for measuring the complexity of an algorithm. It helps us check  \n"+
+            "if the running time of an algorithm is efficient for large amount of inputs.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        textCode = game.add.text(130, 150, "echo  '          steps inside the loop' ;\n" +
-        "echo  '          steps outside the loop' ;\n" +
-        "\n" +
-        "public function isPresent( $array , $value ){\n"+
-            "      for ( $i = 0 ; $i < count( $array ) ; $i++ ){\n"+
-            "          if ( $array[ $i ] == $value ) return true; \n"+
-            "      }\n"+
-            "      return false;\n"+
-            "}", { font: "23px Raleway", fill: "#000000", fontWeight:'bold'});
-        textCode.lineSpacing = 12.5;
+        conc2 = game.add.text(700, 170, "* Big O is a part of the Bachmann–Landau notations which was conceptualized by the German \n" +
+            "mathematician Edmund Landau.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        btnrun = game.add.button(790, 400, 'run_code', runeCode, this, 1, 0, 2);
+        conc3 = game.add.text(700, 235, "* The notation focuses on the worst running time of the algorithm. If a codebase has 2 functions \n" +
+            "on which 1 function is O(n) and the other function is O(1), the whole codebase is O(n).",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        codeoutput = game.add.text(810,150, "Code Output", { font: "24px Raleway", fill: "#000000", fontWeight: "bold"});
-        line1correct  =  game.add.text(750,230, "6 steps inside the loop", { font: "24px Raleway", fill: "#00FF00", fontWeight: "bold"});
-        line1incorrect  =  game.add.text(750,230, "Line 1 code is incorrect.", { font: "24px Raleway", fill: "#FF0000", fontWeight: "bold"});
-        line2correct  =  game.add.text(750,310, "2 steps outside the loop", { font: "24px Raleway", fill: "#00FF00", fontWeight: "bold"});
-        line2incorrect  =  game.add.text(750,310, "Line 2 code is incorrect.", { font: "24px Raleway", fill: "#FF0000", fontWeight: "bold"});
+        conc4 = game.add.text(700, 300, "* When reviewing the number of steps, we can drop constants and focus on the variable (n) which is the size of the input.",
+            { font: "14px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        line1correct.alpha = 0;
-        line1incorrect.alpha = 0;
-        line2correct.alpha = 0;
-        line2incorrect.alpha = 0;
+        conc5 =  game.add.text(700, 340, "* The 5 common complexity notations are: constant, linear, quadratic, exponential and logarithmic.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        game.onPause.add(pausePartFour, this);
-        game.onResume.add(resumePartFour, this);
+        conc6 =  game.add.text(700, 380, "* We can also get the Big O of an algorithm by analyzing it. If the worst case of the function needs \n" +
+            " to go through all the elements of the array input with the steps dependent on the input, the complexity \n" +
+            " will be O(n). If it goes through  a nested loop with the same condition, it will be O(n^x) where x is \n" +
+            " the number of nested loops. You just need to familiarize the different notations so that you can apply \n" +
+            " it in real life algorithms.",
+            { font: "15px Varela", fill: font, stroke: stroke, strokeThickness:2, align: "justify", fontWeight: '900'  });
 
-        btnbFour = game.add.button(960, 500, 'back', backChapterFour, this, 0, 1, 0);
-        btnnFour = game.add.button(1050, 500, 'next', nextChapterFour, this, 1, 0, 1);
-    },
-    update: function(){
+        conc1.alpha =0;
+        conc2.alpha =0;
+        conc3.alpha =0;
+        conc4.alpha =0;
+        conc5.alpha =0;
+        conc6.alpha =0;
 
-    },
-    render: function(){
-
+        btnbFour = game.add.button(3, 547, 'back', backChapterFour, this, 1, 0, 1);
+        btnnFour= game.add.button(945, 547, 'next', nextChapterFour, this, 1, 0, 1);
+        startConc();
     }
+};
+
+function startConc(){
+
+    conc1m.play()
+    game.add.tween(conc1).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(conc1).to({ x: 120, y:100 }, 1000, "Linear", true)
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 9000);
+    setTimeout(function(){
+        game.add.tween(conc2).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(conc2).to({ x: 120, y:170 }, 1000, "Linear", true)
+        teacher.animations.play('talk', 11, true);
+        conc2m.play()
+    }, 9500);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 15500);
+    setTimeout(function(){
+        game.add.tween(conc3).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(conc3).to({ x: 120, y:235 }, 1000, "Linear", true)
+        teacher.animations.play('talk', 11, true);
+        conc3m.play()
+    }, 16000);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 28000);
+    setTimeout(function(){
+        game.add.tween(conc4).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(conc4).to({ x: 120, y:300 }, 1000, "Linear", true)
+        teacher.animations.play('talk', 11, true);
+        conc4m.play()
+    }, 28500);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 35500);
+    setTimeout(function(){
+        game.add.tween(conc5).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(conc5).to({ x: 120, y:340 }, 1000, "Linear", true)
+        teacher.animations.play('talk', 11, true);
+        conc5m.play()
+    }, 36000);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 42600);
+    setTimeout(function(){
+        game.add.tween(conc6).to({ alpha: 1 }, 1000, "Linear", true);
+        game.add.tween(conc6).to({ x: 120, y:380 }, 1000, "Linear", true)
+        teacher.animations.play('talk', 11, true);
+        conc6m.play()
+    }, 43500);
+    setTimeout(function(){
+        teacher.animations.stop(null, true);
+    }, 68200);
 
 }
 
-function runeCode(){
+function helpSeven(){
 
-    if(inputinside.value == '6'){
-        line1correct.alpha = 1;
-        line1incorrect.alpha = 0;
-    }else{
-        line1incorrect.alpha = 1;
-        line1correct.alpha = 0;
-    }
+    help_sound.play();
 
-    if(inputoutside.value == '2'){
-        line2correct.alpha = 1;
-        line2incorrect.alpha = 0;
-    }else{
-        line2correct.alpha = 0;
-        line2incorrect.alpha = 1;
-    }
+    help7.inputEnabled = false;
+    btnnFour.inputEnabled = false;
 
-    if(inputinside.value == 6 && inputoutside.value == 2){
-        correct = true;
-    }
+    game.add.tween(helper7).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    game.add.tween(helper1_shadow.position).to( { x:430-12, y: 460-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
+    setTimeout(function(){
+        game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
+        game.add.tween(helper7).to({ alpha: 0 }, 1000, "Linear", true);
+    },4000)
+
+    setTimeout(function(){
+        help7.inputEnabled = true;
+        btnnFour.inputEnabled = true;
+    },3000)
 }
 
 function pausePartFour() {
@@ -151,4 +210,27 @@ function nextChapterFour(){
         partFourMusic.stop();
         game.state.start('part_6', true, false,code,name);
     }
+}
+
+function backChapterFour(){
+    conc1m.stop();
+    conc2m.stop();
+    conc3m.stop();
+    conc4m.stop();
+    conc5m.stop();
+    conc6m.stop();
+
+    game.state.start('part_4', true, false,code,name, bg, bool_music);
+}
+
+function nextChapterFour(){
+    conc1m.stop();
+    conc2m.stop();
+    conc3m.stop();
+    conc4m.stop();
+    conc5m.stop();
+    conc6m.stop();
+
+
+    game.state.start('quiz_start', true, false,code,name, bg, bool_music);
 }

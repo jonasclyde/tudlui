@@ -423,7 +423,7 @@ function tweenBalls(){
 function startGame(){
     click.play();
     game.state.start('select_char', true, false,bool_music,music_constant,bg);
-    //game.state.start('quiz_start', true, false,code,name, bg, bool_music);
+    //game.state.start('part_5', true, false,code,name, bg, bool_music);
 }
 
 function backToHome(){

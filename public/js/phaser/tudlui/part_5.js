@@ -175,6 +175,7 @@ function helpSeven(){
 
     help7.inputEnabled = false;
     btnnFour.inputEnabled = false;
+    btnbFour.inputEnabled = false;
 
     game.add.tween(helper7).to({ alpha: 1 }, 1000, "Linear", true);
     game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
@@ -189,6 +190,7 @@ function helpSeven(){
     setTimeout(function(){
         help7.inputEnabled = true;
         btnnFour.inputEnabled = true;
+        btnbFour.inputEnabled = true;
     },3000)
 }
 

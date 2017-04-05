@@ -19,7 +19,7 @@ var contentTwo =
 
 
 partThree.prototype = {
-    init: function(code, name) {
+    init: function(code, name, bg, bool_music) {
         wordIndexTwo = 0;
     },
     preload: function(){
@@ -29,6 +29,7 @@ partThree.prototype = {
         game.load.spritesheet('how', '../images/phaser/how.png', 200, 100);
         game.load.spritesheet('whats', '../images/phaser/whats.png', 150, 50);
         game.load.spritesheet('hows', '../images/phaser/hows.png', 150, 50);
+        game.load.image('helper6', '../images/phaser/how_help.png');
         game.load.spritesheet('teacher','../images/phaser/teacher_sprite.png', 200, 345, 4);
 
     },
@@ -51,6 +52,15 @@ partThree.prototype = {
         nick = game.add.text(960,25, name, { font: "24px Varela", fill: "#34486b", fontWeight: "900"});
         nick.fontWeight = 'bold';
 
+
+        helper1_shadow = game.add.sprite(670, 460, 'helper1_shadow');
+        helper1_shadow.alpha = 0;
+
+        help6 = game.add.button(840, 10, 'help', helpSix, this, 1, 0, 1);
+        helper6 = game.add.sprite(670, 460, 'helper6');
+        helper6.alpha = 0;
+
+
         whatmus = game.add.audio('whatm');
         teacher = game.add.sprite(860, 120, 'teacher');
         talk =  teacher.animations.add('talk');
@@ -66,10 +76,6 @@ partThree.prototype = {
         what.inputEnabled = false;
         how.inputEnabled = false;
 
-        help6 = game.add.button(840, 10, 'help', helpFour, this, 1, 0, 1);
-        helper6 = game.add.sprite(430, 425, 'helper5');
-
-        helper6.alpha = 0;
         partTwoMusic = game.add.audio('partTwoMusic');
         partTwoMusic.play();
 
@@ -108,6 +114,7 @@ partThree.prototype = {
 
         btnbTwo = game.add.button(3, 547, 'back', backChapterTwo, this, 1, 0, 1);
         btnnTwo = game.add.button(945, 547, 'next', nextChapterTwo, this, 1, 0, 1);
+
 
         startIntro();
     },
@@ -323,6 +330,31 @@ function nextWordTwo() {
     {
         return;
     }
+}
+
+function helpSix(){
+
+    help_sound.play();
+
+    help6.inputEnabled = false;
+    btnnTwo.inputEnabled = false;
+    btnbTwo.inputEnabled = false;
+
+    game.add.tween(helper6).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow).to({ alpha: 1 }, 1000, "Linear", true);
+    game.add.tween(helper1_shadow.scale).to( { x: 1.1, y: 1.1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    game.add.tween(helper1_shadow.position).to( { x:670-12, y: 460-7}, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true );
+
+    setTimeout(function(){
+        game.add.tween(helper1_shadow).to({ alpha: 0 }, 300 , "Linear", true);
+        game.add.tween(helper6).to({ alpha: 0 }, 1000, "Linear", true);
+    },4000)
+
+    setTimeout(function(){
+        help6.inputEnabled = true;
+        btnnFour.inputEnabled = true;
+        btnbFour.inputEnabled = true;
+    },3000)
 }
 
 function pausePartTwo() {
